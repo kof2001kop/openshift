@@ -11,7 +11,7 @@
 
 	$ret = str_replace('<link>http://v.ifeng.com/</link>', "", $ret);
 	$ret = str_replace('<enclosure url="', "<link>", $ret);
-	$ret = str_replace('type=', "</link><enclosure type=", $ret);
+	$ret = str_replace('" type=', "</link><enclosure type=", $ret);
 	
 	echo $ret;
 ?>
