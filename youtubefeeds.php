@@ -12,9 +12,8 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$ret = str_replace('<media:group>', "", $ret);
-	$ret = str_replace('</media:group>', "", $ret);
-	$ret = str_replace('media:thumbnail url', "img src", $ret);
+	$ret = str_replace('<media:thumbnail url="', '<image><url>', $ret);
+	$ret = str_replace('.jpg"', '.jpg</url></image> <media:thumbnail ', $ret);
 
 	echo $ret;
 ?>
