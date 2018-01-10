@@ -17,35 +17,27 @@ for ($i = 0, $j = 0; $i < 1; $i++, $j += 17)
 }
 $titleArr = array();
 $contentArr = array();
-$pubTime = array();
+
 for ($loop = 0; $loop < 1; $loop++)
 {   
-    $ic = 0;
+    	$ic = 0;
 	foreach ($ret[$loop] as $val)
-    {//.$ret[$loop][$ic]["comments"][0][1]["user"]["nickname"]
-                
+    	{	//.$ret[$loop][$ic]["comments"][0][1]["user"]["nickname"]
 		$titleArr[] = $ret[$loop][$ic]["thread"]["title"];
 		$contentArr[] = '『'.$ret[$loop][$ic]["comments"][0][1]["vote"].'』 '.$ret[$loop][$ic]["comments"][0][1]["content"];
-		$pubTime[] = strtotime($ret[$loop][$ic]["comments"][0][1]["createTime"]);
 		$ic++;
 	}
 }
 $length = count($titleArr); 
 for ($i = 0; $i < $length; $i++)
 { 
-	//分段
-	//$sumLen = mb_strlen($contentArr[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
-	//$titleLen = mb_strlen($titleArr[$i], 'utf8');
-	//$rss->addItem($pubTime[$i], $titleArr[$i], "http://news.163.com/$pubTime[$i]", $contentArr[$i], 'Rank News', 'Cyril', $pubTime[$i], $pubTime[$i], '');
   	$iplus = $i + 1;
   	echo "No.".$iplus."<br>".$titleArr[$i]."<br>".$contentArr[$i]."<br><br>";
 } 
-//echo $rss;
 ///////////////////////////////////
 
 for ($i = 0, $j = 0; $i < 1; $i++, $j += 3)
 {
-    //$urls1[$i] = "http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/build?offset=$j&limit=10&showLevelThreshold=100&headLimit=100&tailLimit=100&ibc=newspc&callback";
 	$ch1[$i] = curl_init("http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/build?offset=$j&limit=5&showLevelThreshold=100&headLimit=100&tailLimit=100&ibc=newspc&callback"
 );
 	curl_setopt($ch1[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -58,7 +50,6 @@ for ($i = 0, $j = 0; $i < 1; $i++, $j += 3)
 }
 $titleArr = array();
 $contentArr1 = array();
-$pubTime = array();
 for ($loop = 0; $loop < 1; $loop++)
 {
 	for ($j = 0; $j < count($ret1[$loop]); $j++)
@@ -68,30 +59,21 @@ for ($loop = 0; $loop < 1; $loop++)
 		$save = '';
         
         	$titleArr[] = $ret1[$loop][$j]["thread"]["title"];
+		$floor = 1;
 		foreach ($ret1[$loop][$j]["comments"][0] as $val)
 		{
-    		$save .= ($ic + 1 == $sum ? ('「'.(string)$val["vote"].'」 ') : '').$val["content"].'<br>';
+    		$save .= ($ic + 1 == $sum ? ('「'.(string)$val["vote"].'」 ') : "$floor.").$val["content"].'<br>';
     		$ic++;
+		$floor++;
 		}
 		
-		//$contentArr1[] = rtrim($save, "&");
 		$contentArr1[] = $save;		
-		$pubTime[] = strtotime($ret1[$loop][$j]["comments"][0][1]["createTime"]);
-	//	$rss->addItem($pubTime, $titles, "http://news.163.com/$pubTime", $save, 'Rank News', 'Cyril', $pubTime, $pubTime, '');
 	}
 }
 $length = count($titleArr); 
 for ($i = 0; $i < $length; $i++)
 { 
-	//分段
-	//$sumLen = mb_strlen($contentArr1[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
-	//$titleLen = mb_strlen($titleArr[$i], 'utf8');
-
-	//$contentPar = str_replace("&", "<br>", $contentArr1[$i]);
-	//$rss->addItem($pubTime[$i], $titleArr[$i], "http://news.163.com/$pubTime[$i]", $contentPar, 'Rank News', 'Cyril', $pubTime[$i], $pubTime[$i], '');
-  	$iplus2 = $iplus + $i + 1;
+	$iplus2 = $iplus + $i + 1;
   	echo "No.".$iplus2."<br>".$titleArr[$i]."<br>".$contentArr1[$i]."<br><br>";
 } 
-echo "hello";
-
 ?>
