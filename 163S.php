@@ -5,8 +5,8 @@ $rss = new Rss\Rss('163 Tie', 'http://news.163.com', '163 Tie', 'zh', '120', $_S
 for ($i = 0, $j = 0; $i < 1; $i++, $j += 16)
 {
     //http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=0&limit=30&ibc=newspc&callback=jQuery110201860289060432352_1465656856668
-	$urls[$i] = "http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=$j&limit=20&ibc=newspc";
-	$ch[$i] = curl_init("http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=$j&limit=20&ibc=newspc");
+	$urls[$i] = "http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=$j&limit=16&ibc=newspc";
+	$ch[$i] = curl_init("http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=$j&limit=16&ibc=newspc");
 	curl_setopt($ch[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch[$i], CURLOPT_HEADER, 0); 
 	curl_setopt($ch[$i], CURLOPT_RETURNTRANSFER, 1);
@@ -36,9 +36,9 @@ for ($i = 0; $i < $length; $i++)
 } 
 ///////////////////////////////////
 
-for ($i = 0, $j = 0; $i < 1; $i++, $j += 2)
+for ($i = 0, $j = 0; $i < 1; $i++, $j += 3)
 {
-	$ch1[$i] = curl_init("http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/build?offset=$j&limit=5&showLevelThreshold=100&headLimit=100&tailLimit=100&ibc=newspc&callback"
+	$ch1[$i] = curl_init("http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/build?offset=$j&limit=3&showLevelThreshold=100&headLimit=100&tailLimit=100&ibc=newspc&callback"
 );
 	curl_setopt($ch1[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch1[$i], CURLOPT_HEADER, 0); 
