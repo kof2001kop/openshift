@@ -34,8 +34,8 @@ $length = count($titleArr);
 for ($i = 0; $i < $length; $i++)
 { 
 	//分段
-	$sumLen = mb_strlen($contentArr[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
-	$titleLen = mb_strlen($titleArr[$i], 'utf8');
+	//$sumLen = mb_strlen($contentArr[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
+	//$titleLen = mb_strlen($titleArr[$i], 'utf8');
 	//$rss->addItem($pubTime[$i], $titleArr[$i], "http://news.163.com/$pubTime[$i]", $contentArr[$i], 'Rank News', 'Cyril', $pubTime[$i], $pubTime[$i], '');
   	$iplus = $i + 1;
   	echo "No.".$iplus."<br>".$titleArr[$i]."<br>".$contentArr[$i]."<br><br>";
@@ -70,11 +70,12 @@ for ($loop = 0; $loop < 1; $loop++)
         	$titleArr[] = $ret1[$loop][$j]["thread"]["title"];
 		foreach ($ret1[$loop][$j]["comments"][0] as $val)
 		{
-    		$save .= ($ic + 1 == $sum ? ('「'.(string)$val["vote"].'」 ') : '').$val["content"].'&';
+    		$save .= ($ic + 1 == $sum ? ('「'.(string)$val["vote"].'」 ') : '').$val["content"].'<br>';
     		$ic++;
 		}
 		
-		$contentArr1[] = rtrim($save, "&");
+		//$contentArr1[] = rtrim($save, "&");
+		$contentArr1[] = $save;		
 		$pubTime[] = strtotime($ret1[$loop][$j]["comments"][0][1]["createTime"]);
 	//	$rss->addItem($pubTime, $titles, "http://news.163.com/$pubTime", $save, 'Rank News', 'Cyril', $pubTime, $pubTime, '');
 	}
@@ -83,13 +84,13 @@ $length = count($titleArr);
 for ($i = 0; $i < $length; $i++)
 { 
 	//分段
-	$sumLen = mb_strlen($contentArr1[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
-	$titleLen = mb_strlen($titleArr[$i], 'utf8');
+	//$sumLen = mb_strlen($contentArr1[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
+	//$titleLen = mb_strlen($titleArr[$i], 'utf8');
 
-	$contentPar = str_replace("&", "<br>", $contentArr1[$i]);
+	//$contentPar = str_replace("&", "<br>", $contentArr1[$i]);
 	//$rss->addItem($pubTime[$i], $titleArr[$i], "http://news.163.com/$pubTime[$i]", $contentPar, 'Rank News', 'Cyril', $pubTime[$i], $pubTime[$i], '');
   	$iplus2 = $iplus + $i + 1;
-  	echo "No.dfgfd".$iplus2."<br>".$titleArr[$i]."<br>".$contentPar[$i]."<br><br>";
+  	echo "No.".$iplus2."<br>".$titleArr[$i]."<br>".$contentArr1[$i]."<br><br>";
 } 
 echo "hello";
 
