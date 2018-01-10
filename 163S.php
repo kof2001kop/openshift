@@ -89,7 +89,7 @@ for ($i = 0; $i < $length; $i++)
 	$contentPar = str_replace("&", "<br>", $contentArr1[$i]);
 	//$rss->addItem($pubTime[$i], $titleArr[$i], "http://news.163.com/$pubTime[$i]", $contentPar, 'Rank News', 'Cyril', $pubTime[$i], $pubTime[$i], '');
   	$iplus2 = $iplus + $i + 1;
-  	echo "No.".$iplus2."<br>".$titleArr[$i]."<br>".$contentPar[$i]."<br><br>";
+  	echo "No.dfgfd".$iplus2."<br>".$titleArr[$i]."<br>".$contentPar[$i]."<br><br>";
 } 
 echo "hello";
 
