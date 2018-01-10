@@ -37,8 +37,8 @@ for ($i = 0; $i < $length; $i++)
 	$sumLen = mb_strlen($contentArr[$i], 'utf8') + mb_strlen($titleArr[$i], 'utf8');
 	$titleLen = mb_strlen($titleArr[$i], 'utf8');
 	//$rss->addItem($pubTime[$i], $titleArr[$i], "http://news.163.com/$pubTime[$i]", $contentArr[$i], 'Rank News', 'Cyril', $pubTime[$i], $pubTime[$i], '');
-  $iplus = $i + 1;
-  echo "No.".$iplus."<br>".$titleArr[$i]."<br>".$contentArr[$i]."<br>";
+  	$iplus = $i + 1;
+  	echo "No.".$iplus."<br>".$titleArr[$i]."<br>".$contentArr[$i]."<br>";
 } 
 //echo $rss;
 ?>
