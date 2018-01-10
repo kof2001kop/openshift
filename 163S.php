@@ -76,4 +76,9 @@ for ($i = 0; $i < $length; $i++)
 	$iplus2 = $iplus + $i + 1;
   	echo "No.".$iplus2."<br>".$titleArr[$i]."<br>".$contentArr1[$i]."<br><br>";
 } 
+
+$talk = array("今天的吐槽就到这了，晚安~", "吐槽完毕，谢谢观看！", "溜了溜了~");
+$select = rand(0, 2);
+echo $talk[$select];
+
 ?>
