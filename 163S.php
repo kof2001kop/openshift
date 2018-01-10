@@ -2,7 +2,7 @@
 require('Rss.php');
 header('content-type:text/html; charset=utf-8');
 $rss = new Rss\Rss('163 Tie', 'http://news.163.com', '163 Tie', 'zh', '120', $_SERVER['REQUEST_TIME']);
-for ($i = 0, $j = 0; $i < 1; $i++, $j += 20)
+for ($i = 0, $j = 0; $i < 1; $i++, $j += 7)
 {
     //http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=0&limit=30&ibc=newspc&callback=jQuery110201860289060432352_1465656856668
 	$urls[$i] = "http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/recommendList/single?offset=$j&limit=20&ibc=newspc";
