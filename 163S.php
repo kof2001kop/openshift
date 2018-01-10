@@ -91,6 +91,6 @@ for ($i = 0; $i < $length; $i++)
   	$iplus2 = $iplus + $i + 1;
   	echo "No.".$iplus2."<br>".$titleArr[$i]."<br>".$contentPar[$i]."<br><br>";
 } 
-//echo $rss;
+echo "hello";
 
 ?>
