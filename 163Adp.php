@@ -61,7 +61,7 @@ for ($loop = 0; $loop < 1; $loop++)
 		$floor = 1;
 		foreach ($ret1[$loop][$j]["comments"][0] as $val)
 		{
-    		$save .= ($ic + 1 == $sum ? ("　　「".(string)$val["vote"].'」 ') : "　　　$floor. ").$val["content"].'<br>';
+    		$save .= ($ic + 1 == $sum ? ("　　「".(string)$val["vote"].'」 ') : "　　$floor. ").$val["content"].'<br>';
     		$ic++;
 		$floor++;
 		}
