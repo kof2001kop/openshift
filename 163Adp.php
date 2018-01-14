@@ -23,7 +23,8 @@ for ($loop = 0; $loop < 1; $loop++)
 	foreach ($ret[$loop] as $val)
     	{	//.$ret[$loop][$ic]["comments"][0][1]["user"]["nickname"]
 		$titleArr[] = $ret[$loop][$ic]["thread"]["title"];
-		$contentArr[] = '『'.$ret[$loop][$ic]["comments"][0][1]["vote"].'』 '.$ret[$loop][$ic]["comments"][0][1]["content"];
+		//$contentArr[] = '『'.$ret[$loop][$ic]["comments"][0][1]["vote"].'』 '.$ret[$loop][$ic]["comments"][0][1]["content"];		
+		$contentArr[] = ' ——》'.$ret[$loop][$ic]["comments"][0][1]["content"];
 		$ic++;
 	}
 }
@@ -60,7 +61,7 @@ for ($loop = 0; $loop < 1; $loop++)
 		$floor = 1;
 		foreach ($ret1[$loop][$j]["comments"][0] as $val)
 		{
-    		$save .= ($ic + 1 == $sum ? ('「'.(string)$val["vote"].'」 ') : "$floor. ").$val["content"].'<br>';
+    		$save .= ($ic + 1 == $sum ? ("   「".(string)$val["vote"].'」 ') : "     $floor. ").$val["content"].'<br>';
     		$ic++;
 		$floor++;
 		}
