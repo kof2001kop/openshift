@@ -32,7 +32,7 @@ $length = count($titleArr);
 for ($i = 0; $i < $length; $i++)
 { 
   	$iplus = $i + 1;
-  	echo "<br>".$iplus.". ".$titleArr[$i]."<br>".$contentArr[$i]."<br><br>";
+  	echo $iplus.". ".$titleArr[$i].$contentArr[$i]."<br><br>";
 } 
 ///////////////////////////////////
 for ($i = 0, $j = 0; $i < 1; $i++, $j += 3)
@@ -61,7 +61,7 @@ for ($loop = 0; $loop < 1; $loop++)
 		$floor = 1;
 		foreach ($ret1[$loop][$j]["comments"][0] as $val)
 		{
-    		$save .= ($ic + 1 == $sum ? ("   「".(string)$val["vote"].'」 ') : "     $floor. ").$val["content"].'<br>';
+    		$save .= ($ic + 1 == $sum ? ("　　「".(string)$val["vote"].'」 ') : "　　　$floor. ").$val["content"].'<br>';
     		$ic++;
 		$floor++;
 		}
