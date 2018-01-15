@@ -75,7 +75,8 @@ for ($i = 0; $i < $length; $i++)
 	$iplus2 = $iplus + $i + 1;
   	echo "<br>".$iplus2.". ".$titleArr[$i]."<br>".$contentArr1[$i]."<br><br>";
 } 
-$talk = array("今天的吐槽就到这了，晚安~", "吐槽完毕，谢谢观看！", "溜了溜了~", "see you tomorrow └(^o^)┘");
+$talk = array("今天的吐槽就到这~", "吐槽完毕，谢谢观看！", "溜了溜了~", "see you tomorrow └(^o^)┘");
 $select = rand(0, 3);
 echo $talk[$select];
+echo " 欢迎关注我的公众号tie_kpr，每天收集网易跟帖回复";
 ?>
