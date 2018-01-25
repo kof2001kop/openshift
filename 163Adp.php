@@ -78,5 +78,5 @@ for ($i = 0; $i < $length; $i++)
 $talk = array("今天的吐槽就到这~", "吐槽完毕，谢谢观看！", "溜了溜了~", "see you tomorrow └(^o^)┘");
 $select = rand(0, 3);
 echo $talk[$select];
-echo " 欢迎关注我的公众号tie_kpr，每天收集网易跟帖回复";
+echo " 更多内容搜索公众号163跟帖，每天收集网易跟帖回复";
 ?>
