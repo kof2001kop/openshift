@@ -1,7 +1,5 @@
 <?php
-	$sort = $_GET['sort'];
-	$value = $_GET['value'];
-	$url = 'https://www.youtube.com/feeds/videos.xml?'.$sort.'='.$value;
+	$url = 'https://tool.ssrshare.com/tool/free_ssr';
 
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -12,10 +10,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$ret = str_replace('<media:group>', '', $ret);
-	$ret = str_replace('</media:group>', '', $ret);
-	$ret = str_replace('<media:thumbnail url="', '<image><url>', $ret);
-	$ret = str_replace('.jpg"', '.jpg</url></image> <media:thumbnail ', $ret);
+        $beg = strpos($ret, 'https://tool.ssrshare.xyz/tool/api/getCnSub?key=');
+        $ret = substr($ret, $beg);
+        $end = strpos($ret, '\"');
+        $ret = substr($ret, 0, $end);
 
 	echo $ret;
 ?>
