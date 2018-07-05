@@ -14,9 +14,9 @@
         $ret = substr($ret, $beg);
         $end = strpos($ret, '</h5>');
         $ret = substr($ret, 0, $end);
-	/*$ret = $ret + '\n';
-
-	$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
+	$ret = $ret + '\n';
+	$ret = $ret + 'r';
+	/*$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
 	$ch = curl_init($url);
 	      
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
