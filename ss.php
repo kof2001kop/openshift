@@ -10,10 +10,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-        /*$beg = strpos($ret, 'https://tool.ssrshare.xyz/tool/api/getCnSub?key=');
+        $beg = strpos($ret, '<code>ssr://');
         $ret = substr($ret, $beg);
-        $end = strpos($ret, '\"');
-        $ret = substr($ret, 0, $end);*/
+        //$end = strpos($ret, '\"');
+        //$ret = substr($ret, 0, $end);
 
 	echo $ret;
 ?>
