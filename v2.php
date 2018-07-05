@@ -33,7 +33,7 @@
         $ret2 = substr($ret2, 0, $end);
 	$ret = $ret.$ret2;
 
-        /*$ret = base64_encode($ret);*/
+        $ret = base64_encode($ret);
 
         echo $ret;
 ?>
