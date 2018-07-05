@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://shadowsocks-share.herokuapp.com/subscribe?valid=1';
+	$url = 'https://us01.xn--e6qy70csvg.ml/';
 	$ch = curl_init($url);
 	      
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
