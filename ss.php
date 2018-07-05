@@ -14,7 +14,7 @@
         $ret = substr($ret, $beg + 12);
         $end = strpos($ret, '</code>');
         $ret = substr($ret, 0, $end);
-        $ret = 'c3NyOi8v' + $ret;
+        $ret = base64_encode('ssr://' + $ret);
 
 	echo $ret;
 ?>
