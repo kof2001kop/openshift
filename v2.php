@@ -14,7 +14,7 @@
         $ret = substr($ret, $beg);
         $end = strpos($ret, '</h5>');
         $ret = substr($ret, 0, $end);
-	$ret = $ret + PHP_EOL;
+	$ret = $ret + '\r\n';
 	$ret = $ret + 'r';
 	/*$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
 	$ch = curl_init($url);
