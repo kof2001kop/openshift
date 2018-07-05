@@ -15,7 +15,7 @@
         $end = strpos($ret, '</h5>');
         $ret = substr($ret, 0, $end);
 	$ret = $ret.'\n';
-	$ret = $ret + 'r';
+	$ret = $ret.'rfdg';
 	/*$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
 	$ch = curl_init($url);
 	      
