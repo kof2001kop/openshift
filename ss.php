@@ -11,9 +11,9 @@
 	curl_close($ch);
 
         $beg = strpos($ret, '<code>ssr://');
-        $ret = substr($ret, $beg);
-        //$end = strpos($ret, '\"');
-        //$ret = substr($ret, 0, $end);
+        $ret = substr($ret, $beg + 12);
+        $end = strpos($ret, '</code>');
+        $ret = substr($ret, 0, $end);
 
 	echo $ret;
 ?>
