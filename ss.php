@@ -11,10 +11,10 @@
 	curl_close($ch);
 
         $beg = strpos($ret, '<code>ssr://');
-        $ret = substr($ret, $beg + 12);
+        $ret = substr($ret, $beg + 6);
         $end = strpos($ret, '</code>');
         $ret = substr($ret, 0, $end);
-        $ret = base64_encode('ssr://' + $ret);
+        $ret = base64_encode($ret);
 
 	echo $ret;
 ?>
