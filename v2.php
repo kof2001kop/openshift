@@ -15,8 +15,8 @@
         $end = strpos($ret, '</h5>');
         $ret = substr($ret, 0, $end);
 	$ret = $ret.PHP_EOL;
-	$ret = $ret.'rfdg';
-	/*$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
+	
+	$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
 	$ch = curl_init($url);
 	      
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -31,9 +31,9 @@
         $ret2 = substr($ret2, $beg);
         $end = strpos($ret2, '</h5>');
         $ret2 = substr($ret2, 0, $end);
-	$ret = $ret + $ret2;
+	$ret = $ret.$ret2;
 
-        $ret = base64_encode($ret);*/
+        /×$ret = base64_encode($ret);*/
 
         echo $ret;
 ?>
