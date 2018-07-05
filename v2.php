@@ -14,7 +14,7 @@
         $ret = substr($ret, $beg);
         $end = strpos($ret, '</h5>');
         $ret = substr($ret, 0, $end);
-	$ret = $ret + '\n';
+	/*$ret = $ret + '\n';
 
 	$url = 'https://us01-cdn.xn--e6qy70csvg.ml/';
 	$ch = curl_init($url);
@@ -33,7 +33,7 @@
         $ret2 = substr($ret2, 0, $end);
 	$ret = $ret + $ret2;
 
-        /*$ret = base64_encode($ret);*/
+        $ret = base64_encode($ret);*/
 
         echo $ret;
 ?>
