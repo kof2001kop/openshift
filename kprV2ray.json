@@ -19,11 +19,11 @@
     "settings": {
       "vnext": [
         {
-          "address": "v2ray-v2kpr.1d35.starter-us-east-1.openshiftapps.com/", 
+          "address": "v2kpr-v2kpr.1d35.starter-us-east-1.openshiftapps.com/", 
           "port": 443, 
           "users": [
             {
-              "id": "1234-5678-9876-123456789101",
+              "id": "8888888888888888888888888",
               "alterId": 64,
               "security": "none"
             }
