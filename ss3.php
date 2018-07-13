@@ -1,4 +1,4 @@
-<?
+<?php
    	$url = 'https://free.gyteng.com/';
 	$ch = curl_init($url);
 	      
