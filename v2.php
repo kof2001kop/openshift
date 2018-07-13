@@ -33,7 +33,18 @@
         $ret2 = substr($ret2, 0, $end);
 	$ret = $ret.$ret2;
 
+	$url = 'https://free.gyteng.com/';
+	$ch = curl_init($url);
+	      
+        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+	curl_setopt($ch, CURLOPT_HEADER, 0); 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+
+        $ret3 = curl_exec($ch);
+	curl_close($ch);
+
         $ret = base64_encode($ret);
 
-        echo $ret;
+        echo $ret.$ret3;
 ?>
