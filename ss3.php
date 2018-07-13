@@ -7,15 +7,15 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
-        $ret3 = curl_exec($ch);
+        $ret = curl_exec($ch);
 	curl_close($ch);
 
-	$beg = strpos($ret3, 'ss://');
-        $ret3 = substr($ret3, $beg);
-        $end = strpos($ret3, '"');
-        $ret3 = substr($ret3, 0, $end);
+	$beg = strpos($ret, 'ss://');
+        $ret = substr($ret, $beg);
+        $end = strpos($ret, '"');
+        $ret = substr($ret, 0, $end);
 
-        $ret3 = base64_encode($ret3);
+        $ret = base64_encode($ret);
   
-  	echo $ret3;
+  	echo $ret;
 ?>
