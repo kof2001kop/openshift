@@ -14,6 +14,8 @@
         $ret3 = substr($ret3, $beg);
         $end = strpos($ret3, '"');
         $ret3 = substr($ret3, 0, $end);
+
+        $ret3 = base64_encode($ret3);
   
   	echo $ret3;
 ?>
