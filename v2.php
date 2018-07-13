@@ -44,11 +44,11 @@
         $ret3 = curl_exec($ch);
 	curl_close($ch);
 
-	$beg = strpos($ret2, 'ss://');
-        $ret2 = substr($ret2, $beg);
-        $end = strpos($ret2, '\">');
-        $ret2 = substr($ret2, 0, $end);
-	$ret = $ret.$ret2;
+	$beg = strpos($ret3, 'ss://');
+        $ret3 = substr($ret3, $beg);
+        $end = strpos($ret3, '\">');
+        $ret3 = substr($ret3, 0, $end);
+	/*$ret = $ret.$ret2;*/
 
         $ret = base64_encode($ret);
 
