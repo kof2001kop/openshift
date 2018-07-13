@@ -46,7 +46,7 @@
 
 	$beg = strpos($ret3, 'ss://');
         $ret3 = substr($ret3, $beg);
-        $end = strpos($ret3, '\">');
+        $end = strpos($ret3, '">');
         $ret3 = substr($ret3, 0, $end);
 	/*$ret = $ret.$ret2;*/
 
