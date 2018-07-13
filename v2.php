@@ -44,7 +44,13 @@
         $ret3 = curl_exec($ch);
 	curl_close($ch);
 
+	$beg = strpos($ret2, 'ss://');
+        $ret2 = substr($ret2, $beg);
+        $end = strpos($ret2, '\">');
+        $ret2 = substr($ret2, 0, $end);
+	$ret = $ret.$ret2;
+
         $ret = base64_encode($ret);
 
-        echo $ret.$ret3;
+        echo $ret.'\n'.$ret3;
 ?>
