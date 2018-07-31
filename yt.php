@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://www.youtube.com/feeds/videos.xml?'.$_GET['type'].'='.$_GET['value'];
+	$url = 'https://www.youtube.com/feeds/videos.xml?'.$_GET['value'];
 
    	$ch = curl_init($url);
 	      
@@ -11,8 +11,8 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$ret = str_replace('<updated>', '<!--', $ret);
-	$ret = str_replace('</updated>', '-->', $ret);
+	$ret = str_replace('<yt:playlistId>', '<!--', $ret);
+	$ret = str_replace('</yt:playlistId>', '-->', $ret);
 
 	echo $ret;
 ?>
