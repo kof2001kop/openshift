@@ -10,8 +10,8 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	str_replace('<updated>', '<!--', $ret);
-	str_replace('</updated>', '-->', $ret);
+	$ret = str_replace('<updated>', '<!--', $ret);
+	$ret = str_replace('</updated>', '-->', $ret);
 
 	echo $ret;
 ?>
