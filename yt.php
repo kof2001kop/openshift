@@ -13,17 +13,18 @@
 	
 	$posEnd = strpos($ret, '<published>') + 11;
 
-	$posBeg = strpos($ret, '<published>', $posEnd) + 11;
-	$posEnd = strpos($ret, '</published>', $posBeg);
-	$pushDate = substr($ret, $posBeg, $posEnd - $posBeg);
+	while (strpos($ret, '<published>', $posEnd))
+	{
+		$posBeg = strpos($ret, '<published>', $posEnd) + 11;
+		$posEnd = strpos($ret, '</published>', $posBeg);
+		$pushDate = substr($ret, $posBeg, $posEnd - $posBeg);
 	
-	$posBeg = strpos($ret, '<updated>', $posEnd) + 9;
-	$posEnd = strpos($ret, '</updated>', $posBeg);
-	$ret = substr_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
+		$posBeg = strpos($ret, '<updated>', $posEnd) + 9;
+		$posEnd = strpos($ret, '</updated>', $posBeg);
+		$ret = substr_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
 
-
-	//$ret = str_replace('<yt:playlistId>', '<!--', $ret);
-	//$ret = str_replace('</yt:playlistId>', '-->', $ret);
+		$posEnd = $posEnd + 10;
+	}
 
 	echo $ret;
 ?>
