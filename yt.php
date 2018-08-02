@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://www.youtube.com/feeds/videos.xml?playlist_id='.$_GET['value'];
+	$url = 'https://www.youtube.com/feeds/videos.xml?playlist_id=PLPY0_ooDN1dvaxpfASTgujmIg-FeIOYlt';
 
    	$ch = curl_init($url);
 	      
@@ -10,9 +10,16 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
+	
+	$posBeg = strpos($ret, '<published>', $posEnd) + 11;
+	$posEnd = 0;
 
-	$ret = str_replace('<yt:playlistId>', '<!--', $ret);
-	$ret = str_replace('</yt:playlistId>', '-->', $ret);
+	$posBeg = strpos($ret, '<published>', $posEnd) + 11;
+	$posEnd = strpos($ret, '</published>', $posEnd);
+	$pushDate = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	echo $ret;
+	//$ret = str_replace('<yt:playlistId>', '<!--', $ret);
+	//$ret = str_replace('</yt:playlistId>', '-->', $ret);
+
+	echo $pushDate;
 ?>
