@@ -11,8 +11,7 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 	
-	$posBeg = strpos($ret, '<published>', $posEnd) + 11;
-	$posEnd = 0;
+	$posEnd = strpos($ret, '<published>') + 11;
 
 	$posBeg = strpos($ret, '<published>', $posEnd) + 11;
 	$posEnd = strpos($ret, '</published>', $posEnd);
