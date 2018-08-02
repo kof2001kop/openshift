@@ -19,7 +19,7 @@
 	
 	$posBeg = strpos($ret, '<updated>', $posEnd) + 9;
 	$posEnd = strpos($ret, '</updated>', $posBeg);
-	$ret = str_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
+	$ret = substr_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
 
 
 	//$ret = str_replace('<yt:playlistId>', '<!--', $ret);
