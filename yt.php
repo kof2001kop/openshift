@@ -16,9 +16,14 @@
 	$posBeg = strpos($ret, '<published>', $posEnd) + 11;
 	$posEnd = strpos($ret, '</published>', $posBeg);
 	$pushDate = substr($ret, $posBeg, $posEnd - $posBeg);
+	
+	$posBeg = strpos($ret, '<updated>', $posEnd) + 9;
+	$posEnd = strpos($ret, '</updated>', $posBeg);
+	$ret = str_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
+
 
 	//$ret = str_replace('<yt:playlistId>', '<!--', $ret);
 	//$ret = str_replace('</yt:playlistId>', '-->', $ret);
 
-	echo $pushDate;
+	echo $ret;
 ?>
