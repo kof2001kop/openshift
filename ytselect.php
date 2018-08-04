@@ -26,7 +26,6 @@
 	
 	$ret = str_ireplace('</feed>', '', $ret);
 	$retArray = explode('<entry>', $ret);
-	$head = $retArray[0];
 	
 	$content = '';
 	for ($i = 1; $i < count($retArray); $i++)
@@ -36,6 +35,6 @@
     			$content .= '<entry>'.$retArray[$i];
 	}
 	
-	echo $head.$content.'</feed>';
+	echo $retArray[0].$content.'</feed>';
 
 ?>
