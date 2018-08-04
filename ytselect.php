@@ -26,14 +26,16 @@
 	
 	$ret = str_ireplace('</feed>', '', $ret);
 	$retArray = explode('<entry>', $ret);
+	$head = $retArray[0];
 	
+	$content = '';
 	for ($i = 1; $i < count($retArray); $i++)
 	{
 		if (strpos($retArray[$i], '習近平')
 		   || strpos($retArray[$i], '中國'))
-    			echo $retArray[$i];
+    			$content .= '<entry>'.$retArray[$i];
 	}
 	
-	/*echo $head;*/
+	echo $head.$content.'</feed>';
 
 ?>
