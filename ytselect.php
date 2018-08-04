@@ -24,11 +24,11 @@
 		$posEnd = $posEnd + 10;
 	}
 
-	$head = substr($ret, 0, strpos($ret, '<entry>'));
-	$ret = substr($ret, strpos($ret, '<entry>'));
+	//$head = substr($ret, 0, strpos($ret, '<entry>'));
+	//$ret = substr($ret, strpos($ret, '<entry>'));
 	
 	$ret = str_ireplace('</feed>', '', $ret);
-	print_r(explode('<entry>', $ret, 0));
+	print_r(explode('<entry>', $ret));
 	
 	/*echo $head;*/
 
