@@ -28,7 +28,7 @@
 	$ret = substr($ret, strpos($ret, '<entry>'));
 	
 	$ret = str_ireplace('</feed>', '', $ret);
-	print_r(explode(',', $ret, 0));
+	print_r(explode('<entry>', $ret, 0));
 	
 	/*echo $head;*/
 
