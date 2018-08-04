@@ -24,6 +24,10 @@
 		$posEnd = $posEnd + 10;
 	}
 
+	$head = substr($ret, 0, strpos($ret, '<entry>'));
+	$ret = substr($ret, strpos($ret, '<entry>'));
+	
+
 	echo $ret;
 
 ?>
