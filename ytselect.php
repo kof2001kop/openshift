@@ -29,7 +29,9 @@
 	
 	for ($i = 1; $i < count($retArray); $i++)
 	{
-    		echo $retArray[$i];
+		if (strpos($retArray[$i], '習近平')
+		   || strpos($retArray[$i], '中國'))
+    			echo $retArray[$i];
 	}
 	
 	/*echo $head;*/
