@@ -28,6 +28,6 @@
 	$ret = substr($ret, strpos($ret, '<entry>'));
 	
 
-	echo $ret;
+	echo $head;
 
 ?>
