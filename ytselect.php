@@ -23,12 +23,14 @@
 		$ret = substr_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
 		$posEnd = $posEnd + 10;
 	}
-
-	//$head = substr($ret, 0, strpos($ret, '<entry>'));
-	//$ret = substr($ret, strpos($ret, '<entry>'));
 	
 	$ret = str_ireplace('</feed>', '', $ret);
-	print_r(explode('<entry>', $ret));
+	$retArray = explode('<entry>', $ret);
+	
+	for ($i = 1; $i < count($retArray); $i++)
+	{
+    		echo $retArray[$i];
+	}
 	
 	/*echo $head;*/
 
