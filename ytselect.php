@@ -1,4 +1,5 @@
 <?php
+
 	$url = 'https://www.youtube.com/feeds/videos.xml?playlist_id='.$_GET['key'];
    	$ch = curl_init($url);
 	      
@@ -22,5 +23,7 @@
 		$ret = substr_replace($ret, $pushDate, $posBeg, $posEnd - $posBeg);
 		$posEnd = $posEnd + 10;
 	}
+
 	echo $ret;
+
 ?>
