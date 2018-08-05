@@ -28,16 +28,20 @@
 	$retArray = explode('<entry>', $ret);
 	
 	$content = '';
+ 	$keyWord = '(習近平)|(中國)|(李克強)';
 	for ($i = 1; $i < count($retArray); $i++)
 	{
-		if (strpos($retArray[$i], '習近平')
+		/*if (strpos($retArray[$i], '習近平')
 		   || strpos($retArray[$i], '中國')
 		   || strpos($retArray[$i], '李克強')
 		   || strpos($retArray[$i], '大陸')
 		   || strpos($retArray[$i], '內地')
 		   || strpos($retArray[$i], '共產黨')
 		   || strpos($retArray[$i], '中共'))
-    			$content .= '<entry>'.$retArray[$i];
+    			$content .= '<entry>'.$retArray[$i];*/
+		
+		if (preg_replace($keyWord, '', $retArray[$i]) !== $retArray[$i])
+	    		$content .= '<entry>'.$retArray[$i];
 	}
 	
 	echo $retArray[0].$content.'</feed>';
