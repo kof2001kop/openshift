@@ -28,7 +28,7 @@
 	$retArray = explode('<entry>', $ret);
 	
 	$content = '';
- 	$keyWord = '(習近平)|(中國)|(李克強)';
+ 	$keyWord = '/(習近平)|(中國)|(李克強)/i';
 	for ($i = 1; $i < count($retArray); $i++)
 	{
 		/*if (strpos($retArray[$i], '習近平')
