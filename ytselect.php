@@ -28,7 +28,7 @@
 	$retArray = explode('<entry>', $ret);
 	
 	$content = '';
- 	$keyWord = '/(習近平)|(中國)|(李克強)|(大陸)|(內地)|(共產黨)|(中共)|(Miracle)|(Liquid)|(Matu)|(GH)|(Mind)|(MC)|(KUROKY)|(OPENAI)|(OpenAI)/i';
+ 	$keyWord = '/(習近平)|(中國)|(李克強)|(大陸)|(內地)|(共產黨)|(中共)|(梁國雄)|(長毛)|(Miracle)|(Liquid)|(Matu)|(GH)|(Mind)|(MC)|(KUROKY)|(OPENAI)|(OpenAI)/i';
 	for ($i = 1; $i < count($retArray); $i++)
 	{	
 		$posBeg = strpos($retArray[$i], '<title>') + 7;
