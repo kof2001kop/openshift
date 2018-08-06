@@ -27,14 +27,10 @@
 	$retArray = explode('<entry>', $ret);
 	
 	$content = '';
- 	$keyWord = '/(習近平)|(中國)|(李克強)|(大陸)|(內地)|(共產黨)|(中共)|(Miracle)|(Liquid)|(Matu)|(GH)|(Mind)|(MC)|(KUROKY)|(OPENAI)|(OpenAI)/i';
+ 	$keyWord = '/(新闻周刊)/i';
 	for ($i = 1; $i < count($retArray); $i++)
-	{	
-		$posBeg = strpos($retArray[$i], '<title>') + 7;
-		$posEnd = strpos($retArray[$i], '</title>');
-		$title = substr($retArray[$i], $posBeg, $posEnd - $posBeg);
-			
-		if (preg_replace($keyWord, '', $title) !== $title)
+	{			
+		if (preg_replace($keyWord, '', $retArray[$i]) !== $retArray[$i])
 	    		$content .= '<entry>'.$retArray[$i];
 	}
 	
