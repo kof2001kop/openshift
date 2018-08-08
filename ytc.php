@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://www.youtube.com/feeds/videos.xml?playlist_id='.$_GET['key'];
+	$url = 'https://www.youtube.com/feeds/videos.xml?_id='.$_GET['key'];
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
