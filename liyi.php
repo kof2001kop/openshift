@@ -57,5 +57,5 @@
 <language>en-us</language><media:rating>nonadult</media:rating></channel></rss>
 ';
 
-	echo $title.$content;
+	echo $title.PHP_EOL.$content;
 ?>
