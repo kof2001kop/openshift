@@ -45,6 +45,9 @@
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
 	$posEnd = strpos($ret, '\'', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+	$posBeg = strpos($title, '（');
+	$posEnd = strpos($title, '）', $posBeg);
+	$title = substr($title, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, '<p>');
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
