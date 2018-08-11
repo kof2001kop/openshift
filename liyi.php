@@ -67,6 +67,7 @@
 	$contentNew .= '<published>'.$date.'</published>';
 	$contentNew .= '<updated>'.$date.'</updated>';
 	$contentNew .= '<media:group><media:thumbnail url="'.$pic.'/>';
+	$contentNew .= '<media:description>'.$description.'</media:description></media:group></entry></feed>';
 		
-	echo $title.PHP_EOL.$date.PHP_EOL.$pic.PHP_EOL.$description.PHP_EOL.$content;
+	echo $head.$contentNew;
 ?>
