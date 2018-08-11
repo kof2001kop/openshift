@@ -26,6 +26,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
+	$posBeg = strpos($ret, 'SelectHdate">') + 13;
+	$posEnd = strpos($ret, '</div>', $posBeg);
+	$date = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
 	$posEnd = strpos($ret, '\'', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -57,5 +61,5 @@
 <language>en-us</language><media:rating>nonadult</media:rating></channel></rss>
 ';
 
-	echo $title.PHP_EOL.$content;
+	echo $title.PHP_EOL.$date.PHP_EOL.$content;
 ?>
