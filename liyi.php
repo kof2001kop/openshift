@@ -30,7 +30,8 @@
 	$posEnd = strpos($ret, '</div>', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
 	$date = str_replace('年', '-', $date);
-	$date = str_replace('日', '-', $date);
+	$date = str_replace('月', '-', $date);
+	$date = str_replace('日', '', $date);
 	$date .= 'T00:00:01+00:00';
 
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
