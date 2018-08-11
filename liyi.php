@@ -64,7 +64,7 @@
 	$contentNew = '<entry><title>'.$title.'</title>';
   	$contentNew .= '<link rel="alternate" href="'.$url.'"/>';
 	$contentNew .= '<author><name>李怡</name></author>';
-	$contentNew .= '<description><![CDATA[<img src="'.$pic.'">'.$content.']]></description>';
+	$contentNew .= '<description><![CDATA[<p><img src="'.$pic.'"></p><p>我啊是大勢多久阿卡</p>]]></description>';
 	$contentNew .= '<published>'.$date.'</published>';
 	$contentNew .= '<updated>'.$date.'</updated></entry></feed>';
 	/*$contentNew .= '<media:group><media:thumbnail url="'.$pic.'/>';
