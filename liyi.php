@@ -38,6 +38,10 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
+	$posBeg = strpos($ret, 'description" content=\'') + 22;
+	$posEnd = strpos($ret, '\' />', $posBeg);
+	$description = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
 	$posEnd = strpos($ret, '\'', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -57,6 +61,12 @@
  </author>
  <published>2018-08-10T00:00:01+00:00</published>';
 
-
-	echo $title.PHP_EOL.$date.PHP_EOL.$pic.PHP_EOL.$content;
+	$contentNew = '<entry><title>'.$title.'</title>';
+  	$contentNew .= '<link rel="alternate" href="'.$url.'"/>';
+	$contentNew .= '<author><name>李怡</name></author>';
+	$contentNew .= '<published>'.$date.'</published>';
+	$contentNew .= '<updated>'.$date.'</updated>';
+	$contentNew .= '<media:group><media:thumbnail url="'.$pic.'/>';
+		
+	echo $title.PHP_EOL.$date.PHP_EOL.$pic.PHP_EOL.$description.PHP_EOL.$content;
 ?>
