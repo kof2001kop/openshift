@@ -65,9 +65,9 @@
   	$contentNew .= '<link rel="alternate" href="'.$url.'"/>';
 	$contentNew .= '<author><name>李怡</name></author>';
 	$contentNew .= '<published>'.$date.'</published>';
-	$contentNew .= '<updated>'.$date.'</updated>';
-	$contentNew .= '<media:group><media:thumbnail url="'.$pic.'/>';
-	$contentNew .= '<media:description>'.$description.'</media:description></media:group></entry></feed>';
+	$contentNew .= '<updated>'.$date.'</updated></entry></feed>';
+	/*$contentNew .= '<media:group><media:thumbnail url="'.$pic.'/>';
+	$contentNew .= '<media:description>'.$description.'</media:description></media:group></entry></feed>';*/
 		
 	echo $head.$contentNew;
 ?>
