@@ -33,6 +33,11 @@
 	$date = str_replace('月', '-', $date);
 	$date = str_replace('日', 'T00:00:01+00:00', $date);
 
+	$posBeg = strpos($ret, 'photo intro_photo');
+	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
 	$posEnd = strpos($ret, '\'', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -41,28 +46,17 @@
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 
+	
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
-<channel><title><![CDATA[知乎日报]]></title><description><![CDATA[知乎日报]]></description>
-<link>https://news-at.zhihu.com/api/4/stories/latest?client=0</link>
-<generator>RSS for Node</generator>
-<lastBuildDate>Thu, 09 Aug 2018 19:16:24 GMT</lastBuildDate>
-<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/zhihu-daily" />
-<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="zhihu-daily" />
-<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
-<itunes:explicit>no</itunes:explicit><itunes:subtitle>李怡</itunes:subtitle>';
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <title>李怡-蘋果專欄</title>
+ <link rel="alternate" href="https://hk.appledaily.com/author/index/93"/>
+ <author>
+  <name>李怡-蘋果專欄</name>
+  <uri>https://hk.appledaily.com/author/index/93</uri>
+ </author>
+ <published>2018-08-10T00:00:01+00:00</published>';
 
-	$content1 = '<item><title><![CDATA[在美国坐火车，主要目的不是出行……而是看风景]]></title><description><![CDATA[<div><div><div>
-<h2>美国的火车是什么样的？</h2><div><div>
 
-<p><img src="http://pic1.zhimg.com/70/v2-d1d777fd34f3bc83e360bf8b12140950_b.jpg" alt=""></p>
-]]></description>
-<link>https://daily.zhihu.com/story/9692666</link>
-<guid isPermaLink="true">https://daily.zhihu.com/story/9692666</guid>
-<pubDate>Thu, 09 Aug 2018 10:05:45 GMT</pubDate>
-<language>en-us</language><media:rating>nonadult</media:rating></channel></rss>
-';
-
-	echo $title.PHP_EOL.$date.PHP_EOL.$content;
+	echo $title.PHP_EOL.$date.PHP_EOL.$pic.PHP_EOL.$content;
 ?>
