@@ -26,6 +26,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
+	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
+	$posEnd = strpos($ret, '\'', $posBeg);
+	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, '<p>');
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -53,5 +57,5 @@
 <language>en-us</language><media:rating>nonadult</media:rating></channel></rss>
 ';
 
-	echo $content;
+	echo $title.$content;
 ?>
