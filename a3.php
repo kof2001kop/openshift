@@ -46,8 +46,7 @@
 	$posEnd = strpos($ret, '\'', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 	$posBeg = strpos($title, '（');
-	$posEnd = strpos($title, '）', $posBeg);
-	$title = substr($title, $posBeg, $posEnd - $posBeg);
+	$title = substr($title, 0, $posBeg);
 
 	$posBeg = strpos($ret, '<p>');
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
