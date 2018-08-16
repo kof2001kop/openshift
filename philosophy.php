@@ -46,12 +46,9 @@
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, '<div class="entry-content">');
-	$posEnd = strpos($ret, '</div><!-- .entry-content -->', $posBeg) + 6;
+	$posEnd = strpos($ret, '<div id="wpdevar_comment_1', $posBeg) + 1;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	/*$posBeg = strpos($content, '<br/><br/>');
-	$content = substr($content, 0, $posBeg);
-	$content = str_replace('<br/><br/>', '<br/>', $content);
-	$content = str_replace('<br/>', '<br/><br/>', $content);*/
+	$content .= '/div>';
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
