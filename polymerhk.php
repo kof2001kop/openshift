@@ -25,26 +25,32 @@
 	$posBeg = strpos($ret, '<article') + 8;
 	$posEnd = strpos($ret, '</article>', $posBeg);
 	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'datetime="') + 10;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '</time>', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
 	$date .= 'T00:00:01+00:00';
+
 	$posBeg = strpos($ret, '<img');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'author vcard">') + 14;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'entry-title">') + 13;
 	$posEnd = strpos($ret, '</h1>', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, '<div class="entry-content">');
 	$posEnd = strpos($ret, '<div id="wpdevar_comment_1', $posBeg) + 1;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content .= '/div>';
+
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
