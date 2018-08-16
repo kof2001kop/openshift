@@ -9,7 +9,7 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '<article') + 8;
+	/*$posBeg = strpos($ret, '<article') + 8;
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -21,7 +21,7 @@
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	     
 	$ret = curl_exec($ch);
-	curl_close($ch);
+	curl_close($ch);*/
 
 /*	$posBeg = strpos($ret, 'SelectHdate">') + 13;
 	$posEnd = strpos($ret, '</div>', $posBeg);
