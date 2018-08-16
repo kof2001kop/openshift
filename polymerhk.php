@@ -39,6 +39,7 @@
 	{
 		if ($value !== $month) $i++;
 	}
+	if ('八月' === $month) $month = 'asd';
 	$date = $month.'-'.$year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
 /*	$posBeg = strpos($ret, 'imagecover');
