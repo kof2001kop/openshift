@@ -55,8 +55,8 @@
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
 		<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 		<channel>
-		<title><![CDATA['.$author.']]></title>
-		<description><![CDATA['.$author.']]></description>
+		<title>哲學</title>
+		<description>好青年荼毒室</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
 		<lastBuildDate>.$date.</lastBuildDate>
