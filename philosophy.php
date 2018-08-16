@@ -28,8 +28,10 @@
 	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'datetime="') + 10;
-	$posEnd = strpos($ret, '"', $posBeg);
+	$posBeg = strpos($ret, '>', $posBeg) + 1;
+	$posEnd = strpos($ret, '</time>', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
+	$date .= 'T00:00:01+00:00';
 
 	$posBeg = strpos($ret, '<img');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
