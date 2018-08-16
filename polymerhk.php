@@ -35,12 +35,12 @@
 	$year = trim(substr($ret, $posBeg, $posEnd - $posBeg));
 	$monthArray = array('一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
 	$i = 1;
-	foreach ($monthArray as $value)
+	foreach ($monthArray as &$value)
 	{
-		if ($value !== $month) $i++;
+		if ($value === $month) break;
+		else $i++;
 	}
-	if ($monthArray[7] === $month) $month = 'asd';
-	$date = $month.'-'.$year.'-'.strval($i).'-'.$day.'T00:00:01+00:00'.$monthArray[7];
+	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
 /*	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
