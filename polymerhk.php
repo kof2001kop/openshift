@@ -57,9 +57,8 @@
 
 	$posBeg = strpos($ret, 'postcontentwrap');
 	$posBeg = strpos($ret, '<p>', $posBeg);
-	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg) + 1;
+	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$content .= '/div>';
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
