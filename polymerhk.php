@@ -14,7 +14,7 @@
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
-   /*	$ch = curl_init($url);
+   	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
@@ -23,17 +23,25 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '<article') + 8;
-	$posEnd = strpos($ret, '</article>', $posBeg);
-	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'datetime="') + 10;
-	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '</time>', $posBeg);
-	$date = substr($ret, $posBeg, $posEnd - $posBeg);
-	$date .= 'T00:00:01+00:00';
+	$posBeg = strpos($ret, 'class="day">') + 12;
+	$posEnd = strpos($ret, '<', $posBeg);
+	$day = trim(substr($ret, $posBeg, $posEnd - $posBeg));
+	$posBeg = strpos($ret, 'class="month">') + 14;
+	$posEnd = strpos($ret, '<', $posBeg);
+	$month = trim(substr($ret, $posBeg, $posEnd - $posBeg));
+	$posBeg = strpos($ret, 'class="year">') + 13;
+	$posEnd = strpos($ret, '<', $posBeg);
+	$year = trim(substr($ret, $posBeg, $posEnd - $posBeg));
+	$monthArray = array('一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
+	$i = 1;
+	foreach ($monthArray as &$value)
+	{
+		if ($value !== $month) $i++;
+	}
+	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
-	$posBeg = strpos($ret, '<img');
+/*	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -82,5 +90,5 @@
 			';
 		
 	echo $head.$contentNew;*/
-	echo $url;
+	echo $date;
 ?>
