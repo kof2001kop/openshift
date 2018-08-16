@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://corrupttheyouth.net';
+	$url = 'http://polymerhk.com';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
