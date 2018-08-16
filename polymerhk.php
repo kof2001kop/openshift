@@ -39,7 +39,7 @@
 	{
 		if ($value !== $month) $i++;
 	}
-	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
+	$date = $month.'-'.$year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
 /*	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
