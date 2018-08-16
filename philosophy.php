@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://hk.news.appledaily.com/author/authorpaging/'.$_GET['index'].'/0/0';
+	$url = 'https://corrupttheyouth.net';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -9,9 +9,9 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, 'Authoritem') + 10;
+	$posBeg = strpos($ret, '<article') + 8;
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
-	$posEnd = strpos($ret, '">', $posBeg);
+	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
    	$ch = curl_init($url);
 	      
@@ -22,7 +22,8 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, 'SelectHdate">') + 13;
+
+/*	$posBeg = strpos($ret, 'SelectHdate">') + 13;
 	$posEnd = strpos($ret, '</div>', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
 	$date = str_replace('年', '-', $date);
@@ -80,5 +81,6 @@
 			</rss>
 			';
 		
-	echo $head.$contentNew;
+	echo $head.$contentNew;*/
+	echo $ret;
 ?>
