@@ -43,10 +43,6 @@
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'description" content=\'') + 22;
-	$posEnd = strpos($ret, '\' />', $posBeg);
-	$description = substr($ret, $posBeg, $posEnd - $posBeg);
-
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
 	$posEnd = strpos($ret, '\'', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
