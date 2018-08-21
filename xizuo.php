@@ -9,6 +9,13 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
+
+	$posBeg = strpos($ret, '_listUl');
+	$posBeg = strpos($ret, 'subj">', $posBeg) + 6;
+	$posBeg = strpos($ret, '<span>', $posBeg) + 6;
+	$posEnd = strpos($ret, '</span>', $posBeg);
+	$title = substr($ret, $posBeg, $posEnd - $posBeg);	
+
 	$posBeg = strpos($ret, '_listUl');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -40,18 +47,9 @@
 	}
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
-	$posBeg = strpos($ret, 'imagecover');
-	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
-
 	$posBeg = strpos($ret, 'rel="author">') + 13;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-
-	$posBeg = strpos($ret, 'entry-title">') + 13;
-	$posEnd = strpos($ret, '</h1>', $posBeg);
-	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'postcontentwrap');
 	$posBeg = strpos($ret, '<p>', $posBeg);
