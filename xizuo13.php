@@ -69,7 +69,7 @@ $header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/
 		//echo $link;
 		$ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_URL, $link);
+curl_setopt($ch, CURLOPT_URL, 'https://webtoon-phinf.pstatic.net/20180815_248/15343101929459Nj7x_JPEG/15343101929266922317.jpg?type=q90');
 curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  		
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.A.B.C Safari/525.13");
