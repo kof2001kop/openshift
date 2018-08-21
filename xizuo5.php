@@ -63,8 +63,18 @@
 		//open connection
 		$ch = curl_init($link);
 	      
+		$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+				'Accept-Encoding:gzip, deflate, br',
+				'Accept-Language: en-GB,en;q=0.5',
+			        'Connection: keep-alive',
+			        'Upgrade-Insecure-Requests: 1',
+			        'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
+			        'Host: webtoon-phinf.pstatic.net');
+		
+		
 		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-		curl_setopt($ch, CURLOPT_HEADER, 0); 
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  
+		curl_setopt($ch, CURLOPT_HEADER, 1); 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
@@ -107,4 +117,24 @@
 			';
 		
 	echo $head.$contentNew;*/
+
+	function tocurl($url, $header, $content){
+    $ch = curl_init();
+    if(substr($url,0,5)=='https'){
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);  // 从证书中检查SSL加密算法是否存在
+    }
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($content));
+    $response = curl_exec($ch);
+    if($error=curl_error($ch)){
+        die($error);
+    }
+    curl_close($ch);
+    return $response;
+}
+
 ?>
