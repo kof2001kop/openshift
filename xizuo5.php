@@ -69,13 +69,13 @@
 
 		//execute post
 		$result = curl_exec($ch);		
-		
-		file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
-		$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
+		echo $result;
+		//file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
+		//$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
 		$i++;
 		$content = substr($content, $posEnd);
 	}
-
+/*
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
@@ -105,5 +105,5 @@
 			</rss>
 			';
 		
-	echo $head.$contentNew;
+	echo $head.$contentNew;*/
 ?>
