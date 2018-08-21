@@ -59,6 +59,7 @@
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
 		$link = substr($content, $posBeg, $posEnd - $posBeg);
+		$link = explode('?', $link)[0];
 		
 		//open connection
 		$ch = curl_init();
