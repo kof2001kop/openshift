@@ -59,7 +59,12 @@
 		$posEnd = strpos($content, '"', $posBeg);
 		$link = substr($content, $posBeg, $posEnd - $posBeg);
 		echo $link;
-		grab_image($link, strval($i).'.jpg');
+		$file = file_get_contents($link);
+		$myfile = fopen(strval($i).'.jpg', "w") or die("Unable to open file!");
+		fwrite($myfile, $file);
+		fclose($myfile);
+		
+		//grab_image($link, strval($i).'.jpg');
 		//open connection
 		//$ch = curl_init($link);
 	      
@@ -87,7 +92,7 @@
 		//file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
 		//$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
 		$i++;
-		$content = substr($content, $posEnd);
+		$content = substr($content, $posEnd + 1);
 	}
 /*
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
