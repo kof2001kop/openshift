@@ -47,7 +47,7 @@
 	curl_close($ch);
 
 	$posBeg = strpos($ret, '<div class="viewer_img _img_viewer_area');
-	$posEnd = strpos($ret, '</div>', $posBeg);
+	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
