@@ -50,7 +50,7 @@
 	$posBeg = strpos($ret, '<p>', $posBeg);
 	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);*/
-	$content = 'sdf';
+	$content = '<p>sdf</p>';
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
@@ -58,7 +58,7 @@
 		<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 		<channel>
 		<title>'.$category.'</title>
-		<description>polymer</description>
+		<description>漫畫</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
 		<lastBuildDate>.$date.</lastBuildDate>
