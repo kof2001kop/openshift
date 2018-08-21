@@ -58,12 +58,13 @@
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
 		$link = substr($content, $posBeg, $posEnd - $posBeg);
-		
+		echo $link;
+		grab_image($link, strval($i).'.jpg');
 		//open connection
-		$ch = curl_init($link);
+		//$ch = curl_init($link);
 	      
-		$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-				'Accept-Encoding:gzip, deflate, br',
+		//*$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+		/*		'Accept-Encoding:gzip, deflate, br',
 				'Accept-Language: en-GB,en;q=0.5',
 			        'Connection: keep-alive',
 			        'Upgrade-Insecure-Requests: 1',
@@ -71,17 +72,17 @@
 			        'Host: webtoon-phinf.pstatic.net');
 		
 		
-		//curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  
 		curl_setopt($ch, CURLOPT_HEADER, 1); 
-		/*curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);*/
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 		
 		$fp = fopen(strval($i).'.jpg', 'w');
 		curl_setopt($ch, CURLOPT_FILE, $fp);
 		
 		$result = curl_exec($ch);
-		echo $result;
+		echo $result;*/
 
 		//file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
 		//$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
@@ -120,4 +121,18 @@
 		
 	echo $head.$contentNew;*/
 
+function grab_image($url,$saveto){
+    $ch = curl_init ($url);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
+    $raw=curl_exec($ch);
+    curl_close ($ch);
+    if(file_exists($saveto)){
+        unlink($saveto);
+    }
+    $fp = fopen($saveto,'x');
+    fwrite($fp, $raw);
+    fclose($fp);
+}
 ?>
