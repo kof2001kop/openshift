@@ -50,14 +50,14 @@
 	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$posBeg = 0;
-	$contentNew = '';
-	while (strpos($content, 'data-url="'))
+	$contentNew = '<img src="http://n.sinaimg.cn/ent/transform/20170910/aJ8H-fykusey7176612.jpg">';
+	/*while (strpos($content, 'data-url="'))
 	{
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
 		$contentNew .= '<img src="'.substr($content, $posBeg, $posEnd - $posBeg).'">';
 		$content = substr($content, $posEnd);
-	}
+	}*/
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
