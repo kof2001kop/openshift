@@ -49,6 +49,9 @@
 	$posBeg = strpos($ret, '<div class="viewer_img _img_viewer_area');
 	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+	$content = str_replace('src=', 'unknow=', $content);
+	$content = str_replace('data-url=', 'src=', $content);
+
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
