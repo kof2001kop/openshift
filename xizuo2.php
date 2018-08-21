@@ -49,9 +49,15 @@
 	$posBeg = strpos($ret, '<div class="viewer_img _img_viewer_area');
 	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$content = str_replace('src=', 'unknow=', $content);
-	$content = str_replace('data-url=', 'src=', $content);
-
+	$posBeg = 0;
+	$contentNew = '';
+	while (strpos($content, 'data-url="'))
+	{
+		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
+		$posEnd = strpos($content, '"', $posBeg);
+		$contentNew .= '<img src="'.substr($content, $posBeg, $posEnd - $posBeg).'">';
+		$content = substr($content, $posEnd);
+	}
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
@@ -71,7 +77,7 @@
 	
 	$contentNew = '<item>
 			<title><![CDATA['.$title.']]></title>
-			<description><![CDATA['.$content.']]></description>
+			<description><![CDATA['.$contentNew.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
 			<pubDate>'.$date.'</pubDate>
