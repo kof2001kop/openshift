@@ -52,7 +52,6 @@
 	$posBeg = 0;
 	$contentNew = '';
 	$i = 0;
-	$fields_string = 'type=q90';
 	
 	while (strpos($content, 'data-url="'))
 	{
@@ -63,10 +62,10 @@
 			$link = str_replace('http', 'https', $link);
 		
 		//open connection
-		$ch = curl_init($link);
+		//$ch = curl_init($link);
 	      
-		$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-				'Accept-Encoding:gzip, deflate, br',
+		//$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+		/*		'Accept-Encoding:gzip, deflate, br',
 				'Accept-Language: en-GB,en;q=0.5',
 			        'Connection: keep-alive',
 			        'Upgrade-Insecure-Requests: 1',
@@ -80,8 +79,7 @@
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
-		//execute post
-		$result = curl_exec($ch);		
+		$result = curl_exec($ch);*/
 		echo $link;
 		//file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
 		//$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
