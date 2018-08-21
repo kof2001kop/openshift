@@ -59,13 +59,14 @@
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
 		$link = substr($content, $posBeg, $posEnd - $posBeg);
-		$link = explode('?', $link)[0];
 		
 		//open connection
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $link);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+		$ch = curl_init($link);
+	      
+		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+		curl_setopt($ch, CURLOPT_HEADER, 0); 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
 		//execute post
 		$result = curl_exec($ch);		
