@@ -50,15 +50,17 @@
 	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$posBeg = 0;
-	file_put_contents('akb48.jpg', fopen('http://the-sun.on.cc/cnt/entertainment/20141120/photo/1120-00470-016b1.jpg', 'r'));
-	$contentNew = '<img src="http://the-sun.on.cc/cnt/entertainment/20141120/photo/1120-00470-016b1.jpg">';
-	/*while (strpos($content, 'data-url="'))
+	$contentNew = '';
+	$i = 0;
+	while (strpos($content, 'data-url="'))
 	{
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
-		$contentNew .= '<img src="'.substr($content, $posBeg, $posEnd - $posBeg).'">';
+		file_put_contents(strval($i).'.jpg', fopen('http://the-sun.on.cc/cnt/entertainment/20141120/photo/1120-00470-016b1.jpg', 'r'));
+		$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
+		$i++;
 		$content = substr($content, $posEnd);
-	}*/
+	}
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
