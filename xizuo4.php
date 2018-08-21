@@ -50,8 +50,8 @@
 	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$posBeg = 0;
-	file_put_contents('akb48.jpg', fopen('http://n.sinaimg.cn/ent/transform/20170910/aJ8H-fykusey7176612.jpg', 'r'));
-	$contentNew = '<img src="http://n.sinaimg.cn/ent/transform/20170910/aJ8H-fykusey7176612.jpg">';
+	file_put_contents('akb48.jpg', fopen('http://the-sun.on.cc/cnt/entertainment/20141120/photo/1120-00470-016b1.jpg', 'r'));
+	$contentNew = '<img src="http://the-sun.on.cc/cnt/entertainment/20141120/photo/1120-00470-016b1.jpg">';
 	/*while (strpos($content, 'data-url="'))
 	{
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
