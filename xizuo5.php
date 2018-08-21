@@ -82,7 +82,7 @@
 
 		//execute post
 		$result = curl_exec($ch);		
-		echo $result;
+		echo $link;
 		//file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
 		//$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
 		$i++;
