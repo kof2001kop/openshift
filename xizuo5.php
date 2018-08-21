@@ -52,24 +52,24 @@
 	$posBeg = 0;
 	$contentNew = '';
 	$i = 0;
-	$data = array('type' => 'q90');
-	$query_string = http_build_query($data);
-	$option = array(
-		'http' => array(
-			'method' => 'POST',
-			'header' => array(
-				"Content-type:application/x-www-form-urlencoded",
-				"Contnet-length:".strlen($query_string)
-				),
-			'content'=> $query_string
-		)
-	);
-	$context = stream_context_create($option);
+	$fields_string = 'type=q90';
+	
 	while (strpos($content, 'data-url="'))
 	{
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
-		file_put_contents(strval($i).'.jpg', fopen(substr($content, $posBeg, $posEnd - $posBeg), 'r', false, $context));
+		$link = substr($content, $posBeg, $posEnd - $posBeg);
+		
+		//open connection
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $link);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+
+		//execute post
+		$result = curl_exec($ch);		
+		
+		file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
 		$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
 		$i++;
 		$content = substr($content, $posEnd);
