@@ -59,6 +59,8 @@
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
 		$link = substr($content, $posBeg, $posEnd - $posBeg);
+		if (!strpos($link, 'https'))
+			$link = str_replace('http', 'https', $link);
 		
 		//open connection
 		$ch = curl_init($link);
@@ -117,24 +119,5 @@
 			';
 		
 	echo $head.$contentNew;*/
-
-	function tocurl($url, $header, $content){
-    $ch = curl_init();
-    if(substr($url,0,5)=='https'){
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);  // 从证书中检查SSL加密算法是否存在
-    }
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($content));
-    $response = curl_exec($ch);
-    if($error=curl_error($ch)){
-        die($error);
-    }
-    curl_close($ch);
-    return $response;
-}
 
 ?>
