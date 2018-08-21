@@ -53,6 +53,14 @@
 	$contentNew = '';
 	$i = 0;
 	
+$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+				'Accept-Encoding:gzip, deflate, br',
+				'Accept-Language: en-GB,en;q=0.5',
+			        'Connection: keep-alive',
+			        'Upgrade-Insecure-Requests: 1',
+			        'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
+			        'Host: webtoon-phinf.pstatic.net');
+				
 	while (strpos($content, 'data-url="'))
 	{
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
@@ -62,6 +70,7 @@
 		$ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_URL, $link);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  		
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.A.B.C Safari/525.13");
 $data = curl_exec($ch);
