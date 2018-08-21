@@ -46,11 +46,9 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	/*$posBeg = strpos($ret, 'postcontentwrap');
-	$posBeg = strpos($ret, '<p>', $posBeg);
-	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
-	$content = substr($ret, $posBeg, $posEnd - $posBeg);*/
-	$content = '<p>sdf</p>';
+	$posBeg = strpos($ret, '<div class="viewer_img _img_viewer_area');
+	$posEnd = strpos($ret, '</div>', $posBeg);
+	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
