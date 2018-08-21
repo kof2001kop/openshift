@@ -121,8 +121,18 @@
 		
 	echo $head.$contentNew;*/
 
-function grab_image($url,$saveto){
+function grab_image($url,$saveto)
+{
+	$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+				'Accept-Encoding:gzip, deflate, br',
+				'Accept-Language: en-GB,en;q=0.5',
+			        'Connection: keep-alive',
+			        'Upgrade-Insecure-Requests: 1',
+			        'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
+			        'Host: webtoon-phinf.pstatic.net');
+				
     $ch = curl_init ($url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
