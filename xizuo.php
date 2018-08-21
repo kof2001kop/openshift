@@ -14,7 +14,14 @@
 	$posBeg = strpos($ret, 'subj">', $posBeg) + 6;
 	$posBeg = strpos($ret, '<span>', $posBeg) + 6;
 	$posEnd = strpos($ret, '</span>', $posBeg);
-	$title = substr($ret, $posBeg, $posEnd - $posBeg);	
+	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
+	$posBeg = strpos($ret, '_listUl');
+	$posBeg = strpos($ret, 'date">', $posBeg) + 6;
+	$posEnd = strpos($ret, '<', $posBeg);
+	$date = trim(substr($ret, $posBeg, $posEnd - $posBeg));
+	$date = str_replace('/', '-', $date);
+	$date .= 'T00:00:01+00:00';
 
 	$posBeg = strpos($ret, '_listUl');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
@@ -29,23 +36,6 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, 'class="day">') + 12;
-	$posEnd = strpos($ret, '<', $posBeg);
-	$day = trim(substr($ret, $posBeg, $posEnd - $posBeg));
-	$posBeg = strpos($ret, 'class="month">') + 14;
-	$posEnd = strpos($ret, '<', $posBeg);
-	$month = trim(substr($ret, $posBeg, $posEnd - $posBeg));
-	$posBeg = strpos($ret, 'class="year">') + 13;
-	$posEnd = strpos($ret, '<', $posBeg);
-	$year = trim(substr($ret, $posBeg, $posEnd - $posBeg));
-	$monthArray = array('一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
-	$i = 1;
-	foreach ($monthArray as &$value)
-	{
-		if ($value === $month) break;
-		else $i++;
-	}
-	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
 	$posBeg = strpos($ret, 'rel="author">') + 13;
 	$posEnd = strpos($ret, '</a>', $posBeg);
