@@ -56,7 +56,7 @@
 	{
 		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
 		$posEnd = strpos($content, '"', $posBeg);
-		file_put_contents(strval($i).'.jpg', fopen('http://the-sun.on.cc/cnt/entertainment/20141120/photo/1120-00470-016b1.jpg', 'r'));
+		file_put_contents(strval($i).'.jpg', fopen(substr($content, $posBeg, $posEnd - $posBeg), 'r'));
 		$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
 		$i++;
 		$content = substr($content, $posEnd);
