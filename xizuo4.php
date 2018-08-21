@@ -50,6 +50,7 @@
 	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$posBeg = 0;
+	file_put_contents('akb48.jpg', fopen('http://n.sinaimg.cn/ent/transform/20170910/aJ8H-fykusey7176612.jpg', 'r'));
 	$contentNew = '<img src="http://n.sinaimg.cn/ent/transform/20170910/aJ8H-fykusey7176612.jpg">';
 	/*while (strpos($content, 'data-url="'))
 	{
