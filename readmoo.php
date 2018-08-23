@@ -42,8 +42,7 @@
 	}
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
 
-	$posBeg = strpos($ret, 'imagecover');
-	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
+	$posBeg = strpos($ret, 'og:image" content="') + 19;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
@@ -51,8 +50,8 @@
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'entry-title">') + 13;
-	$posEnd = strpos($ret, '</h1>', $posBeg);
+	$posBeg = strpos($ret, 'og:title" content="') + 19;
+	$posEnd = strpos($ret, '"', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'postcontentwrap');
