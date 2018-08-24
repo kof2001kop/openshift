@@ -31,10 +31,7 @@
 	$date = str_replace('/', '-', $date);
 	$date .= 'T00:00:01+00:00';
 
-	$posBeg = strpos($ret, '作者：');
-	$posEnd = strpos($ret, '</span>', $posBeg);
-	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-	$author = str_replace('作者：', '', $author);
+	$author = '西左';
 
 	$posBeg = strpos($ret, 'container');
 	$posBeg = strpos($ret, '<h2>', $posBeg) + 4;
