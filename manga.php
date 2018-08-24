@@ -36,9 +36,10 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'rel="author">') + 13;
-	$posEnd = strpos($ret, '</a>', $posBeg);
+	$posBeg = strpos($ret, '作者：');
+	$posEnd = strpos($ret, '</span>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+	$author = str_replace('作者：', '', $author);
 
 	$posBeg = strpos($ret, 'container');
 	$posBeg = strpos($ret, '<h2>', $posBeg) + 4;
