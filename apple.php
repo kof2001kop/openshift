@@ -62,6 +62,7 @@
 	$content = substr($content, 0, $posBeg);
 	$content = str_replace('<br/><br/>', '<br/>', $content);
 	$content = str_replace('<br/>', '<br/><br/>', $content);
+	$content = str_replace('http://www.facebook.com/mrleeyee', '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
