@@ -48,9 +48,9 @@
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, '<div class="entry-content">');
-	$posEnd = strpos($ret, '<div id="wpdevar_comment_1', $posBeg) + 1;
+	$posEnd = strpos($ret, '<p class', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$content .= '/div>';
+	$content .= '</div>';
 	$content = str_replace('<p style="text-align:center; font-size: .875rem;"><strong>誠邀您讚好<a href="https://www.facebook.com/corrupttheyouth">我們的專頁</a>，成為我們最大的寫作動力！</strong></p>', '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
