@@ -42,7 +42,7 @@
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '</a>', $posBeg);*/
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
-	$posBeg = strpos($ret, '（', $posBeg);
+	$posBeg = strpos($ret, '（', $posBeg) + 2;
 	$posEnd = strpos($ret, '）', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 
