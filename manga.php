@@ -51,8 +51,9 @@
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'entry-title">') + 13;
-	$posEnd = strpos($ret, '</h1>', $posBeg);
+	$posBeg = strpos($ret, 'container');
+	$posBeg = strpos($ret, '<h2>', $posBeg) + 4;
+	$posEnd = strpos($ret, '</h2>', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'postcontentwrap');
