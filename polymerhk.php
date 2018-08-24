@@ -69,7 +69,7 @@
 		<description>polymer</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>.$date.</lastBuildDate>
+		<lastBuildDate>'.$date.'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://polymerhk.com" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
@@ -77,7 +77,7 @@
 		<itunes:subtitle>'.$author.'</itunes:subtitle>';
 	
 	$contentNew = '<item>
-			<title><![CDATA['.$title.']]></title>
+			<title>'.$title.'</title>
 			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
