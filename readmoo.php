@@ -33,7 +33,7 @@
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'text-align: right;">文');
-	$posEnd = strpos($ret, '</p>', $posBeg);
+	$posEnd = strpos($ret, '</', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 	$author = str_replace('text-align: right;">文／', '', $author);
 	$author = str_replace('text-align: right;">文╱', '', $author);
