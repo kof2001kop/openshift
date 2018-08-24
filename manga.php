@@ -25,11 +25,11 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 	$posBeg = strpos($ret, '发表时间：');
-	$posEnd = strpos($ret, '</span>', $posBeg);
+	$posEnd = strpos($ret, ' ', $posBeg);
 	$date = trim(substr($ret, $posBeg, $posEnd - $posBeg));
 	$date = str_replace('发表时间：', '', $date);
-	$date = str_replace(' ', '', $date);
-	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
+	$date = str_replace('/', '-', $date);
+	$date .= 'T00:00:01+00:00';
 
 	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
