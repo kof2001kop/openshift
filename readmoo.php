@@ -32,10 +32,13 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'text-align: right;">文／');
+	$posBeg = strpos($ret, 'text-align: right;">文');
 	$posEnd = strpos($ret, '</p>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 	$author = str_replace('text-align: right;">文／', '', $author);
+	$author = str_replace('text-align: right;">文╱', '', $author);
+	$author = str_replace('text-align: right;">文/', '', $author);
+
 
 	$posBeg = strpos($ret, 'og:title" content="') + 19;
 	$posEnd = strpos($ret, '"', $posBeg);
