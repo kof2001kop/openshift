@@ -32,9 +32,10 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'text-align: right;">文／') + 24;
+	$posBeg = strpos($ret, 'text-align: right;">文／');
 	$posEnd = strpos($ret, '</p>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+	$author = str_replace('text-align: right;">文／', '', $author);
 
 	$posBeg = strpos($ret, 'og:title" content="') + 19;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -62,7 +63,7 @@
 		<itunes:subtitle>'.$author.'</itunes:subtitle>';
 	
 	$contentNew = '<item>
-			<title><![CDATA['.$title.']]></title>
+			<title>'.$title.'</title>
 			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
