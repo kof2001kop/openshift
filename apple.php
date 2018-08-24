@@ -38,9 +38,12 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, '<a href="/author');
+	/*$posBeg = strpos($ret, '<a href="/author');
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '</a>', $posBeg);
+	$posEnd = strpos($ret, '</a>', $posBeg);*/
+	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
+	$posBeg = strpos($ret, '（', $posBeg);
+	$posEnd = strpos($ret, '）', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'og:title" content=\'') + 19;
