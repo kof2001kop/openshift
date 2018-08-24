@@ -24,10 +24,10 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '发表时间：');
+	$posBeg = strpos($ret, 'art-info');
+	$posBeg = strpos($ret, '20', $posBeg);
 	$posEnd = strpos($ret, ' ', $posBeg);
 	$date = trim(substr($ret, $posBeg, $posEnd - $posBeg));
-	$date = str_replace('发表时间：', '', $date);
 	$date = str_replace('/', '-', $date);
 	$date .= 'T00:00:01+00:00';
 
