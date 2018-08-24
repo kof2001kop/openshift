@@ -31,11 +31,6 @@
 	$date = str_replace('/', '-', $date);
 	$date .= 'T00:00:01+00:00';
 
-	$posBeg = strpos($ret, 'imagecover');
-	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
-
 	$posBeg = strpos($ret, '作者：');
 	$posEnd = strpos($ret, '</span>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -60,7 +55,7 @@
 		<description>polymer</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>.$date.</lastBuildDate>
+		<lastBuildDate>'.$date.'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://polymerhk.com" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
@@ -68,8 +63,8 @@
 		<itunes:subtitle>'.$author.'</itunes:subtitle>';
 	
 	$contentNew = '<item>
-			<title><![CDATA['.$title.']]></title>
-			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
+			<title>'.$title.'</title>
+			<description><![CDATA['.$content.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
 			<pubDate>'.$date.'</pubDate>
