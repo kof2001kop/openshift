@@ -1,5 +1,5 @@
 <?php
-	$url = 'http://polymerhk.com';
+	$url = 'https://www.paozha.com/soft/2771.html';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -9,11 +9,12 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '最新文章');
-	$posBeg = strpos($ret, '<h2 class="title">', $posBeg);
+	$posBeg = strpos($ret, 'chapter-div');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
+	$url = 'https://www.paozha.com'.$url;
+
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
