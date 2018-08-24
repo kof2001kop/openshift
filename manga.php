@@ -40,20 +40,25 @@
 		else $i++;
 	}
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
+
 	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'rel="author">') + 13;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'entry-title">') + 13;
 	$posEnd = strpos($ret, '</h1>', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'postcontentwrap');
 	$posBeg = strpos($ret, '<p>', $posBeg);
 	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
