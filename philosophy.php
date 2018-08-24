@@ -51,6 +51,7 @@
 	$posEnd = strpos($ret, '<div id="wpdevar_comment_1', $posBeg) + 1;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content .= '/div>';
+	$content = str_replace('誠邀您讚好我們的專頁，成為我們最大的寫作動力！', '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
@@ -61,7 +62,7 @@
 		<description>好青年荼毒室</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>.$date.</lastBuildDate>
+		<lastBuildDate>'.$date.'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://corrupttheyouth.net" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
@@ -69,7 +70,7 @@
 		<itunes:subtitle>'.$author.'</itunes:subtitle>';
 	
 	$contentNew = '<item>
-			<title><![CDATA['.$title.']]></title>
+			<title>'.$title.'</title>
 			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
