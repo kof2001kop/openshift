@@ -45,7 +45,8 @@
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'text-align: right;">');
-	$posBeg = strpos($ret, '</p>', $posBeg) + 4;
+	$posBeg = strpos($ret, '</', $posBeg) + 2;
+	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '<p>※', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 
