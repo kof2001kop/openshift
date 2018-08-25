@@ -46,67 +46,9 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$posBeg = strpos($ret, '<div class="viewer_img _img_viewer_area');
-	$posEnd = strpos($ret, '</div>', $posBeg) + 6;
-	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$posBeg = 0;
-	$contentNew = '';
-	$i = 0;
-	
-$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-				'Accept-Encoding:gzip, deflate, br',
-				'Accept-Language: en-GB,en;q=0.5',
-			        'Connection: keep-alive',
-			        'Upgrade-Insecure-Requests: 1',
-			        'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
-			        'Host: webtoon-phinf.pstatic.net');
-				
-	while (strpos($content, 'data-url="'))
-	{
-		$posBeg = strpos($content, 'data-url="', $posBeg) + 10;
-		$posEnd = strpos($content, '"', $posBeg);
-		$link = substr($content, $posBeg, $posEnd - $posBeg);
-		//echo $link;
-		$ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_URL, 'https://webtoon-phinf.pstatic.net/20180815_248/15343101929459Nj7x_JPEG/15343101929266922317.jpg?type=q90');
-curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  		
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.A.B.C Safari/525.13");
-$data = curl_exec($ch);
-curl_close($ch);
-echo $data;		
-		//grab_image($link, strval($i).'.jpg');
-		//open connection
-		//$ch = curl_init($link);
-	      
-		//*$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-		/*		'Accept-Encoding:gzip, deflate, br',
-				'Accept-Language: en-GB,en;q=0.5',
-			        'Connection: keep-alive',
-			        'Upgrade-Insecure-Requests: 1',
-			        'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
-			        'Host: webtoon-phinf.pstatic.net');
-		
-		
-		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  
-		curl_setopt($ch, CURLOPT_HEADER, 1); 
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-		
-		$fp = fopen(strval($i).'.jpg', 'w');
-		curl_setopt($ch, CURLOPT_FILE, $fp);
-		
-		$result = curl_exec($ch);
-		echo $result;*/
+	$content = '';
+			
 
-		//file_put_contents(strval($i).'.jpg', fopen($result, 'r'));
-		//$contentNew .= '<img src="http://openshift-163.a3c1.starter-us-west-1.openshiftapps.com/'.strval($i).'.jpg">';
-		$i++;
-		$content = substr($content, $posEnd + 1);
-	}
-/*
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
@@ -116,7 +58,7 @@ echo $data;
 		<description>漫畫</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>.$date.</lastBuildDate>
+		<lastBuildDate>'.$date.'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://www.webtoons.com/zh-hant/comedy/fengren/list?title_no=692&page=1" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
@@ -124,8 +66,8 @@ echo $data;
 		<itunes:subtitle>'.$author.'</itunes:subtitle>';
 	
 	$contentNew = '<item>
-			<title><![CDATA['.$title.']]></title>
-			<description><![CDATA['.$contentNew.']]></description>
+			<title>'.$title.'</title>
+			<description><![CDATA['.$content.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
 			<pubDate>'.$date.'</pubDate>
@@ -136,30 +78,6 @@ echo $data;
 			</rss>
 			';
 		
-	echo $head.$contentNew;*/
+	echo $head.$contentNew;
 
-function grab_image($url,$saveto)
-{
-	$header = array('Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-				'Accept-Encoding:gzip, deflate, br',
-				'Accept-Language: en-GB,en;q=0.5',
-			        'Connection: keep-alive',
-			        'Upgrade-Insecure-Requests: 1',
-			        'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
-			        'Host: webtoon-phinf.pstatic.net');
-				
-    $ch = curl_init ($url);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  //设置头信息的地方  
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
-    $raw=curl_exec($ch);
-    curl_close ($ch);
-    if(file_exists($saveto)){
-        unlink($saveto);
-    }
-    $fp = fopen($saveto,'x');
-    fwrite($fp, $raw);
-    fclose($fp);
-}
 ?>
