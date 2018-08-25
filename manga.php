@@ -37,9 +37,9 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, '<p class="summary">');
+	$posBeg = strpos($ret, '<p class="summary">') + 19;
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
-	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+	$content = '<p>'.substr($ret, $posBeg, $posEnd - $posBeg);
 			
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
