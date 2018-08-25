@@ -48,8 +48,11 @@
 	$content = str_replace('http://www.facebook.com/mrleeyee', '', $content);
 	
 	$contentNew = '<html>
-			<head><title>'.$title.'</title></head>
-			<body>'.'<img src="'.$pic.'">'.$content.'</body>
+			<head>
+			<title>'.$title.'</title>
+			<meta property="og:image" content='.$pic.'" />
+			</head>
+			<body><p>'.$content.'</p></body>
 			</html>
 			';
 		
