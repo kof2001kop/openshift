@@ -32,6 +32,11 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$category = substr($ret, $posBeg, $posEnd - $posBeg);
 
+	$posBeg = strpos($ret, '_listUl');
+	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$url = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, '<p class="summary">');
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
