@@ -45,7 +45,7 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$posBeg = strpos($ret, '[{"url":"', $posEnd) + 9;
+	$posBeg = strpos($ret, '[{"url":"') + 9;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
 	$url = str_replace('\\', '', $url);
