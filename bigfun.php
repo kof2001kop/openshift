@@ -28,15 +28,11 @@
 
 	$contentNew = $retArray[0].$content.'</channel></rss>';
 	$contentNew = str_replace('src="//', 'src="http://', $contentNew);
-
 	$contentNew = str_replace('<title><![CDATA[', '<title>', $contentNew);
 	$contentNew = str_replace(']]></title>', '</title>', $contentNew);
+	$contentNew = str_replace('<guid>https://www.bilibili.com/video/', 'https://kpr-rss.herokuapp.com/bigfunvideo.php?id=', $contentNew);
 
-	$posBeg = strpos($contentNew, '<guid>', $posEnd) + 6;
-	$posEnd = strpos($contentNew, '</guid>', $posBeg);
-	$url = substr($contentNew, $posBeg, $posEnd - $posBeg);
-
-	$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery112404553552822525099_1535204029430&url=https://www.bilibili.com/video/av30175740&hash=f62bb240eec1ac36738b9e2ccb31400d');
+/*	$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery112404553552822525099_1535204029430&url=https://www.bilibili.com/video/av30175740&hash=f62bb240eec1ac36738b9e2ccb31400d');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -49,7 +45,7 @@
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
 	$url = str_replace('\\', '', $url);
-
-	echo $url;
+*/
+	echo $contentNew;
 
 ?>
