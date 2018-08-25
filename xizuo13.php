@@ -46,7 +46,9 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$content = '';
+	$posBeg = strpos($ret, '<p class="summary">');
+	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
+	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 			
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
