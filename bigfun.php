@@ -19,7 +19,7 @@
 	for ($i = 1; $i < count($retArray); $i++)
 	{			
 		if (preg_replace($keyWord, '', $retArray[$i]) !== $retArray[$i])
-	    		$content .= '<entry>'.$retArray[$i];
+	    		$content .= '<item>'.$retArray[$i];
 	}
 
 	$contentNew = $retArray[0].$content.'</channel></rss>';
