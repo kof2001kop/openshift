@@ -29,5 +29,8 @@
 	$contentNew = $retArray[0].$content.'</channel></rss>';
 	$contentNew = str_replace('src="//', 'src="http://', $contentNew);
 
+	$contentNew = str_replace('<title><![CDATA[', '', $contentNew);
+	$contentNew = str_replace(']]></title>', '', $contentNew);
+
 	echo $contentNew;
 ?>
