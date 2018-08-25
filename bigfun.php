@@ -29,8 +29,12 @@
 	$contentNew = $retArray[0].$content.'</channel></rss>';
 	$contentNew = str_replace('src="//', 'src="http://', $contentNew);
 
-	$contentNew = str_replace('<title><![CDATA[', '', $contentNew);
-	$contentNew = str_replace(']]></title>', '', $contentNew);
+	$contentNew = str_replace('<title><![CDATA[', '<title>', $contentNew);
+	$contentNew = str_replace(']]></title>', '</title>', $contentNew);
+
+	$posBeg = strpos($contentNew, '<guid>', $posEnd) + 6;
+	$posEnd = strpos($contentNew, '</guid>', $posBeg);
+	$url = substr($contentNew, $posBeg, $posEnd - $posBeg);
 
 	echo $contentNew;
 ?>
