@@ -1,7 +1,7 @@
 <?php
-	//$url = 'https://hk.news.appledaily.com/author/authorpaging/'.$_GET['index'].'/0/0';
-   	
-	$url = 'https://hk.news.appledaily.com/local/daily/article/20180821/20480958';
+	//$urlOri = 'https://kpr-rss.herokuapp.com/applehtml.php'.$_GET['url'];
+
+	$url = 'http://polymerhk.com/articles/2016/06/06/31905/';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
