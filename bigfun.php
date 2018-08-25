@@ -31,6 +31,7 @@
 	$contentNew = str_replace('<title><![CDATA[', '<title>', $contentNew);
 	$contentNew = str_replace(']]></title>', '</title>', $contentNew);
 	$contentNew = str_replace('<guid>https://www.bilibili.com/video/', '<guid>https://kpr-rss.herokuapp.com/bigfunvideo.php?id=', $contentNew);
+	$contentNew = str_replace('referrerpolicy="no-referrer"', '', $contentNew);
 
 	echo $contentNew;
 
