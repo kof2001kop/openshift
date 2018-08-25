@@ -1,6 +1,6 @@
 <?php
 
-	$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery112404553552822525099_1535204029430&url=https://www.bilibili.com/video/'.$_GET['id'].'&hash=f62bb240eec1ac36738b9e2ccb31400d');
+	$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery112404553552822525099_'.time().'430&url=https://www.bilibili.com/video/'.$_GET['id'].'&hash=f62bb240eec1ac36738b9e2ccb31400d');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
