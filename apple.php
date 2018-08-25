@@ -64,6 +64,7 @@
 	$content = str_replace('<br/>', '<br/><br/>', $content);
 	$content = str_replace('http://www.facebook.com/mrleeyee', '', $content);
 
+	$url = base64_encode($url);
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
