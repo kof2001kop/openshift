@@ -12,7 +12,15 @@
 
 	$ret = str_replace('</channel>', '', $ret);
 	$ret = str_replace('</rss>', '', $ret);
-	$item = explode('<item>', $ret);
+	$retArray = explode('<item>', $ret);
 
+	$content = '';
+	$keyWord = '/(唐唐说电影)/i';
+	for ($i = 1; $i < count($retArray); $i++)
+	{			
+		if (preg_replace($keyWord, '', $retArray[$i]) !== $retArray[$i])
+	    		$content .= '<entry>'.$retArray[$i];
+	}
 
+	echo $retArray[0].$content.'</channel></rss>';
 ?>
