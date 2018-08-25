@@ -60,7 +60,7 @@
 	
 	$contentNew = '<item>
 			<title>'.$title.'</title>
-			<description><![CDATA['.$content.']]></description>
+			<description><![CDATA[<img src="https://kpr-rss.herokuapp.com/fengren.jpeg">'.$content.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
 			<pubDate>'.$date.'</pubDate>
