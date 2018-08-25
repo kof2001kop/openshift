@@ -47,8 +47,10 @@
 	$content = str_replace('<br/>', '<br/><br/>', $content);
 	$content = str_replace('http://www.facebook.com/mrleeyee', '', $content);
 	
-	$contentNew = '<html>
+	$contentNew = '<!DOCTYPE html>
+			<html lang="zh-TW">
 			<head>
+			<meta charset="UTF-8">
 			<title>'.$title.'</title>
 			<meta property="og:image" content='.$pic.'" />
 			</head>
