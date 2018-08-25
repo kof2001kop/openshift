@@ -34,7 +34,34 @@
 
 	$posBeg = strpos($contentNew, '<guid>', $posEnd) + 6;
 	$posEnd = strpos($contentNew, '</guid>', $posBeg);
-	$url = substr($contentNew, $posBeg, $posEnd - $posBeg);
+	$url = 'https://www.parsevideo.com/youku/#',substr($contentNew, $posBeg, $posEnd - $posBeg);
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+	curl_setopt($ch, CURLOPT_HEADER, 0); 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+	     
+	$ret = curl_exec($ch);
+	curl_close($ch);
+
+
 
 	echo $contentNew;
+
+
+function curl_post($url, $post) {
+    $options = array(
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HEADER         => false,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $post,
+    );
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, $options);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
 ?>
