@@ -33,6 +33,13 @@
 	$contentNew = str_replace('<guid>https://www.bilibili.com/video/', '<guid>https://kpr-rss.herokuapp.com/bigfunvideo.php?id=', $contentNew);
 	$contentNew = str_replace('referrerpolicy="no-referrer"', '', $contentNew);
 
+	$posBeg = strpos($contentNew, '<description><![CDATA[') + 22;
+	$posEnd = strpos($contentNew, '<img', $posBeg);
+	$description = substr($contentNew, $posBeg, $posEnd - $posBeg);
+
+	$contentNew = str_replace($description, '', $contentNew);
+	$contentNew = str_replace(']]></description>', '<p>'.$description.'</p>]]></description>', $contentNew);
+
 	echo $contentNew;
 
 ?>
