@@ -15,16 +15,19 @@
 	$retArray = explode('<item>', $ret);
 
 	$content = '';
-	$keyWord = '/(唐唐说电影)/u';
+	$keyWord = '/(说电影)/u';
 	echo count($retArray);
 	for ($i = 1; $i < count($retArray); $i++)
 	{			
 		if (preg_replace($keyWord, '', $retArray[$i]) !== $retArray[$i])
-	    		$content .= '<item>'.$retArray[$i];
+		{
+			$content .= '<item>'.$retArray[$i];
+			echo preg_replace($keyWord, '', $retArray[$i]);
+		}
 	}
 
 	$contentNew = $retArray[0].$content.'</channel></rss>';
 	$contentNew = str_replace('src="//', 'src="http://', $ret);
 
-	echo $contentNew;
+	//echo $contentNew;
 ?>
