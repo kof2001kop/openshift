@@ -23,8 +23,9 @@
 			$content .= '<item>'.$retArray[$i];
 	}
 
-	$contentNew = $retArray[0].$content.'</channel></rss>';
-	$contentNew = str_replace('src="//', 'src="http://', $ret);
+	echo $retArray[0].'dfdf'.$content;
+	//$contentNew = $retArray[0].$content.'</channel></rss>';
+	//$contentNew = str_replace('src="//', 'src="http://', $ret);
 
-	echo $contentNew;
+	//echo $contentNew;
 ?>
