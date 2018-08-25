@@ -45,9 +45,11 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
+$data = curl_post("https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299", array('url'=>'https://www.bilibili.com/video/av30175740'));
 
+var_dump($data);
 
-	echo $contentNew;
+	//echo $contentNew;
 
 
 function curl_post($url, $post) {
