@@ -15,7 +15,7 @@
 	$retArray = explode('<item>', $ret);
 
 	$content = '';
-	$keyWord = '/(唐唐说电影)/i';
+	$keyWord = '/(唐唐说电影)/u';
 	echo count($retArray);
 	for ($i = 1; $i < count($retArray); $i++)
 	{			
