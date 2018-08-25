@@ -22,5 +22,8 @@
 	    		$content .= '<entry>'.$retArray[$i];
 	}
 
-	echo $retArray[0].$content.'</channel></rss>';
+	$contentNew = $retArray[0].$content.'</channel></rss>';
+	$contentNew = str_replace('src="//', 'src="http://', $ret);
+
+	echo $contentNew;
 ?>
