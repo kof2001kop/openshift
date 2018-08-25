@@ -30,7 +30,7 @@
 	$contentNew = str_replace('src="//', 'src="http://', $contentNew);
 	$contentNew = str_replace('<title><![CDATA[', '<title>', $contentNew);
 	$contentNew = str_replace(']]></title>', '</title>', $contentNew);
-	$contentNew = str_replace('<guid>https://www.bilibili.com/video/', 'https://kpr-rss.herokuapp.com/bigfunvideo.php?id=', $contentNew);
+	$contentNew = str_replace('<guid>https://www.bilibili.com/video/', '<guid>https://kpr-rss.herokuapp.com/bigfunvideo.php?id=', $contentNew);
 
 /*	$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery112404553552822525099_1535204029430&url=https://www.bilibili.com/video/av30175740&hash=f62bb240eec1ac36738b9e2ccb31400d');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
