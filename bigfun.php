@@ -1,5 +1,5 @@
 <?php
-$url = 'https://www.webtoons.com/zh-hant/comedy/fengren/list?title_no='.$_GET['num'].'&page=1';
+	$url = 'https://api.prprpr.me/bilibili2rss/user/26023642';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -9,5 +9,10 @@ $url = 'https://www.webtoons.com/zh-hant/comedy/fengren/list?title_no='.$_GET['n
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
+
+	$ret = str_replace('</channel>', '', $ret);
+	$ret = str_replace('</rss>', '', $ret);
+	$item = explode('<item>', $ret);
+
 
 ?>
