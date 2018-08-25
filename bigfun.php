@@ -53,7 +53,10 @@ $header = array('Host'=>'www.parsevideo.com',
 		'Content-Type'=>'application/x-www-form-urlencoded; charset=UTF-8',
 		'X-Requested-With'=>'XMLHttpRequest',
 		'Content-Length'=>'93',
-		'Cookie'=>'PHPSESSID=b95e8d912b7cfdd7f6082dbbfdbfb21a; __atuvc=2%7C34; _ga=GA1.2.1553851784.1535196834; _gid=GA1.2.675305563.1535196834; __atuvs=5b814fe913155eb0000; _gat=1'
+		'Cookie'=>'PHPSESSID=b95e8d912b7cfdd7f6082dbbfdbfb21a; __atuvc=2%7C34; _ga=GA1.2.1553851784.1535196834; _gid=GA1.2.675305563.1535196834; __atuvs=5b814fe913155eb0000; _gat=1',
+		'Connection'=>'keep-alive',
+		'Pragma'=>'no-cache',
+		'Cache-Control'=>'no-cache'
 	       );  
 $data = curl_https("https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299", 
 		  array('url'=>'https://www.bilibili.com/video/av30175740',
