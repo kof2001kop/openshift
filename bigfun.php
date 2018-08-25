@@ -36,14 +36,14 @@
 	$posEnd = strpos($contentNew, '</guid>', $posBeg);
 	$url = 'https://www.parsevideo.com/youku/#',substr($contentNew, $posBeg, $posEnd - $posBeg);
 
-	$ch = curl_init($url);
+/*	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	     
 	$ret = curl_exec($ch);
-	curl_close($ch);
+	curl_close($ch);*/
 
 $header = array('Host'=>'www.parsevideo.com',
 	       'User-Agent'=>'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:61.0) Gecko/20100101 Firefox/61.0',
@@ -58,14 +58,21 @@ $header = array('Host'=>'www.parsevideo.com',
 		'Pragma'=>'no-cache',
 		'Cache-Control'=>'no-cache'
 	       );  
-$data = curl_https("https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299", 
+/*$data = curl_https("https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299", 
 		  array('url'=>'https://www.bilibili.com/video/av30175740',
 		       'hash'=>'f62bb240eec1ac36738b9e2ccb31400d'),
-		  $header, 30);
+		  $header, 30);*/
 
-echo $data;
 
-	//echo $contentNew;
+$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299');
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+	curl_setopt($ch, CURLOPT_HEADER, 0); 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+	     
+	$ret = curl_exec($ch);
+	curl_close($ch);
+	echo $ret;
 
 
 function curl_https($url, $data=array(), $header=array(), $timeout=30)
