@@ -58,13 +58,9 @@ $header = array('Host'=>'www.parsevideo.com',
 		'Pragma'=>'no-cache',
 		'Cache-Control'=>'no-cache'
 	       );  
-/*$data = curl_https("https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299", 
-		  array('url'=>'https://www.bilibili.com/video/av30175740',
-		       'hash'=>'f62bb240eec1ac36738b9e2ccb31400d'),
-		  $header, 30);*/
 
 
-$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery1124007920047984642209_1535201257299');
+	$ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery112404553552822525099_1535204029430&url=https://www.bilibili.com/video/av30175740&hash=f62bb240eec1ac36738b9e2ccb31400d');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -72,30 +68,7 @@ $ch = curl_init('https://www.parsevideo.com/api.php?callback=jQuery1124007920047
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	echo $ret;
 
+	echo 'abc'.$ret;
 
-function curl_https($url, $data=array(), $header=array(), $timeout=30)
-{  
-    $ch = curl_init();  
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查  
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);  // 从证书中检查SSL加密算法是否存在  
-    curl_setopt($ch, CURLOPT_URL, $url);  
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);  
-    curl_setopt($ch, CURLOPT_POST, true);  
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));  
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
-    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);  
-   
-    $response = curl_exec($ch);  
-   
-    if($error=curl_error($ch)){  
-        die($error);  
-    }  
-   
-    curl_close($ch);  
-   
-    return $response;  
-   
-}  
 ?>
