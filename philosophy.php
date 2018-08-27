@@ -51,6 +51,7 @@
 	$posEnd = strpos($ret, '<p class', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content .= '</div>';
+	$content = str_replace('<p>&nbsp;</p>', '', $content);
 	$posBeg = strpos($content, '<p style="text-align:center; font-size: .875rem;">');
 	$posEnd = strpos($content, '</p>', $posBeg) + 4;
 	$clear = substr($content, $posBeg, $posEnd - $posBeg);
