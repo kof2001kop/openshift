@@ -13,6 +13,7 @@
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
 	$url = str_replace('\\', '', $url);
 
-	header('Location:'.$url);
-   	exit;
+	//header('Location:'.$url);
+   	//exit;
+echo $ret;
 ?>
