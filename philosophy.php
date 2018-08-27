@@ -51,7 +51,11 @@
 	$posEnd = strpos($ret, '<p class', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content .= '</div>';
-	$content = str_replace('<p style="text-align:center; font-size: .875rem;"><strong>誠邀您讚好<a href="https://www.facebook.com/corrupttheyouth">我們的專頁</a>，成為我們最大的寫作動力！</strong></p>', '', $content);
+	$posBeg = strpos($content, '<p style="text-align:center; font-size: .875rem;">');
+	$posEnd = strpos($content, '</p>', $posBeg) + 4;
+	$clear = substr($content, $posBeg, $posEnd - $posBeg);
+	if ($clear)
+		$content = str_replace($clear, '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
