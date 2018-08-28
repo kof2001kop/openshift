@@ -58,10 +58,6 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$posBeg = strpos($ret, 'reporter">') + 10;
-	$posEnd = strpos($ret, '<', $posBeg);
-	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
-
 	$posBeg = strpos($ret, '<p>');
 	$posEnd = strpos($ret, '</section>', $posBeg);
 	$content[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
