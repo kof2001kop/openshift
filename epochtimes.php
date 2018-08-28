@@ -17,6 +17,10 @@
 	$author = Array();
 	$content = Array();
 	
+	$i = 0;
+
+	while ($i < 2)
+	{
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -36,6 +40,10 @@
 	$posBeg = strpos($ret, 'article-date">', $posBeg) + 14;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$date[] = trim(substr($ret, $posBeg, $posEnd - $posBeg)).'T00:00:01+00:00';
+		
+	$ret = strpos($ret, '<article>') + 9;
+	$i++;
+	}
 
    /*	$ch = curl_init($url);
 	      
@@ -76,7 +84,6 @@
 	
 	$contentNew = '';
 	
-	$i = 1;
 	$j = 0;
 	while ($j < $i)	
 	{
