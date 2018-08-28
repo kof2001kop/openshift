@@ -83,7 +83,6 @@
 		<itunes:subtitle>no</itunes:subtitle>';
 	
 	$contentNew = '';
-	
 	$j = 0;
 	while ($j < $i)	
 	{
@@ -93,15 +92,16 @@
 			<link>'.$url[$j].'</link>
 			<guid isPermaLink="true">'.$url[$j].'</guid>
 			<pubDate>'.$date[$j].'</pubDate>
-			</item>
-			<language>en-us</language>
+			</item>';
+			
+		$j++;
+	}
+
+	$contentNew .= '<language>en-us</language>
 			<media:rating>nonadult</media:rating>
 			</channel>
 			</rss>
 			';
-			
-		$j++;
-	}
 
 	echo $head.$contentNew;
 ?>
