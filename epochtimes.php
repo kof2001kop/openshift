@@ -14,7 +14,9 @@
 	$pic = Array();
 	$title = Array();
 	$date = Array();
-
+	$author = Array();
+	$content = Array();
+	
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -35,7 +37,7 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$date[] = trim(substr($ret, $posBeg, $posEnd - $posBeg)).'T00:00:01+00:00';
 
-   	$ch = curl_init($url);
+   /*	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
@@ -54,6 +56,7 @@
 	$posBeg = strpos($ret, '<p>', $posBeg);
 	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+*/
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
@@ -64,25 +67,32 @@
 		<description>epochtimes</description>
 		<link>http://hk.epochtimes.com</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>'.$date.'</lastBuildDate>
+		<lastBuildDate>no</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://hk.epochtimes.com" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
 		<itunes:explicit>no</itunes:explicit>
-		<itunes:subtitle>'.$author.'</itunes:subtitle>';
+		<itunes:subtitle>no</itunes:subtitle>';
 	
-	$contentNew = '<item>
-			<title>'.$title.'</title>
-			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
-			<link>'.$url.'</link>
-			<guid isPermaLink="true">'.$url.'</guid>
-			<pubDate>'.$date.'</pubDate>
+	$contentNew = '';
+	
+	$i = 1;
+	$j = 0;
+	while ($j < $i)	
+	{
+	$contentNew .= '<item>
+			<title>'.$title[$j].'</title>
+			<description><![CDATA['.'<img src="'.$pic[$j].'">'.$content[$j].']]></description>
+			<link>'.$url[$j].'</link>
+			<guid isPermaLink="true">'.$url[$j].'</guid>
+			<pubDate>'.$date[$j].'</pubDate>
 			</item>
 			<language>en-us</language>
 			<media:rating>nonadult</media:rating>
 			</channel>
 			</rss>
 			';
-		
+	}
+
 	echo $head.$contentNew;
 ?>
