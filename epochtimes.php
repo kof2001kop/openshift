@@ -19,7 +19,7 @@
 	
 	$i = 0;
 
-	while ($i < 2)
+	while ($i < 4)
 	{
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
