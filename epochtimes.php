@@ -45,7 +45,10 @@
 	$i++;
 	}
 
-   /*	$ch = curl_init($url);
+	$k = 0;
+	while ($k < $i)
+	{
+   	$ch = curl_init($url[$k]);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
@@ -55,16 +58,16 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
+	$posBeg = strpos($ret, 'reporter">') + 10;
+	$posEnd = strpos($ret, '<', $posBeg);
+	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-	$posBeg = strpos($ret, 'rel="author">') + 13;
-	$posEnd = strpos($ret, '</a>', $posBeg);
-	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-
-	$posBeg = strpos($ret, 'postcontentwrap');
-	$posBeg = strpos($ret, '<p>', $posBeg);
-	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
-	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-*/
+	$posBeg = strpos($ret, '<p>');
+	$posEnd = strpos($ret, '</section>', $posBeg);
+	$content[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
+		
+	$k++;
+	}
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
