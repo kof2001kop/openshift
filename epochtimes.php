@@ -92,6 +92,8 @@
 			</channel>
 			</rss>
 			';
+			
+		$j++;
 	}
 
 	echo $head.$contentNew;
