@@ -75,7 +75,7 @@
 		<description>epochtimes</description>
 		<link>http://hk.epochtimes.com</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>no</lastBuildDate>
+		<lastBuildDate>'.$date[0].'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://hk.epochtimes.com" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
