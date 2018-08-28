@@ -63,6 +63,10 @@
 	$content = str_replace('<br/><br/>', '<br/>', $content);
 	$content = str_replace('<br/>', '<br/><br/>', $content);
 	$content = str_replace('http://www.facebook.com/mrleeyee', '', $content);
+	$content = trim($content);
+	if (strrpos($content, '<br/><br/>') === strlen($content) - 10)
+		$content = substr($content, 0, strrpos($content, '<br/><br/>'));
+
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
