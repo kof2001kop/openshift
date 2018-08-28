@@ -62,6 +62,7 @@
 	$posEnd = strpos($ret, '</section>', $posBeg);
 	$content[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content[$k] = str_replace('◇', '', $content[$k]);
+	$content[$k] = trim($content[$k]);
 	$content[$k] = str_replace('<p> </p>', '', $content[$k]);
 	$content[$k] = str_replace('<p></p>', '', $content[$k]);
 
