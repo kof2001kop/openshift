@@ -41,7 +41,7 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$date[] = trim(substr($ret, $posBeg, $posEnd - $posBeg)).'T00:00:01+00:00';
 		
-	$ret = strpos($ret, '<article>') + 9;
+	$ret = substr($ret, strpos($ret, '<article>') + 9);
 	$i++;
 	}
 
