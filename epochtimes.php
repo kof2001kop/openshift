@@ -1,5 +1,5 @@
 <?php
-	$url = 'http://polymerhk.com';
+	$url = 'http://hk.epochtimes.com/category/%E7%A7%91%E6%8A%80/%E7%A7%91%E6%8A%80%E6%96%B0%E8%81%9E';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -9,7 +9,7 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '最新文章');
+	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, '<h2 class="title">', $posBeg);
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -40,20 +40,25 @@
 		else $i++;
 	}
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
+
 	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'rel="author">') + 13;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'entry-title">') + 13;
 	$posEnd = strpos($ret, '</h1>', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'postcontentwrap');
 	$posBeg = strpos($ret, '<p>', $posBeg);
 	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
