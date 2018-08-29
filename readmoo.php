@@ -90,23 +90,31 @@
 		<channel>
 		<title>好書秒讀</title>
 		<description>ReadMoo</description>
-		<link>'.$url.'</link>
+		<link>https://news.readmoo.com</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>'.$date.'</lastBuildDate>
+		<lastBuildDate>'.$date[0].'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://news.readmoo.com" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
 		<itunes:explicit>no</itunes:explicit>
-		<itunes:subtitle>'.$author.'</itunes:subtitle>';
+		<itunes:subtitle>'.$author[0].'</itunes:subtitle>';
 	
-	$contentNew = '<item>
-			<title>'.$title.'</title>
-			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
-			<link>'.$url.'</link>
-			<guid isPermaLink="true">'.$url.'</guid>
-			<pubDate>'.$date.'</pubDate>
-			</item>
-			<language>en-us</language>
+	$contentNew = '';
+	$j = 0;
+	while ($j < $i)	
+	{
+	$contentNew .= '<item>
+			<title>'.$title[$j].'</title>
+			<description><![CDATA['.'<img src="'.$pic[$j].'">'.$content[$j].']]></description>
+			<link>'.$url[$j].'</link>
+			<guid isPermaLink="true">'.$url[$j].'</guid>
+			<pubDate>'.$date[$j].'</pubDate>
+			</item>';
+			
+		$j++;
+	}
+
+	$contentNew .= '<language>en-us</language>
 			<media:rating>nonadult</media:rating>
 			</channel>
 			</rss>
