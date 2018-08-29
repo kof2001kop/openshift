@@ -51,8 +51,17 @@
 	$posBeg = strpos($ret, '</', $posBeg) + 2;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '<div class="book-inside"', $posBeg);
-	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$content = str_replace('立即前往試讀►►►', '', $content);
+	$content = trim(substr($ret, $posBeg, $posEnd - $posBeg));
+	if (strpos(substr($content, strrpos($content, '<a')), '立即前往試讀►►►'))
+	{
+		$endStr = substr($content, strrpos($content, '</a>') + 4);
+		$content = substr($content, 0, strrpos($content, '<a'));
+		
+		if (strrpos($content, '，') === strlen($content))
+			$content = substr($content, 0, strrpos($content, '，'));
+		
+		$content .= $endStr;
+	}
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
