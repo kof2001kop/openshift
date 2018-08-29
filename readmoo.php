@@ -50,8 +50,9 @@
 	$posBeg = strpos($ret, 'text-align: right;">');
 	$posBeg = strpos($ret, '</', $posBeg) + 2;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '<p>※', $posBeg);
+	$posEnd = strpos($ret, '<div class="book-inside"', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+	$content = str_replace('立即前往試讀►►►', '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
