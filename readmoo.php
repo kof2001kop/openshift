@@ -55,7 +55,7 @@
 	if (strpos(substr($content, strrpos($content, '<a')), '立即前往試讀►►►'))
 	{
 		$endStr = substr($content, strrpos($content, '</a>') + 4);
-		$content = substr($content, 0, strrpos($content, '<a'));
+		$content = trim(substr($content, 0, strrpos($content, '<a')));
 		
 		if (strrpos($content, '，') === strlen($content))
 			$content = substr($content, 0, strrpos($content, '，'));
