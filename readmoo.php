@@ -6,16 +6,29 @@
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '<!-- .site-navigation -->');
+
+	$url = Array();
+	$pic = Array();
+	$title = Array();
+	$date = Array();
+	$author = Array();
+	$content = Array();
+
+	$i = 0;
+	while ($i < 3)
+	{
+	$posBeg = strpos($ret, '<article');
 	$posBeg = strpos($ret, '<h2 class="page-title">', $posBeg);
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$url = substr($ret, $posBeg, $posEnd - $posBeg);
+	$url[] = substr($ret, $posBeg, $posEnd - $posBeg);
+	$ret = substr($ret, $posEnd);
+	$i++;
+	}
+		
    	$ch = curl_init($url);
-	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
