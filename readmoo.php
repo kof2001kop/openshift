@@ -57,9 +57,10 @@
 		$endStr = substr($content, strrpos($content, '</a>') + 4);
 		$content = trim(substr($content, 0, strrpos($content, '<a')));
 		
-		if (strrpos($content, '，') === strlen($content))
-			$content = substr($content, 0, strrpos($content, '，'));
-		
+		$content .= 'kof2001kopkpr';
+		$content = str_replace('，kof2001kopkpr', '', $content);
+		$content = str_replace('kof2001kopkpr', '', $content);
+
 		$content .= $endStr;
 	}
 
