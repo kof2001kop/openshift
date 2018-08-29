@@ -40,10 +40,11 @@
 	$author = str_replace('text-align: right;">文/', '', $author);
 
 
-	$posBeg = strpos($ret, 'og:title" content="「');
-	$posEnd = strpos($ret, '」"', $posBeg);
+	$posBeg = strpos($ret, 'og:title" content="') + 19;
+	$posEnd = strpos($ret, '"', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
-	$title = str_replace('og:title" content="「', '', $title);
+	$title = str_replace('「', '', $title);
+	$title = str_replace('」', '', $title);
 
 
 	$posBeg = strpos($ret, 'text-align: right;">');
