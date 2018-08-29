@@ -28,7 +28,10 @@
 	$i++;
 	}
 		
-   	$ch = curl_init($url);
+	$k = 0;
+	while ($k < $i)
+	{
+   	$ch = curl_init($url[$k]);
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -39,42 +42,45 @@
 
 	$posBeg = strpos($ret, 'datetime="') + 10;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$date = substr($ret, $posBeg, $posEnd - $posBeg);
+	$date[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'og:image" content="') + 19;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
+	$pic[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'text-align: right;">文');
 	$posEnd = strpos($ret, '</', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-	$author = str_replace('text-align: right;">文／', '', $author);
-	$author = str_replace('text-align: right;">文╱', '', $author);
-	$author = str_replace('text-align: right;">文/', '', $author);
+	$author[$k] = str_replace('text-align: right;">文／', '', $author[$k]);
+	$author[$k] = str_replace('text-align: right;">文╱', '', $author[$k]);
+	$author[$k] = str_replace('text-align: right;">文/', '', $author[$k]);
 
 
 	$posBeg = strpos($ret, 'og:title" content="') + 19;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$title = substr($ret, $posBeg, $posEnd - $posBeg);
-	$title = str_replace('「', '', $title);
-	$title = str_replace('」', '', $title);
+	$title[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
+	$title[$k] = str_replace('「', '', $title[$k]);
+	$title[$k] = str_replace('」', '', $title[$k]);
 
 
 	$posBeg = strpos($ret, 'text-align: right;">');
 	$posBeg = strpos($ret, '</', $posBeg) + 2;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '<div class="book-inside"', $posBeg);
-	$content = trim(substr($ret, $posBeg, $posEnd - $posBeg));
-	if (strpos(substr($content, strrpos($content, '<a')), '立即前往試讀►►►'))
+	$content[$k] = trim(substr($ret, $posBeg, $posEnd - $posBeg));
+	if (strpos(substr($content[$k], strrpos($content[$k], '<a')), '立即前往試讀►►►'))
 	{
-		$endStr = substr($content, strrpos($content, '</a>') + 4);
-		$content = trim(substr($content, 0, strrpos($content, '<a')));
+		$endStr = substr($content[$k], strrpos($content[$k], '</a>') + 4);
+		$content[$k] = trim(substr($content[$k], 0, strrpos($content[$k], '<a')));
 		
-		$content .= 'kof2001kopkpr';
-		$content = str_replace('，kof2001kopkpr', '', $content);
-		$content = str_replace('kof2001kopkpr', '', $content);
+		$content[$k] .= 'kof2001kopkpr';
+		$content[$k] = str_replace('，kof2001kopkpr', '', $content[$k]);
+		$content[$k] = str_replace('kof2001kopkpr', '', $content[$k]);
 
-		$content .= $endStr;
+		$content[$k] .= $endStr;
+	}
+	
+	$k++;
 	}
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
