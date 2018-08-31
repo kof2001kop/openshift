@@ -23,14 +23,17 @@
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url[] = 'http://hk.epochtimes.com'.substr($ret, $posBeg, $posEnd - $posBeg);
+		
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic[] = substr($ret, $posBeg, $posEnd - $posBeg);
+		
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'title">', $posBeg) + 7;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
+		
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'article-date">', $posBeg) + 14;
 	$posEnd = strpos($ret, '<', $posBeg);
@@ -95,5 +98,6 @@
 			</channel>
 			</rss>
 			';
+
 	echo $head.$contentNew;
 ?>
