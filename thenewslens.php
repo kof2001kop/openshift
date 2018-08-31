@@ -25,11 +25,6 @@
 	$url[] = substr($ret, $posBeg, $posEnd - $posBeg);
 		
 	$posBeg = strpos($ret, 'img-box">');
-	$posBeg = strpos($ret, '<img src-lg="', $posBeg) + 13;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$pic[] = substr($ret, $posBeg, $posEnd - $posBeg);
-		
-	$posBeg = strpos($ret, 'img-box">');
 	$posBeg = strpos($ret, 'title="', $posBeg) + 7;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -55,6 +50,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 	
+	$posBeg = strpos($ret, 'og:image" content="') + 19;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$pic[] = substr($ret, $posBeg, $posEnd - $posBeg);	
+		
 	while (strpos($ret, '<p'))
 	{
 	$posBeg = strpos($ret, '<p');
