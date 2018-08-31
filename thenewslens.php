@@ -62,6 +62,9 @@
 	$ret = substr($ret, $posEnd);
 	}
 		
+	if (strrpos($content[$k], '<p>') >= strlen($content[$k]) - 9)
+		$content[$k] = trim(substr($content[$k], 0, strrpos($content[$k], '<p>')));	
+		
 	$k++;
 	}
 
