@@ -58,6 +58,9 @@
 	if ($clear)
 		$content = str_replace($clear, '', $content);
 
+	$content = str_replace(' style="font-size: 14pt;"', '', $content);
+
+
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
