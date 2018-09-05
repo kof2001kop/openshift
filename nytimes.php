@@ -1,5 +1,5 @@
 <?php
-	$url = 'http://hk.epochtimes.com/category/%E7%A7%91%E6%8A%80/%E7%A7%91%E6%8A%80%E6%96%B0%E8%81%9E';
+	$url = 'https://cn.nytimes.com/opinion/';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -17,7 +17,7 @@
 	$content = Array();
 	
 	$i = 0;
-	while ($i < 4)
+	while ($i < 2)
 	{
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
