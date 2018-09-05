@@ -23,14 +23,17 @@
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url[] = 'http://hk.epochtimes.com'.substr($ret, $posBeg, $posEnd - $posBeg);
+		
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic[] = substr($ret, $posBeg, $posEnd - $posBeg);
+		
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'title">', $posBeg) + 7;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
+		
 	$posBeg = strpos($ret, '<article>');
 	$posBeg = strpos($ret, 'article-date">', $posBeg) + 14;
 	$posEnd = strpos($ret, '<', $posBeg);
@@ -65,12 +68,12 @@
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
 		<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 		<channel>
-		<title>大紀元</title>
-		<description>epochtimes</description>
-		<link>http://hk.epochtimes.com</link>
+		<title>紐約時報</title>
+		<description>nytimes</description>
+		<link>https://cn.nytimes.com/opinion</link>
 		<generator>RSS for Node</generator>
 		<lastBuildDate>'.$date[0].'</lastBuildDate>
-		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://hk.epochtimes.com" />
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://cn.nytimes.com/opinion" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
 		<itunes:explicit>no</itunes:explicit>
