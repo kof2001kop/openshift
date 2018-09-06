@@ -22,15 +22,10 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '<article') + 8;
-	$posEnd = strpos($ret, '</article>', $posBeg);
-	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
-
+	
 	$posBeg = strpos($ret, 'datetime="') + 10;
-	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '</time>', $posBeg);
+	$posEnd = strpos($ret, '"', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
-	$date .= 'T00:00:01+00:00';
 
 	$posBeg = strpos($ret, 'twitter:image" content="') + 24;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -41,32 +36,25 @@
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, '<div class="entry-content">');
-	$posEnd = strpos($ret, '<p class', $posBeg);
+	$posBeg = strpos($ret, '<p>', $posBeg);
+	$posEnd = strpos($ret, '<div', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$content .= '</div>';
-	$content = str_replace('<p>&nbsp;</p>', '', $content);
-	$posBeg = strpos($content, '<p style="text-align:center; font-size: .875rem;">');
-	$posEnd = strpos($content, '</p>', $posBeg) + 4;
-	$clear = substr($content, $posBeg, $posEnd - $posBeg);
-	if ($clear)
-		$content = str_replace($clear, '', $content);
-	$content = str_replace(' style="font-size: 14pt;"', '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
 		<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 		<channel>
-		<title>哲學</title>
-		<description>好青年荼毒室</description>
-		<link>'.$url.'</link>
+		<title>4Think</title>
+		<description>4Think</description>
+		<link>https://4think.net</link>
 		<generator>RSS for Node</generator>
 		<lastBuildDate>'.$date.'</lastBuildDate>
-		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://corrupttheyouth.net" />
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://4think.net" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
 		<itunes:explicit>no</itunes:explicit>
-		<itunes:subtitle>'.$author.'</itunes:subtitle>';
+		<itunes:subtitle>4Think</itunes:subtitle>';
 	
 	$contentNew = '<item>
 			<title>'.$title.'</title>
