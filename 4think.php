@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://corrupttheyouth.net';
+	$url = 'https://4think.net';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -9,7 +9,7 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '<article') + 8;
+	$posBeg = strpos($ret, '<h2 class="entry-title">');
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -25,22 +25,21 @@
 	$posBeg = strpos($ret, '<article') + 8;
 	$posEnd = strpos($ret, '</article>', $posBeg);
 	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'datetime="') + 10;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '</time>', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
 	$date .= 'T00:00:01+00:00';
-	$posBeg = strpos($ret, '<img');
-	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
+
+	$posBeg = strpos($ret, 'twitter:image" content="') + 24;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
-	$posBeg = strpos($ret, 'author vcard">') + 14;
-	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '</a>', $posBeg);
-	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'entry-title">') + 13;
 	$posEnd = strpos($ret, '</h1>', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, '<div class="entry-content">');
 	$posEnd = strpos($ret, '<p class', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -52,6 +51,7 @@
 	if ($clear)
 		$content = str_replace($clear, '', $content);
 	$content = str_replace(' style="font-size: 14pt;"', '', $content);
+
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
