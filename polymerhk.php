@@ -60,8 +60,8 @@
 	}
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';*/
 
-	$posBeg = strpos($ret, '<p>', $posBeg);
-	$posEnd = strrpos($ret, '</p>', $posBeg);
+	$posBeg = strpos($ret, '<p>');
+	$posEnd = strrpos($ret, '</p>', $posBeg) + 4;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
