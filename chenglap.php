@@ -27,6 +27,8 @@
 	$posBeg = strpos($ret, 'articleBody":"') + 14;
 	$posEnd = strpos($ret, '","keywords"', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+	$content = str_replace('\nE', '\n', $content);
+	$content = str_replace('\n', '<br><br>', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
