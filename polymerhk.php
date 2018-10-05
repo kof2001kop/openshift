@@ -10,7 +10,12 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 	$posBeg = strpos($ret, '最新文章');
-	$posBeg = strpos($ret, '<h2 class="', $posBeg);
+	$posBeg = strpos($ret, '<img', $posBeg) + 4;
+	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
+
+	$posBeg = strpos($ret, '<h2 class="', $posEnd);
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -22,6 +27,11 @@
 	$posBeg = strpos($ret, 'entry-meta">', $posEnd) + 12;
 	$posEnd = strpos($ret, '&nbsp', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg).'T00:00:01+00:00';
+
+	$posBeg = strpos($ret, '>', $posEnd) + 1;
+	$posEnd = strpos($ret, '</a>', $posBeg);
+	$author = substr($ret, $posBeg, $posEnd - $posBeg);
+
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -50,18 +60,8 @@
 	}
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';*/
 
-	$posBeg = strpos($ret, 'imagecover');
-	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
-
-	$posBeg = strpos($ret, 'rel="author">') + 13;
-	$posEnd = strpos($ret, '</a>', $posBeg);
-	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-
-	$posBeg = strpos($ret, 'postcontentwrap');
 	$posBeg = strpos($ret, '<p>', $posBeg);
-	$posEnd = strpos($ret, '<div class="sharedaddy', $posBeg);
+	$posEnd = strrpos($ret, '</p>', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
