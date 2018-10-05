@@ -14,6 +14,10 @@
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
+
+	$posBeg = strpos($ret, '>', $posEnd) + 1;
+	$posEnd = strpos($ret, '</a>', $posBeg);
+	$title = substr($ret, $posBeg, $posEnd - $posBeg);
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -50,10 +54,6 @@
 	$posBeg = strpos($ret, 'rel="author">') + 13;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-
-	$posBeg = strpos($ret, 'entry-title">') + 13;
-	$posEnd = strpos($ret, '</h1>', $posBeg);
-	$title = substr($ret, $posBeg, $posEnd - $posBeg);
 
 	$posBeg = strpos($ret, 'postcontentwrap');
 	$posBeg = strpos($ret, '<p>', $posBeg);
