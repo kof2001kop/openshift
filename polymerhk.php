@@ -61,8 +61,8 @@
 	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';*/
 
 	$posBeg = strpos($ret, '<p>');
-	$posEnd = strrpos($ret, '</p>', $posBeg) + 4;
-	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+	$posEnd = strrpos($ret, '分享：', $posBeg);
+	$content = substr($ret, $posBeg, $posEnd - $posBeg)."</p>";
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
