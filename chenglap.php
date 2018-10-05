@@ -13,6 +13,7 @@
 	$retJSON = json_decode($ret, true);
 	$pic = $retJSON["articles"][0]["thumbnailUrl"];
 	$title = $retJSON["articles"][0]["title"];
+	$date = $retJSON["articles"][0]["createdAt"];
 	$url = "https://sosreader.com/n/chenglap/".$retJSON["articles"][0]["_id"];
    	$ch = curl_init($url);
 	      
@@ -23,35 +24,17 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
-	$posBeg = strpos($ret, '<article') + 8;
-	$posEnd = strpos($ret, '</article>', $posBeg);
-	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
-
-	$posBeg = strpos($ret, 'datetime="') + 10;
-	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '</time>', $posBeg);
-	$date = substr($ret, $posBeg, $posEnd - $posBeg);
-	$date .= 'T00:00:01+00:00';
-
-	$posBeg = strpos($ret, '<div class="entry-content">');
-	$posEnd = strpos($ret, '<p class', $posBeg);
+	$posBeg = strpos($ret, 'articleBody":"') + 14;
+	$posEnd = strpos($ret, '","keywords"', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
-	$content .= '</div>';
-	$content = str_replace('<p>&nbsp;</p>', '', $content);
-	$posBeg = strpos($content, '<p style="text-align:center; font-size: .875rem;">');
-	$posEnd = strpos($content, '</p>', $posBeg) + 4;
-	$clear = substr($content, $posBeg, $posEnd - $posBeg);
-	if ($clear)
-		$content = str_replace($clear, '', $content);
-	$content = str_replace(' style="font-size: 14pt;"', '', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
 		<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 		<channel>
-		<title>哲學</title>
-		<description>好青年荼毒室</description>
+		<title>鄭立</title>
+		<description>這些都只是常識</description>
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
 		<lastBuildDate>'.$date.'</lastBuildDate>
@@ -74,5 +57,5 @@
 			</rss>
 			';
 		
-	echo $head.$contentNew;*/
+	echo $head.$contentNew;
 ?>
