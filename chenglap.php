@@ -11,7 +11,7 @@
 	curl_close($ch);
 
 	$retJSON = json_decode($ret);
-	var_dump($retJSON);
+	var_dump($retJSON["articles"]);
 	
 	/*$posBeg = strpos($ret, '<article') + 8;
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
