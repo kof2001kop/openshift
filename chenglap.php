@@ -11,10 +11,9 @@
 	curl_close($ch);
 
 	$retJSON = json_decode($ret, true);
-	echo "https://sosreader.com/n/chenglap/".$retJSON["articles"][0]["_id"];
-	echo $retJSON["articles"][0]["thumbnailUrl"];
-	
-	/*$url = substr($ret, $posBeg, $posEnd - $posBeg);
+	$pic = $retJSON["articles"][0]["thumbnailUrl"];
+	$title = $retJSON["articles"][0]["title"];
+	$url = "https://sosreader.com/n/chenglap/".$retJSON["articles"][0]["_id"];
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -27,22 +26,13 @@
 	$posBeg = strpos($ret, '<article') + 8;
 	$posEnd = strpos($ret, '</article>', $posBeg);
 	$ret = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, 'datetime="') + 10;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '</time>', $posBeg);
 	$date = substr($ret, $posBeg, $posEnd - $posBeg);
 	$date .= 'T00:00:01+00:00';
-	$posBeg = strpos($ret, '<img');
-	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$pic = substr($ret, $posBeg, $posEnd - $posBeg);
-	$posBeg = strpos($ret, 'author vcard">') + 14;
-	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '</a>', $posBeg);
-	$author = substr($ret, $posBeg, $posEnd - $posBeg);
-	$posBeg = strpos($ret, 'entry-title">') + 13;
-	$posEnd = strpos($ret, '</h1>', $posBeg);
-	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
 	$posBeg = strpos($ret, '<div class="entry-content">');
 	$posEnd = strpos($ret, '<p class', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -54,6 +44,7 @@
 	if ($clear)
 		$content = str_replace($clear, '', $content);
 	$content = str_replace(' style="font-size: 14pt;"', '', $content);
+
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
 		<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
@@ -64,11 +55,11 @@
 		<link>'.$url.'</link>
 		<generator>RSS for Node</generator>
 		<lastBuildDate>'.$date.'</lastBuildDate>
-		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://corrupttheyouth.net" />
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://sosreader.com/n/user/@chenglap?page=1" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
 		<itunes:explicit>no</itunes:explicit>
-		<itunes:subtitle>'.$author.'</itunes:subtitle>';
+		<itunes:subtitle>鄭立</itunes:subtitle>';
 	
 	$contentNew = '<item>
 			<title>'.$title.'</title>
