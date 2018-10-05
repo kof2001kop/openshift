@@ -10,7 +10,7 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 	$posBeg = strpos($ret, '最新文章');
-	$posBeg = strpos($ret, '<h2 class="title">', $posBeg);
+	$posBeg = strpos($ret, '<h2 class="', $posBeg);
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
