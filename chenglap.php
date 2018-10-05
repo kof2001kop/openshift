@@ -10,8 +10,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	json_decode($ret);
-	$posBeg = strpos($ret, '<article') + 8;
+	$retJSON = json_decode($ret);
+	var_dump($retJSON);
+	
+	/*$posBeg = strpos($ret, '<article') + 8;
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$url = substr($ret, $posBeg, $posEnd - $posBeg);
@@ -83,5 +85,5 @@
 			</rss>
 			';
 		
-	echo $head.$contentNew;
+	echo $head.$contentNew;*/
 ?>
