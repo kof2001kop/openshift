@@ -11,12 +11,9 @@
 	curl_close($ch);
 
 	$retJSON = json_decode($ret, true);
-	echo $retJSON["articles"][0]["_id"];
+	echo "https://sosreader.com/n/chenglap/".$retJSON["articles"][0]["_id"];
 	
-	/*$posBeg = strpos($ret, '<article') + 8;
-	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$url = substr($ret, $posBeg, $posEnd - $posBeg);
+	/*$url = substr($ret, $posBeg, $posEnd - $posBeg);
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
