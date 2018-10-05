@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://corrupttheyouth.net';
+	$url = 'https://api.sosreader.com/api/articles?userid=5a41f683eceaedd6be917198&num=1&status=2';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -9,6 +9,8 @@
 	     
 	$ret = curl_exec($ch);
 	curl_close($ch);
+
+	json_decode($ret);
 	$posBeg = strpos($ret, '<article') + 8;
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
