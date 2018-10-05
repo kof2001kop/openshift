@@ -18,6 +18,10 @@
 	$posBeg = strpos($ret, '>', $posEnd) + 1;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$title = substr($ret, $posBeg, $posEnd - $posBeg);
+
+	$posBeg = strpos($ret, 'entry-meta">', $posEnd) + 12;
+	$posEnd = strpos($ret, '&nbsp', $posBeg);
+	$date = substr($ret, $posBeg, $posEnd - $posBeg).'T00:00:01+00:00';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -28,7 +32,7 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$posBeg = strpos($ret, 'class="day">') + 12;
+	/*$posBeg = strpos($ret, 'class="day">') + 12;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$day = trim(substr($ret, $posBeg, $posEnd - $posBeg));
 	$posBeg = strpos($ret, 'class="month">') + 14;
@@ -44,7 +48,7 @@
 		if ($value === $month) break;
 		else $i++;
 	}
-	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';
+	$date = $year.'-'.strval($i).'-'.$day.'T00:00:01+00:00';*/
 
 	$posBeg = strpos($ret, 'imagecover');
 	$posBeg = strpos($ret, 'src="', $posBeg) + 5;
