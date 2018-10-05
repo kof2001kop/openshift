@@ -10,9 +10,8 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$retJSON = json_decode($ret);
-	echo  $retJSON[0];
-	//var_dump($retJSON[0]["articles"]);
+	$retJSON = json_decode($ret, true);
+	var_dump($retJSON);
 	
 	/*$posBeg = strpos($ret, '<article') + 8;
 	$posBeg = strpos($ret, 'href=', $posBeg) + 6;
