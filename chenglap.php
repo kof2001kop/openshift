@@ -12,6 +12,7 @@
 
 	$retJSON = json_decode($ret, true);
 	echo "https://sosreader.com/n/chenglap/".$retJSON["articles"][0]["_id"];
+	echo $retJSON["articles"][0]["thumbnailUrl"];
 	
 	/*$url = substr($ret, $posBeg, $posEnd - $posBeg);
    	$ch = curl_init($url);
