@@ -41,6 +41,10 @@
 	$contentNew = str_replace($description, '', $contentNew);
 	$contentNew = str_replace(']]></description>', '<p>'.$description.'</p>]]></description>', $contentNew);
 
+	$posBeg = strpos($contentNew, '<description><![CDATA[') + 22;
+	$posEnd = strpos($contentNew, ']]></description>', $posBeg);
+	$contentNew = substr($contentNew, 0, $posBeg).substr($contentNew, $posEnd);
+
 	echo $contentNew;
 
 ?>
