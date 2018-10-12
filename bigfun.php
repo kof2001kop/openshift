@@ -39,7 +39,7 @@
 	$description = substr($contentNew, $posBeg, $posEnd - $posBeg);
 
 	$contentNew = str_replace($description, '', $contentNew);
-	$contentNew = str_replace(']]></description>', '<p>'.$description.'</p>]]></description>', $contentNew);
+	$contentNew = str_replace(']]></description>', '<4p>'.$description.'</p>]]></description>', $contentNew);
 
 	echo $contentNew;
 
