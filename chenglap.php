@@ -1,5 +1,5 @@
 <?php
-	$url = 'https://api.sosreader.com/api/articles?userid=5a41f683eceaedd6be917198&num=1&status=2';
+	$url = 'https://api.sosreader.com/api/articles?userId=5a41f683eceaedd6be917198&num=2&page=1&status=2&sort=lastPublishAt';
    	$ch = curl_init($url);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
