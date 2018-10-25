@@ -58,8 +58,8 @@
 	$posEnd = strpos($ret, '</p>', $posBeg) + 4;
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content = str_replace('<br />', '<br/>', $content);
-	$posBeg = strpos($content, '<br/><br/>');
-	$content = substr($content, 0, $posBeg);
+	//$posBeg = strpos($content, '<br/><br/>');
+	//$content = substr($content, 0, $posBeg);
 	$content = str_replace('<br/><br/>', '<br/>', $content);
 	$content = str_replace('<br/>', '<br/><br/>', $content);
 	$content = str_replace('http://www.facebook.com/mrleeyee', '', $content);
