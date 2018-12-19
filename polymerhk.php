@@ -62,7 +62,7 @@
 
 	$posBeg = strpos($ret, '<p>');
 	$posEnd = strrpos($ret, '分享：', $posBeg);
-	$content = substr($ret, $posBeg, $posEnd - $posBeg)."</p>";
+	$content = "<strong>".substr($ret, $posBeg, $posEnd - $posBeg)."</p></strong>";
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
