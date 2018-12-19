@@ -58,7 +58,7 @@
 	
 	$contentNew = '<item>
 			<title>'.$title.'</title>
-			<description><![CDATA['.'<img src="'.$pic.'">'.$content.']]></description>
+			<description><![CDATA['.'<img src="'.$pic.'">'.'<strong>'.$content.'</strong>'.']]></description>
 			<link>'.$url.'</link>
 			<guid isPermaLink="true">'.$url.'</guid>
 			<pubDate>'.$date.'</pubDate>
