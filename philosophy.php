@@ -58,7 +58,7 @@
 	if ($clear)
 		$content = str_replace($clear, '', $content);
 
-	$content = str_replace(' style="font-size: 14pt;"', '', $content);
+	$content = '<strong>'.str_replace(' style="font-size: 14pt;"', '', $content).'</strong>';
 
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
