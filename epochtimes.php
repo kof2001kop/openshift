@@ -62,8 +62,8 @@
 	$posEnd = strpos($ret, '</section>', $posBeg);
 	$content[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content[$k] = str_replace('◇', '', $content[$k]);
-	$content[$k] = str_replace('<h4>', '<h1>', $content[$k]);
-	$content[$k] = str_replace('</h4>', '</h1>', $content[$k]);	
+	$content[$k] = str_replace('<h4>', '<strong>', $content[$k]);
+	$content[$k] = str_replace('</h4>', '</strong>', $content[$k]);	
 	$content[$k] = trim($content[$k]);
 	if (strrpos($content[$k], '<p>') >= strlen($content[$k]) - 9)
 		$content[$k] = trim(substr($content[$k], 0, strrpos($content[$k], '<p>')));
