@@ -62,6 +62,8 @@
 	$posEnd = strpos($ret, '</section>', $posBeg);
 	$content[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 	$content[$k] = str_replace('◇', '', $content[$k]);
+	$content[$k] = str_replace('<h4>', '<h2>', $content[$k]);
+	$content[$k] = str_replace('</h4>', '</h2>', $content[$k]);	
 	$content[$k] = trim($content[$k]);
 	if (strrpos($content[$k], '<p>') >= strlen($content[$k]) - 9)
 		$content[$k] = trim(substr($content[$k], 0, strrpos($content[$k], '<p>')));
@@ -91,7 +93,7 @@
 	{
 	$contentNew .= '<item>
 			<title>'.$title[$j].'</title>
-			<description><![CDATA['.'<img src="'.$pic[$j].'">'.'<strong>'.$content[$j].'</strong>'.']]></description>
+			<description><![CDATA['.'<img src="'.$pic[$j].'">'.'<h1>'.$content[$j].'</h1>'.']]></description>
 			<link>'.$url[$j].'</link>
 			<guid isPermaLink="true">'.$url[$j].'</guid>
 			<pubDate>'.$date[$j].'</pubDate>
