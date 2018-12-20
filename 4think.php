@@ -39,6 +39,8 @@
 	$posBeg = strpos($ret, '<p>', $posBeg);
 	$posEnd = strpos($ret, '<div', $posBeg);
 	$content = substr($ret, $posBeg, $posEnd - $posBeg);
+	$content = str_replace('<h1>', '<strong>', $content);
+	$content = str_replace('</h1>', '</strong>', $content);
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
