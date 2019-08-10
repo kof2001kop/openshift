@@ -53,13 +53,13 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-    while(strpos($ret, '<i class="anticon anticon-tag-o c0126">') !== FALSE)
+        while(strpos($ret, '<i class="anticon anticon-tag-o c0126">') !== FALSE)
 	{
 	$posBeg = strpos($ret, 'c0115">') + 7;
 	$posEnd = strpos($ret, '<i class="anticon anticon-tag-o c0126">', $posBeg);
 	$content[$k] .= trim(substr($ret, $posBeg, $posEnd - $posBeg));
-    $ret = substr($ret, $posEnd) + 39;
-    }
+        $ret = substr($ret, $posEnd) + 39;
+        }
     
 	$k++;
 	}
