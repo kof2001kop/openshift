@@ -53,13 +53,13 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-  //      while(strpos($ret, '<i class="anticon anticon-tag-o c0126">') !== FALSE)
-//	{
-//	$posBeg = strpos($ret, 'c0115">') + 7;
-//	$posEnd = strpos($ret, '<i class="anticon anticon-tag-o c0126">', $posBeg);
-//	$content[$k] .= trim(substr($ret, $posBeg, $posEnd - $posBeg));
-//        $ret = substr($ret, $posEnd) + 39;
-//        }
+    $line = 1;
+    while ($line < 26)
+    {
+    $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
+    $line++;
+    }
+    
     $content[$k] = $ret;
 	$k++;
 	}
