@@ -53,6 +53,8 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
+    $ret = str_replace(' 月前</span>', '</span>', $ret);  
+    $ret = str_replace(' 天前</span>', '</span>', $ret);   
     $ret = str_replace(' 小時前</span>', '</span>', $ret);
     $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
     $ret = str_replace('幾秒前</span>', '</span>', $ret);
