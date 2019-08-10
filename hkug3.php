@@ -53,6 +53,17 @@
 	$posEnd = strpos($ret, '<', $posBeg);
 	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
 
+    $ret = str_replace(' 小時前</span>', '</span>', $ret);
+    $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
+    $ret = str_replace('幾秒前</span>', '</span>', $ret);
+    
+    $timing = 1;
+    while ($timing < 60)
+    {
+    $ret = str_replace('<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
+    $timing++;
+    }
+    
     $line = 1;
     while ($line < 26)
     {
