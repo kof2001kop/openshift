@@ -62,13 +62,16 @@
     $ret = str_replace('<div class="c0124">', '<div style="color:#6495ED">', $ret);
     $ret = str_replace('<div class="c0125">', '<div style="color:#6495ED">', $ret);
     
-    $ret = str_replace('<blockquote>', '<blockquote style="color: #C0C0C0">', $ret);
+    $ret = str_replace('<blockquote>', '<blockquote style="margin: 0 0 1rem;
+    border-left: .1rem solid rgba(0, 0, 0, 0.45);
+    padding-left: .7rem;
+    padding-bottom: .3rem;color: #C0C0C0">', $ret);
     $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i>', $ret);
     $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-dislike-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#90EE90"><i class="anticon anticon-dislike-o c0126"></i>', $ret);
       
     $ret = str_replace('HKUG ©2018 Created by HKGOS', '', $ret);
     $ret = str_replace('<span>第 1 頁</span>', '', $ret);
-    $ret = str_replace('<div class="c0115">', '<div style="font-size: x-large;"', $ret);
+    //$ret = str_replace('<div class="c0115">', '<div style="font-size: x-large;"', $ret);
       
     $timing = 1;
     while ($timing < 60)
