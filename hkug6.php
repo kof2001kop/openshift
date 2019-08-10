@@ -62,6 +62,11 @@
     $ret = str_replace('<div class="c0124">', '<div style="color:blue">', $ret);
     $ret = str_replace('<div class="c0125">', '<div style="color:blue">', $ret);
     
+    $ret = str_replace('blockquote {', 'blockquote {background: #D3D3D3;', $ret);
+    $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i>', $ret);
+    $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-dislike-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#90EE90"><i class="anticon anticon-dislike-o c0126"></i>', $ret);
+      
+      
     $timing = 1;
     while ($timing < 60)
     {
