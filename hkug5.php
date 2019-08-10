@@ -59,6 +59,9 @@
     $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
     $ret = str_replace('幾秒前</span>', '</span>', $ret);
     
+    $ret = str_replace('<div class="c0124">', '<div style="color:blue">', $ret);
+    $ret = str_replace('<div class="c0125">', '<div style="color:blue">', $ret);
+    
     $timing = 1;
     while ($timing < 60)
     {
