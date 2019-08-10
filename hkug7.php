@@ -59,13 +59,15 @@
     $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
     $ret = str_replace('幾秒前</span>', '</span>', $ret);
     
-    $ret = str_replace('<div class="c0124">', '<div style="color:blue">', $ret);
-    $ret = str_replace('<div class="c0125">', '<div style="color:blue">', $ret);
+    $ret = str_replace('<div class="c0124">', '<div style="color:#6495ED">', $ret);
+    $ret = str_replace('<div class="c0125">', '<div style="color:#6495ED">', $ret);
     
-    $ret = str_replace('blockquote {', 'blockquote {background: #D3D3D3;', $ret);
+    $ret = str_replace('blockquote {', 'blockquote {color: #C0C0C0;', $ret);
     $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i>', $ret);
     $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-dislike-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#90EE90"><i class="anticon anticon-dislike-o c0126"></i>', $ret);
       
+    $ret = str_replace('HKUG ©2018 Created by HKGOS', '', $ret);
+    $ret = str_replace('<span>第 1 頁</span>', '', $ret);
       
     $timing = 1;
     while ($timing < 60)
