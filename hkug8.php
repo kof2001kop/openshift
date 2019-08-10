@@ -68,6 +68,7 @@
       
     $ret = str_replace('HKUG ©2018 Created by HKGOS', '', $ret);
     $ret = str_replace('<span>第 1 頁</span>', '', $ret);
+    $ret = str_replace('font-size: medium;', 'font-size: x-large;', $ret);
       
     $timing = 1;
     while ($timing < 60)
