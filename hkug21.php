@@ -52,9 +52,10 @@
 	$ret2 = curl_exec($ch);
 	$posBeg = strpos($ret2, '<div class="c0119">');
 	$ret2 = substr($ret2, $posBeg);
-	
 	$ret .= $ret2;
-	
+	$posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	$ret = substr($ret, 0, $posBeg);
+		
 	$ch = curl_init($url[$k].'&page=3');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
@@ -106,7 +107,7 @@
     }
     
     $line = 1;
-    while ($line < 51)
+    while ($line < 76)
     {
     $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
     $line++;
