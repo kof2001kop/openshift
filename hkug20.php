@@ -84,8 +84,8 @@
       
     $ret = str_replace('HKUG ©2018 Created by HKGOS', '', $ret);
     $ret = str_replace('<span>第 2 頁</span>', '', $ret);
-    $ret = str_replace('<div class="c0115">', '<div class="c0115"><big>', $ret);
-    $ret = str_replace('</div><div class="ant-row"', '</big></div><div class="ant-row"', $ret);
+    $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
+    $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
       
     $timing = 59;
     while ($timing > 0)
