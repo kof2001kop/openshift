@@ -40,8 +40,8 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);	     
 	$ret = curl_exec($ch);
-	$posBeg = strpos($ret, 0, '</div></div></div><div class="c0122">');
-	$ret = substr($ret, $posBeg);
+	$posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	$ret = substr($ret, 0, $posBeg);
 	
 	
 	$ch = curl_init($url[$k].'&page=2');
