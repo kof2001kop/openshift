@@ -38,9 +38,22 @@
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	     
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);	     
 	$ret = curl_exec($ch);
+	$posBeg = strpos($ret, 0, '</div></div></div><div class="c0122">');
+	$ret = substr($ret, $posBeg);
+	
+	
+	$ch = curl_init($url[$k].'&page=2');
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+	curl_setopt($ch, CURLOPT_HEADER, 0); 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+	$ret2 = curl_exec($ch);
+	$posBeg = strpos($ret2, '<div class="c0119">');
+	$ret2 = substr($ret2, $posBeg);
+	
+	$ret .= $ret2;
 	curl_close($ch);
 
 	$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
@@ -63,7 +76,7 @@
     $ret = str_replace('<div class="c0125">', '<div style="color:#6495ED">', $ret);
     
     $ret = str_replace('<blockquote>', '<blockquote style="margin: 0 0 1rem;
-    border-left: .1rem solid rgba(0, 0, 0, 0.45);
+    border-left: .1rem solid rgba(100, 100, 100, 0.45);
     padding-left: .7rem;
     padding-bottom: .3rem;color: #808080">', $ret);
     $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i>', $ret);
