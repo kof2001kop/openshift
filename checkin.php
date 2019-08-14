@@ -1,17 +1,4 @@
-/*
-Check in for Surge by Neurogram
-
- - 站点签到脚本
- - 流量详情显示
- - 多站签到支持
- - 多类站点支持
- 
-使用说明：https://www.notion.so/neurogram/Check-in-0797ec9f9f3f445aae241d7762cf9d8b
-
-关于作者
-Telegram: Neurogram
-GitHub: Neurogram-R
-*/
+<?php
 
 const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
@@ -84,3 +71,6 @@ function dataResults(url, checkinMsg, title) {
         }
     });
 }
+
+
+?>
