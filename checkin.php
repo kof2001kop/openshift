@@ -1,5 +1,5 @@
 <?php
-
+<script type="text/javascript">
 const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
@@ -71,6 +71,6 @@ function dataResults(url, checkinMsg, title) {
         }
     });
 }
-
+</script>
 
 ?>
