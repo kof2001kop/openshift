@@ -12,9 +12,11 @@
 	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big><big>', $ret);
 	$ret = str_replace(']]></description>', '</big></big>]]></description>', $ret);
     		
-    $pattern = '#\<(\/)?'.'a'.'.*?\>#i';
+    //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
     //正则过滤指定标签
-    $ret = preg_replace($pattern, '', $ret);
+    //$ret = preg_replace($pattern, '', $ret);
+    $ret = preg_replace("(<a [^>]*>|</a>)","",$ret);
+    
     
 	//echo $_GET['url'];
 	echo $ret;
