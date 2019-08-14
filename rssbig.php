@@ -1,5 +1,5 @@
 <?php
-   	$ch = curl_init('https://'.$_GET['url']);
+   	$ch = curl_init($_GET['url']);
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
@@ -9,9 +9,9 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$date = str_replace('<description>', '<description><big><big>', $date);
-	$date = str_replace('</description>', '</big></big></description>', $date);
+	$ret = str_replace('<description>', '<description><big><big>', $ret);
+	$ret = str_replace('</description>', '</big></big></description>', $ret);
 		
-	echo $_GET['url'];
-	echo $date;
+	//echo $_GET['url'];
+	echo $ret;
 ?>
