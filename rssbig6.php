@@ -15,7 +15,7 @@
     //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
     //正则过滤指定标签
     //$ret = preg_replace($pattern, '', $ret);
-    $ret = preg_replace("(<a [^>]*</a>)","",$ret);
+    $ret = preg_replace('/<a href=.*?<\/a>/', '', $ret);
     
     
 	//echo $_GET['url'];
