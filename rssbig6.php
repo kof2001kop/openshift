@@ -9,8 +9,8 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big><big>', $ret);
-	$ret = str_replace(']]></description>', '</big></big>]]></description>', $ret);
+	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big>', $ret);
+	$ret = str_replace(']]></description>', '</big>]]></description>', $ret);
     		
     //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
     //正则过滤指定标签
