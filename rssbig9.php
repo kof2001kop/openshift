@@ -25,6 +25,8 @@
 
 	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big>', $ret);
 	$ret = str_replace(']]></description>', '</big>]]></description>', $ret);
+    $ret = str_replace('<title><![CDATA[爆笑祖国 · 厉害了赵的国 - Telegram 频道]]></title>', '<title><![CDATA[其他]]></title>', $ret);
+    		
     		
     //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
     //正则过滤指定标签
