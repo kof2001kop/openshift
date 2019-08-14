@@ -9,9 +9,10 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$ret = str_replace('<![CDATA[', '<![CDATA[<big><big>', $ret);
-	$ret = str_replace(']]>', '</big></big>]]>', $ret);
-		
+	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big><big>', $ret);
+	$ret = str_replace(']]></description>', '</big></big>]]></description>', $ret);
+        $ret = strip_tags($ret, '<a>');		
+    		
 	//echo $_GET['url'];
 	echo $ret;
 ?>
