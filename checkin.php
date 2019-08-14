@@ -81,4 +81,6 @@ $out = '<!DOCTYPE html>
     </head>
     <body>'.$ret.'</body>
 </html>';
+
+echo $out;
 ?>
