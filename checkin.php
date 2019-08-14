@@ -1,5 +1,6 @@
 <?php
-<script type="text/javascript">
+
+$ret = '<script type="text/javascript">
 const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
@@ -71,6 +72,15 @@ function dataResults(url, checkinMsg, title) {
         }
     });
 }
-</script>
+</script>';
 
+$out = '<!DOCTYPE html>
+<html>
+    <head>
+        <title>登錄</title>
+    </head>
+    <body>
+Hello World!
+    </body>
+</html>';
 ?>
