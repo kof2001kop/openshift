@@ -79,8 +79,6 @@ $out = '<!DOCTYPE html>
     <head>
         <title>登錄</title>
     </head>
-    <body>
-Hello World!
-    </body>
+    <body>'.$ret.'</body>
 </html>';
 ?>
