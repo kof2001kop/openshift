@@ -35,10 +35,10 @@ function login(url, email, password, title) {
     $httpClient.post(table, async function (error, response, data) {
         if (error) {
             console.log(error);
-            $notification.post(title + '登录失败', error, "");
+            $notification.post(title + "登录失败", error, "");
         } else {
             if (JSON.parse(data).msg == "邮箱或者密码错误") {
-                $notification.post(title + '邮箱或者密码错误', "", "");
+                $notification.post(title + "邮箱或者密码错误", "", "");
             } else {
                 await checkin(url, title)
             }
