@@ -1,6 +1,6 @@
 <?php
 
-$ret = '<script type="text/javascript">
+$sp = '<script type="text/javascript">
 const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
@@ -34,10 +34,10 @@ function login(url, email, password, title) {
     $httpClient.post(table, async function (error, response, data) {
         if (error) {
             console.log(error);
-            $notification.post(title + '登录失败', error, "");
+            $notification.post(title + "登录失败", error, "");
         } else {
             if (JSON.parse(data).msg == "邮箱或者密码错误") {
-                $notification.post(title + '邮箱或者密码错误', "", "");
+                $notification.post(title + "邮箱或者密码错误", "", "");
             } else {
                 await checkin(url, title)
             }
@@ -51,7 +51,7 @@ function checkin(url, title) {
     $httpClient.post(url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath, async function (error, response, data) {
         if (error) {
             console.log(error);
-            $notification.post(title + '签到失败', error, "");
+            $notification.post(title + "签到失败", error, "");
         } else {
             await dataResults(url, JSON.parse(data).msg, title)
         }
@@ -68,7 +68,7 @@ function dataResults(url, checkinMsg, title) {
             restData = restData[0].match(/\d\S*(K|G|M|T)/)
             $notification.post(title, checkinMsg, "已用流量：" + usedData[0] + "B" + "\n剩余流量：" + restData[0] + "B");
         } else {
-            $notification.post(title + '获取流量信息失败', "", "");
+            $notification.post(title + "获取流量信息失败", "", "");
         }
     });
 }
@@ -79,7 +79,7 @@ $out = '<!DOCTYPE html>
     <head>
         <title>登錄</title>
     </head>
-    <body>'.'hjjjjh'.'</body>
+    <body>'.'hdhdbd'.'</body>
 </html>';
 
 echo $out;
