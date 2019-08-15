@@ -1,5 +1,7 @@
 <?php
 
+$sp = '';
+
 $out = '<!DOCTYPE html>
 <html>
     <head>
