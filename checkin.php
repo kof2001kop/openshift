@@ -16,10 +16,11 @@ async function launch() {
         let url = accounts[i][1]
         let email = accounts[i][2]
         let password = accounts[i][3]
+document.write("for");
         await login(url, email, password, title)
     }
-    $done();
-    document.write("launch");
+document.write("launch");
+    $done(); 
 }
 
 launch()
