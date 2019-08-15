@@ -54,8 +54,6 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	$ret3 = curl_exec($ch);
-	$posBeg = strpos($ret3, '<div class="c0119">');
-	$ret3 = substr($ret3, $posBeg);
 	
         if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
         {
@@ -72,6 +70,9 @@
         $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
 		
+        $posBeg = strpos($ret3, '<div class="c0119">');
+	$ret3 = substr($ret3, $posBeg);
+	
 	$ret .= $ret3;
         }
         }
