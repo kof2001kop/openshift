@@ -48,7 +48,9 @@ function login(url, email, password, title) {
             if (JSON.parse(data).msg == "邮箱或者密码错误") {
                 $notification.post(title + "邮箱或者密码错误", "", "");
                 document.write("郵箱或密碼錯誤");
-            } else {
+            } else 
+            {
+                document.write("login");
                 await checkin(url, title)
             }
         }
