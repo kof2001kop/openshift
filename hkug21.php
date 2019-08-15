@@ -27,12 +27,10 @@
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
 	
-        $content[] = "ok";
-        $author[] = "ok";
 	$ret = substr($ret, $posEnd);
 	$i++;
 	}
-	/*	
+		
 	$k = 0;
 	while ($k < $i)
 	{
@@ -42,7 +40,8 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);	     
 	$ret = curl_exec($ch);
-	$posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	/*
+        $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
 	
 	
@@ -68,6 +67,7 @@
 	$ret3 = substr($ret3, $posBeg);
 	
 	$ret .= $ret3;
+        */
 	curl_close($ch);
 
 	$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
@@ -117,7 +117,7 @@
     
     $content[$k] = $ret;
 	$k++;
-    }*/
+    }
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
