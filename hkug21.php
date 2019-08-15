@@ -32,7 +32,8 @@
 	}
 		
 	$k = 0;
-	while ($k < $i)
+	/*
+        while ($k < $i)
 	{
    	$ch = curl_init($url[$k]);
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -54,7 +55,7 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	$ret3 = curl_exec($ch);
-	/*
+	
         if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
         {
 
@@ -76,11 +77,11 @@
 	
 	$ret .= $ret3;
         }
-        }*/
+        }
 
 	curl_close($ch);
 
-	/*$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
+	$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$date[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
          
@@ -89,11 +90,9 @@
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
-*/
-        $date[$k] = '';
-        $author[$k] = '';
 
- /*   $ret = str_replace(' 月前</span>', '</span>', $ret);  
+
+    $ret = str_replace(' 月前</span>', '</span>', $ret);  
     $ret = str_replace(' 天前</span>', '</span>', $ret);   
     $ret = str_replace(' 小時前</span>', '</span>', $ret);
     $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
@@ -126,11 +125,11 @@
     {
     $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
     $line++;
-    }*/
+    }
     
     $content[$k] = $ret;
 	$k++;
-    }
+    }*/
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
