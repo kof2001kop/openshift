@@ -65,7 +65,7 @@
 	
         $ret .= $ret2;
 
-        if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
+       /* if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
         {
         $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
@@ -74,7 +74,7 @@
 	$ret3 = substr($ret3, $posBeg);
 	
 	$ret .= $ret3;
-        }
+        }*/
         }
 
 	curl_close($ch);
