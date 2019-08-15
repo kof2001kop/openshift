@@ -79,15 +79,18 @@
 
 	curl_close($ch);
 
-	$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
+	/*$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$date[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
-
+         
 
 	$posBeg = strpos($ret, 'c0123 ">') + 8;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
 	$posEnd = strpos($ret, '<', $posBeg);
 	$author[$k] = substr($ret, $posBeg, $posEnd - $posBeg);
+*/
+        $date[$k] = '';
+        $author[$k] = '';
 
     $ret = str_replace(' 月前</span>', '</span>', $ret);  
     $ret = str_replace(' 天前</span>', '</span>', $ret);   
