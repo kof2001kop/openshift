@@ -38,6 +38,7 @@ function login(url, email, password, title) {
             "rumber-me": "week"
         }
     }
+    document.write("logs");
     $httpClient.post(table, async function (error, response, data) {
         if (error) 
         {
