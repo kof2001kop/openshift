@@ -93,7 +93,7 @@
         $date[$k] = '';
         $author[$k] = '';
 
-    $ret = str_replace(' 月前</span>', '</span>', $ret);  
+ /*   $ret = str_replace(' 月前</span>', '</span>', $ret);  
     $ret = str_replace(' 天前</span>', '</span>', $ret);   
     $ret = str_replace(' 小時前</span>', '</span>', $ret);
     $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
@@ -126,7 +126,7 @@
     {
     $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
     $line++;
-    }
+    }*/
     
     $content[$k] = $ret;
 	$k++;
