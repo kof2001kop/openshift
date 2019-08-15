@@ -77,8 +77,8 @@
         for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
         {
             $ret = $retArr[$i];
-            $ret1 = $retArr[$i + 1];
-            $ret2 = $retArr[$i + 2];
+            $ret2 = $retArr[$i + 1];
+            $ret3 = $retArr[$i + 2];
            
             if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
             {
