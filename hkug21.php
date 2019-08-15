@@ -45,11 +45,15 @@
 	$ret = substr($ret, $posEnd);
 	$i++;
 	}
-		
-foreach ($urls as $i => $url) 
+	
+        for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
         {
-         echo $url.'<br/>';
-        }
+            echo $urls[$i].'<br/>';
+            echo $urls[$i + 1].'<br/>';
+            echo $urls[$i + 2].'<br/>';
+            echo '<br/>';
+            $i += 3;
+        }	
 
 	$k = 0;
 	
