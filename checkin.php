@@ -15,6 +15,7 @@ async function launch() {
         await login(url, email, password, title)
     }
     $done();
+    document.write("launch");
 }
 
 launch()
@@ -79,6 +80,7 @@ function dataResults(url, checkinMsg, title) {
         }
     });
 }
+document.write("bye");
 </script>';
 
 $out = '<!DOCTYPE html>
