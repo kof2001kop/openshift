@@ -46,8 +46,6 @@
 	$i++;
 	}
 	
-	$k = 0;
-	
         //1、初始化一个批处理handle
         $mh = curl_multi_init();
 
@@ -109,59 +107,51 @@
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $date[] = substr($ret, $posBeg, $posEnd - $posBeg);
          
-	$posBeg = strpos($ret, 'c0123 ">') + 8;
-	$posBeg = strpos($ret, '>', $posBeg) + 1;
-	$posEnd = strpos($ret, '<', $posBeg);
-	$author[] = substr($ret, $posBeg, $posEnd - $posBeg);
+	    $posBeg = strpos($ret, 'c0123 ">') + 8;
+	    $posBeg = strpos($ret, '>', $posBeg) + 1;
+	    $posEnd = strpos($ret, '<', $posBeg);
+	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-        $ret = str_replace(' 月前</span>', '</span>', $ret);  
-        $ret = str_replace(' 天前</span>', '</span>', $ret);   
-        $ret = str_replace(' 小時前</span>', '</span>', $ret);
-        $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
-        $ret = str_replace('幾秒前</span>', '</span>', $ret);
+            $ret = str_replace(' 月前</span>', '</span>', $ret);  
+            $ret = str_replace(' 天前</span>', '</span>', $ret);   
+            $ret = str_replace(' 小時前</span>', '</span>', $ret);
+            $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
+            $ret = str_replace('幾秒前</span>', '</span>', $ret);
     
-        $ret = str_replace('<div class="c0124">', '<div style="color:#6495ED">', $ret);
-        $ret = str_replace('<div class="c0125">', '<div style="color:#6495ED">', $ret);
+            $ret = str_replace('<div class="c0124">', '<div style="color:#6495ED">', $ret);
+            $ret = str_replace('<div class="c0125">', '<div style="color:#6495ED">', $ret);
     
-        $ret = str_replace('<blockquote>', '<blockquote style="margin: 0 0 1rem;
-        border-left: .1rem solid rgba(100, 100, 100, 0.45);
-        padding-left: .7rem;
-        padding-bottom: .3rem;color: #808080">', $ret);
-        $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i>', $ret);
-        $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-dislike-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;padding-bottom:8px;color:#90EE90"><i class="anticon anticon-dislike-o c0126"></i>', $ret);
+            $ret = str_replace('<blockquote>', '<blockquote style="margin: 0 0 1rem;
+            border-left: .1rem solid rgba(100, 100, 100, 0.45);
+            padding-left: .7rem;
+            padding-bottom: .3rem;color: #808080">', $ret);
+            $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i>', $ret);
+            $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-dislike-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;padding-bottom:8px;color:#90EE90"><i class="anticon anticon-dislike-o c0126"></i>', $ret);
       
-        $ret = str_replace('HKUG ©2018 Created by HKGOS', '', $ret);
-        $ret = str_replace('<span>第 3 頁</span>', '', $ret);
-        $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
-        $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
+            $ret = str_replace('HKUG ©2018 Created by HKGOS', '', $ret);
+            $ret = str_replace('<span>第 3 頁</span>', '', $ret);
+            $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
+            $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
       
-        $timing = 59;
-        while ($timing > 0)
-        {
-           $ret = str_replace('<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
-           $timing--;
-        }
+            $timing = 59;
+            while ($timing > 0)
+            {
+                $ret = str_replace('<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
+                $timing--;
+            }
     
-        $line = 1;
-        while ($line < 76)
-        {
-           $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
-           $line++;
-        }
+            $line = 1;
+            while ($line < 76)
+            {
+                $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
+                $line++;
+            }
     
-        $content[] = $ret;
+            $content[] = $ret;
 
             $i += 3;
         }
 
-
-     /*   foreach ($urls as $i => $url)  
-        {
-        $ret = curl_multi_getcontent($conn[$i]);
-
-        
-        }
-*/
 
         foreach ($urls as $i => $url) {
         curl_multi_remove_handle($mh,$conn[$i]);
@@ -169,13 +159,6 @@
         }
 
         curl_multi_close($mh);
-
-  /*      while ($k < $i)
-	{
-	curl_close($ch);
-    $content[$k] = $ret;
-	$k++;
-    }*/
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
