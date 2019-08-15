@@ -6,6 +6,9 @@ const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
 
+function la()
+{document.write("la");}
+
 async function launch() {
     for (var i in accounts) {
         let title = accounts[i][0]
