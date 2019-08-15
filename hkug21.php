@@ -40,7 +40,7 @@
         foreach ($urls as $i => $url) 
         {
         $conn[$i] = curl_init($url);
-        curl_setopt($conn, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");	
+        curl_setopt($conn[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");	
         curl_setopt($conn[$i], CURLOPT_HEADER, 0);   
         curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
@@ -52,6 +52,7 @@
         {
         $ret = curl_multi_exec($mh, $active);
         $content[] = $ret;
+        echo '一名耳鳴';
         } 
         while ($active);
 
