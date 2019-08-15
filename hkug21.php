@@ -16,7 +16,7 @@
 	$content = Array();
 
 	$i = 0;
-	while ($i < 6)
+	while ($i < 4)
 	{
 	$posBeg = strpos($ret, '<h4');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
