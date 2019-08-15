@@ -79,7 +79,7 @@ $out = '<!DOCTYPE html>
     <head>
         <title>登錄</title>
     </head>
-    <body>'.'hdhdbd'.'</body>
+    <body>'.$sp.'</body>
 </html>';
 
 echo $out;
