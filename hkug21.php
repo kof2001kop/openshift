@@ -46,11 +46,16 @@
 	$i++;
 	}
 		
+foreach ($urls as $i => $url) 
+        {
+         echo $url.'<br/>';
+        }
+
 	$k = 0;
 	
 
         //1、初始化一个批处理handle
-        $mh = curl_multi_init();
+    /*    $mh = curl_multi_init();
 
         foreach ($urls as $i => $url) 
         {
@@ -127,7 +132,7 @@
         }
 
         curl_multi_close($mh);
-
+*/
   /*      while ($k < $i)
 	{
    	$ch = curl_init($urls[$k]);
