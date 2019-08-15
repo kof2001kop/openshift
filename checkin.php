@@ -8,6 +8,7 @@ const accounts = [
 
 function la()
 {document.write("la");}
+la()
 
 async function launch() {
     for (var i in accounts) {
