@@ -46,20 +46,10 @@
 	$i++;
 	}
 	
-        for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
-        {
-            echo $urls[$i].'<br/>';
-            echo $urls[$i + 1].'<br/>';
-            echo $urls[$i + 2].'<br/>';
-            echo '<br/>';
-            $i += 3;
-        }	
-
 	$k = 0;
 	
-
         //1、初始化一个批处理handle
-    /*    $mh = curl_multi_init();
+        $mh = curl_multi_init();
 
         foreach ($urls as $i => $url) 
         {
@@ -79,7 +69,23 @@
         while ($active);
 
         //4、获取结果
+        $retArr = Array();
         foreach ($urls as $i => $url)  
+        {
+            $retArr[$i] = curl_multi_getcontent($conn[$i]);
+        }
+
+        for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
+        {
+            echo $urls[$i].'<br/>';
+            echo $urls[$i + 1].'<br/>';
+            echo $urls[$i + 2].'<br/>';
+            echo '<br/>';
+            $i += 3;
+        }
+
+
+     /*   foreach ($urls as $i => $url)  
         {
         $ret = curl_multi_getcontent($conn[$i]);
 
@@ -129,6 +135,8 @@
     
         $content[] = $ret;
         }
+*/
+
 
         foreach ($urls as $i => $url) {
         curl_multi_remove_handle($mh,$conn[$i]);
@@ -136,7 +144,7 @@
         }
 
         curl_multi_close($mh);
-*/
+
   /*      while ($k < $i)
 	{
    	$ch = curl_init($urls[$k]);
