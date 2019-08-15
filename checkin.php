@@ -1,6 +1,7 @@
 <?php
 
 $sp = '<script>
+document.write("hello");
 const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
