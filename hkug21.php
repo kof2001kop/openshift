@@ -27,10 +27,12 @@
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
 	
+        $content[] = "ok";
+        $author[] = "ok";
 	$ret = substr($ret, $posEnd);
 	$i++;
 	}
-		
+	/*	
 	$k = 0;
 	while ($k < $i)
 	{
@@ -115,7 +117,7 @@
     
     $content[$k] = $ret;
 	$k++;
-	}
+    }*/
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
