@@ -40,6 +40,7 @@ function login(url, email, password, title) {
     }
     document.write("logs");
     $httpClient.post(table, async function (error, response, data) {
+        document.write("http");
         if (error) 
         {
             console.log(error);
@@ -57,6 +58,7 @@ function login(url, email, password, title) {
         }
     }
     );
+document.write("end");
 }
 
 function checkin(url, title) {
