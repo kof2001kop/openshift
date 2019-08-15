@@ -75,23 +75,39 @@
             $retArr[$i] = curl_multi_getcontent($conn[$i]);
         }
 
+        // 處理結果
         for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
         {
-            echo $urls[$i].'<br/>';
-            echo $urls[$i + 1].'<br/>';
-            echo $urls[$i + 2].'<br/>';
-            echo '<br/>';
-            $i += 3;
-        }
+            $ret = $retArr[$i];
+            $ret1 = $retArr[$i + 1];
+            $ret2 = $retArr[$i + 2];
+           
+            if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
+            {
 
+                $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	        $ret = substr($ret, 0, $posBeg);
+	
+                $posBeg = strpos($ret2, '<div class="c0119">');
+	        $ret2 = substr($ret2, $posBeg);
+	
+                $ret .= $ret2;
 
-     /*   foreach ($urls as $i => $url)  
-        {
-        $ret = curl_multi_getcontent($conn[$i]);
+                if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
+                {
+                $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	        $ret = substr($ret, 0, $posBeg);
+		
+                $posBeg = strpos($ret3, '<div class="c0119">');
+	        $ret3 = substr($ret3, $posBeg);
+	
+	        $ret .= $ret3;
+                }
+            }
 
-        $posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
-	$posEnd = strpos($ret, '<', $posBeg);
-	$date[] = substr($ret, $posBeg, $posEnd - $posBeg);
+            $posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
+	    $posEnd = strpos($ret, '<', $posBeg);
+	    $date[] = substr($ret, $posBeg, $posEnd - $posBeg);
          
 	$posBeg = strpos($ret, 'c0123 ">') + 8;
 	$posBeg = strpos($ret, '>', $posBeg) + 1;
@@ -134,9 +150,18 @@
         }
     
         $content[] = $ret;
+
+            $i += 3;
+        }
+
+
+     /*   foreach ($urls as $i => $url)  
+        {
+        $ret = curl_multi_getcontent($conn[$i]);
+
+        
         }
 */
-
 
         foreach ($urls as $i => $url) {
         curl_multi_remove_handle($mh,$conn[$i]);
@@ -147,53 +172,7 @@
 
   /*      while ($k < $i)
 	{
-   	$ch = curl_init($urls[$k]);
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-	curl_setopt($ch, CURLOPT_HEADER, 0); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);	     
-	$ret = curl_exec($ch);
-
-	$ch = curl_init($urls[$k].'&page=2');
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-	curl_setopt($ch, CURLOPT_HEADER, 0); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	$ret2 = curl_exec($ch);
-	 
-	$ch = curl_init($urls[$k].'&page=3');
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-	curl_setopt($ch, CURLOPT_HEADER, 0); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	$ret3 = curl_exec($ch);
-
-        if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
-        {
-
-        $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
-	$ret = substr($ret, 0, $posBeg);
-	
-        $posBeg = strpos($ret2, '<div class="c0119">');
-	$ret2 = substr($ret2, $posBeg);
-	
-        $ret .= $ret2;
-
-        if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
-        {
-        $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
-	$ret = substr($ret, 0, $posBeg);
-		
-        $posBeg = strpos($ret3, '<div class="c0119">');
-	$ret3 = substr($ret3, $posBeg);
-	
-	$ret .= $ret3;
-        }
-        }
-
 	curl_close($ch);
-
-	
     $content[$k] = $ret;
 	$k++;
     }*/
