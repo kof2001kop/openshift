@@ -185,7 +185,7 @@
 			<title>'.$title[$j].'</title>
 			<description><![CDATA['.$content[$j].']]></description>
 			<link>'.$urls[$linkCur].'</link>
-			<guid isPermaLink="true">'.$url[$j].'</guid>
+			<guid isPermaLink="true">'.$urls[$linkCur].'</guid>
 			<pubDate>'.$date[$j].'</pubDate>
 			</item>';
 		
