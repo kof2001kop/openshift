@@ -1,6 +1,6 @@
 <?php
 
-$sp = '<script type="text/javascript">
+$sp = '<script>
 const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
@@ -32,12 +32,15 @@ function login(url, email, password, title) {
         }
     }
     $httpClient.post(table, async function (error, response, data) {
-        if (error) {
+        if (error) 
+        {
             console.log(error);
             $notification.post(title + "登录失败", error, "");
+            document.write("登錄失敗");
         } else {
             if (JSON.parse(data).msg == "邮箱或者密码错误") {
                 $notification.post(title + "邮箱或者密码错误", "", "");
+                document.write("郵箱或密碼錯誤");
             } else {
                 await checkin(url, title)
             }
@@ -52,6 +55,7 @@ function checkin(url, title) {
         if (error) {
             console.log(error);
             $notification.post(title + "签到失败", error, "");
+            document.write("簽到失敗");
         } else {
             await dataResults(url, JSON.parse(data).msg, title)
         }
@@ -67,8 +71,10 @@ function dataResults(url, checkinMsg, title) {
             var restData = data.match(/(>*\s*(剩余|可用)(里程|流量|\s\d.+?%|：))[^B]+/)
             restData = restData[0].match(/\d\S*(K|G|M|T)/)
             $notification.post(title, checkinMsg, "已用流量：" + usedData[0] + "B" + "\n剩余流量：" + restData[0] + "B");
+            document.write("剩余流量：" + restData[0]);
         } else {
             $notification.post(title + "获取流量信息失败", "", "");
+            document.write("获取流量信息失败");
         }
     });
 }
