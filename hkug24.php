@@ -178,17 +178,19 @@
 	
 	$contentNew = '';
 	$j = 0;
-	while ($j < $i)	
+        $linkCur = 0;
+	while ($j < $lineSum)	
 	{
 	$contentNew .= '<item>
 			<title>'.$title[$j].'</title>
 			<description><![CDATA['.$content[$j].']]></description>
-			<link>'.$url[$j].'</link>
+			<link>'.$urls[$linkCur].'</link>
 			<guid isPermaLink="true">'.$url[$j].'</guid>
 			<pubDate>'.$date[$j].'</pubDate>
 			</item>';
-			
-		$j++;
+		
+            $j++;
+            $linkCur += 3;
 	}
 
 	$contentNew .= '<language>en-us</language>
