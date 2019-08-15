@@ -50,12 +50,19 @@
         //3、并发执行，直到全部结束。
         do 
         {
-        curl_multi_exec($mh, $active);
+        $ret = curl_multi_exec($mh, $active);
+        $content[] = $ret;
         } 
         while ($active);
 
+        foreach ($urls as $i => $url) {
+        curl_multi_remove_handle($mh,$conn[$i]);
+        curl_close($conn[$i]);
+        }
 
-        while ($k < $i)
+        curl_multi_close($mh);
+
+  /*      while ($k < $i)
 	{
    	$ch = curl_init($urls[$k]);
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
@@ -77,7 +84,7 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	$ret3 = curl_exec($ch);
-/*
+
         if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
         {
 
@@ -148,10 +155,10 @@
     $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
     $line++;
     }
-    */
+    
     $content[$k] = $ret;
 	$k++;
-    }
+    }*/
 
 	$head = '<?xml version="1.0" encoding="UTF-8"?>
 		<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
