@@ -45,16 +45,21 @@
         curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
         curl_multi_add_handle($mh, $conn[$i]);
-        echo '額額'.$url;
         }
 
         //3、并发执行，直到全部结束。
         do 
         {
-        $ret = curl_multi_exec($mh, $active);
-        //$content[] = $ret;
+        curl_multi_exec($mh, $active);
         } 
         while ($active);
+
+        //4、获取结果
+        foreach ($urls as $i => $url)  
+        {
+        $ret = curl_multi_getcontent($conn[$i]);
+        $content[] = $ret;
+        }
 
         foreach ($urls as $i => $url) {
         curl_multi_remove_handle($mh,$conn[$i]);
