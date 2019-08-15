@@ -15,14 +15,29 @@
 	$author = Array();
 	$content = Array();
 
+        $lineSum = 4;
+        $pageSum = 2;
+
 	$i = 0;
-	while ($i < 4)
+        $nowUrl = $i;
+	while ($i < $lineSum)
 	{
 	$posBeg = strpos($ret, '<h4');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$urls[] = 'https://hkug.arukascloud.io'.substr($ret, $posBeg, $posEnd - $posBeg);
+	$urls[$nowUrl] = 'https://hkug.arukascloud.io'.substr($ret, $posBeg, $posEnd - $posBeg);
 	
+        $currURL = $urls[$nowUrl];
+        $nowUrl++;
+        $until = $nowUrl + $pageSum;
+        $nowPage = 2;
+        while ($nowUrl < $until)
+        {
+        $urls[$nowUrl] = $currURL.'&page='.$nowPage;
+        $nowPage++;
+	$nowUrl++;
+        }
+
 	$posBeg = strpos($ret, '>', $posEnd) + 1;
 	$posEnd = strpos($ret, '</a>', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
