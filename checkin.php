@@ -6,8 +6,8 @@ const accounts = [
     ["CCCAT", "https://cccat.io/user/login.php", "kof2001kopkpr@gmail.com", "nmpvvg"]
 ]
 
-function la()
-{document.write("la");}
+async function la()
+{document.write("lia");}
 la()
 
 async function launch() {
