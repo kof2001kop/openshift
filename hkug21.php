@@ -57,7 +57,7 @@
 	$posBeg = strpos($ret3, '<div class="c0119">');
 	$ret3 = substr($ret3, $posBeg);
 	
-        if ()
+        if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
         {
         $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
@@ -66,15 +66,16 @@
 	$ret2 = substr($ret2, $posBeg);
 	
         $ret .= $ret2;
-        }
 
-	$posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+        if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
+        {
+        $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
 		
-
-
 	$ret .= $ret3;
-        
+        }
+        }
+
 	curl_close($ch);
 
 	$posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
