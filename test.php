@@ -15,7 +15,38 @@ async function launch()
         await login(url, email, password, title)
     }
     $done();
-}';
+}
+
+launch()
+
+function login(url, email, password, title) {
+    let loginPath = url.indexOf("auth/login") != -1 ? "auth/login" : "user/_login.php"
+    let table = {
+        url: url.replace(/(auth|user)\/login(.php)*/g, "") + loginPath,
+        header: {
+
+        },
+        body: {
+            "email": email,
+            "passwd": password,
+            "rumber-me": "week"
+        }
+    }
+    $httpClient.post(table, async function (error, response, data) {
+        if (error) {
+            console.log(error);
+            $notification.post(title + '登录失败', error, "");
+        } else {
+            if (JSON.parse(data).msg == "邮箱或者密码错误") {
+                $notification.post(title + '邮箱或者密码错误', "", "");
+            } else {
+                await checkin(url, title)
+            }
+        }
+    }
+    );
+}
+';
 
 $out = '<!DOCTYPE html>
 <html>
