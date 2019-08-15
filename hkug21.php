@@ -9,7 +9,7 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
-	$url = Array();
+	$urls = Array();
 	$title = Array();
 	$date = Array();
 	$author = Array();
@@ -21,7 +21,7 @@
 	$posBeg = strpos($ret, '<h4');
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$url[] = 'https://hkug.arukascloud.io'.substr($ret, $posBeg, $posEnd - $posBeg);
+	$urls[] = 'https://hkug.arukascloud.io'.substr($ret, $posBeg, $posEnd - $posBeg);
 	
 	$posBeg = strpos($ret, '>', $posEnd) + 1;
 	$posEnd = strpos($ret, '</a>', $posBeg);
@@ -33,23 +33,38 @@
 		
 	$k = 0;
 	
+
+        //1、初始化一个批处理handle
+        $mh = curl_multi_init();
+
+    foreach ($urls as $i => $url) 
+{
+    $conn[$i] = curl_init($url);
+    curl_setopt($conn, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");	
+    curl_setopt($conn[$i], CURLOPT_HEADER, 0);   
+    curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
+    curl_multi_add_handle($mh, $conn[$i]);
+}
+
+
         while ($k < $i)
 	{
-   	$ch = curl_init($url[$k]);
+   	$ch = curl_init($urls[$k]);
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);	     
 	$ret = curl_exec($ch);
 
-	$ch = curl_init($url[$k].'&page=2');
+	$ch = curl_init($urls[$k].'&page=2');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	$ret2 = curl_exec($ch);
 	 
-	$ch = curl_init($url[$k].'&page=3');
+	$ch = curl_init($urls[$k].'&page=3');
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
