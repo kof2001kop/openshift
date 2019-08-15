@@ -57,6 +57,7 @@
 	
         if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
         {
+/*
         $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
 	
@@ -65,7 +66,7 @@
 	
         $ret .= $ret2;
 
-       /* if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
+        if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
         {
         $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
 	$ret = substr($ret, 0, $posBeg);
