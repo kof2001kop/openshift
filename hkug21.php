@@ -45,14 +45,14 @@
         curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
         curl_multi_add_handle($mh, $conn[$i]);
+        echo '額額'.$url;
         }
 
         //3、并发执行，直到全部结束。
         do 
         {
         $ret = curl_multi_exec($mh, $active);
-        $content[] = $ret;
-        echo '一名耳鳴';
+        //$content[] = $ret;
         } 
         while ($active);
 
