@@ -112,12 +112,8 @@
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-            $ret = str_replace(' 月前</span>', '</span>', $ret);  
-            $ret = str_replace(' 天前</span>', '</span>', $ret);   
-            $ret = str_replace(' 小時前</span>', '</span>', $ret);
-            $ret = str_replace(' 分鐘前</span>', '</span>', $ret);
-            $ret = str_replace('幾秒前</span>', '</span>', $ret);
-    
+            $ret = str_replace([' 月前<', ' 天前<', ' 小時前<', ' 分鐘前<', '幾秒前<'], '<', $ret);  
+     
             $ret = str_replace('<div class="c0124">', '<div style="color:#6495ED">', $ret);
             $ret = str_replace('<div class="c0125">', '<div style="color:#6495ED">', $ret);
     
