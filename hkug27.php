@@ -103,10 +103,10 @@
                 }
             }
 
-            $posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
+          /*  $posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $date[] = substr($ret, $posBeg, $posEnd - $posBeg);
-         
+         */
 	    $posBeg = strpos($ret, 'c0123 ">') + 8;
 	    $posBeg = strpos($ret, '>', $posBeg) + 1;
 	    $posEnd = strpos($ret, '<', $posBeg);
@@ -165,7 +165,7 @@
 		<description>LIHKG</description>
 		<link>https://lihkg.com</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>'.$date[0].'</lastBuildDate>
+		<lastBuildDate>'.'no'.'</lastBuildDate>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="https://news.readmoo.com" />
 		<feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="apple-daily" />
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
