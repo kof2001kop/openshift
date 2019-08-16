@@ -186,7 +186,7 @@
 			<description><![CDATA['.$content[$j].']]></description>
 			<link>'.$urls[$linkCur].'</link>
 			<guid isPermaLink="true">'.$urls[$linkCur].'</guid>
-			<pubDate>'.$date[$j].'</pubDate>
+			<pubDate>'.$urls[$linkCur].'</pubDate>
 			</item>';
 		
             $j++;
