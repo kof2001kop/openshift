@@ -5,7 +5,7 @@
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
@@ -54,7 +54,7 @@
         $conn[$i] = curl_init($url);
         curl_setopt($conn[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");	
         curl_setopt($conn[$i], CURLOPT_HEADER, 0);   
-        curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
         curl_multi_add_handle($mh, $conn[$i]);
         }
