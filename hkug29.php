@@ -137,14 +137,16 @@
             }
             $ret = str_replace($timingArr, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
                 
-
+            $lineArr = Array();
             $line = 1;
             while ($line < 76)
             {
-                $ret = str_replace('<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>', '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
+                $lineArr[] = '<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>';
                 $line++;
             }
-    
+            $ret = str_replace($lineArr, '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
+                
+
             $content[] = $ret;
 
             $i += 3;
