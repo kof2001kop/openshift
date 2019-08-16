@@ -15,7 +15,7 @@
 	$author = Array();
 	$content = Array();
 
-        $lineSum = 2;
+        $lineSum = 10;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
@@ -73,6 +73,22 @@
             $retArr[$i] = curl_multi_getcontent($conn[$i]);
         }
 
+            $timingArr = Array();
+            $timing = 59;
+            while ($timing > 0)
+            {
+                $timingArr[] = '<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing;
+                $timing--;
+            }
+
+            $lineArr = Array();
+            $line = 1;
+            while ($line < 76)
+            {
+                $lineArr[] = '<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>';
+                $line++;
+            }
+
         // 處理結果
         for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
         {
@@ -128,25 +144,9 @@
             $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
             $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
       
-            $timingArr = Array();
-            $timing = 59;
-            while ($timing > 0)
-            {
-                $timingArr[] = '<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing;
-                $timing--;
-            }
-            $ret = str_replace($timingArr, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
-                
-            $lineArr = Array();
-            $line = 1;
-            while ($line < 76)
-            {
-                $lineArr[] = '<i class="anticon anticon-tag-o c0126"></i>'.$line.'</span>';
-                $line++;
-            }
+            $ret = str_replace($timingArr, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);                
             $ret = str_replace($lineArr, '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
                 
-
             $content[] = $ret;
 
             $i += 3;
