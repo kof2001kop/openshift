@@ -15,7 +15,7 @@
 	$author = Array();
 	$content = Array();
 
-        $lineSum = 10;
+        $lineSum = 2;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
@@ -128,8 +128,9 @@
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-            $ret = str_replace([' 月前<', ' 天前<', ' 小時前<', ' 分鐘前<', '幾秒前<'], '<', $ret);  
-     
+            $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-tag-o c0126">', '<!--', $ret);  
+            $ret = str_replace('前</span>', '-->', $ret);
+              
             $ret = str_replace(['<div class="c0124">', '<div class="c0125">'], '<div style="color:#6495ED">', $ret);
           
             $ret = str_replace('<blockquote>', '<blockquote style="margin: 0 0 1rem;
@@ -144,8 +145,8 @@
             $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
             $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
       
-            $ret = str_replace($timingArr, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);                
-            $ret = str_replace($lineArr, '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
+           // $ret = str_replace($timingArr, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);                
+           // $ret = str_replace($lineArr, '<i class="anticon anticon-tag-o c0126"></i> </span>', $ret);
                 
             $content[] = $ret;
 
