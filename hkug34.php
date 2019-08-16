@@ -125,11 +125,13 @@
             $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-like-o c0126"></i>', '<span style="padding-right:8px;color:#FFB6C1"><i class="anticon anticon-like-o c0126"></i> ', $ret);
             $ret = str_replace('<span style="padding-left:8px;padding-right:8px"><i class="anticon anticon-dislike-o c0126"></i>', '<span style="padding-left:8px;padding-right:8px;padding-bottom:8px;color:#90EE90"><i class="anticon anticon-dislike-o c0126"></i>', $ret);
       
-            $ret = str_replace(['HKUG ©2018 Created by HKGOS', '<span>第 3 頁</span>'], '', $ret);
+           // $ret = str_replace(['HKUG ©2018 Created by HKGOS', '<span>第 3 頁</span>'], '', $ret);
       
             $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
             $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
           
+            $footPos = strrpos($ret, '<div class="c0122">');
+            $ret = substr($ret, 0, $footPos);
             $content[] = $ret;
 
             $i += 3;
