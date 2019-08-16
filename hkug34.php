@@ -131,7 +131,7 @@
             $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
           
             $footPos = strrpos($ret, '<div class="c0122">');
-            $ret = substr($ret, 0, $footPos);
+            $ret = substr($ret, 0, $footPos).'</div></div></div></div></div></body></html>';
             $content[] = $ret;
 
             $i += 3;
