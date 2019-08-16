@@ -128,13 +128,16 @@
             $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
             $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
       
+            $timingArr = Array();
             $timing = 59;
             while ($timing > 0)
             {
-                $ret = str_replace('<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
+                $timingArr[] = '<i class="anticon anticon-clock-circle-o c0126"></i>'.$timing;
                 $timing--;
             }
-    
+            $ret = str_replace($timingArr, '<i class="anticon anticon-clock-circle-o c0126"></i> ', $ret);
+                
+
             $line = 1;
             while ($line < 76)
             {
