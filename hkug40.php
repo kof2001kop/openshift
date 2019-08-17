@@ -110,8 +110,8 @@
                 }
             }
 
-            $footPos = strrpos($ret, '<div class="c0122">');
-            $ret = substr($ret, 0, $footPos).'</div></div></div></div></div></body></html>';
+          //  $footPos = strrpos($ret, '<div class="c0122">');
+          //  $ret = substr($ret, 0, $footPos).'</div></div></div></div></div></body></html>';
             
           /*  $posBeg = strpos($ret, 'anticon anticon-clock-circle-o c0126"></i>') + 42;
 	    $posEnd = strpos($ret, '<', $posBeg);
