@@ -121,6 +121,7 @@
             $ret = str_replace('<img class="Image" src="', '<img class="Image" alt="', $ret);
 	    $ret = str_replace('onclick="javascript: ViewImage(this, ', 'src=', $ret);
 	    $ret = str_replace(')" show', ' show', $ret);
+	    $ret = str_replace('<span class="topic-name">', '<span class="topic-name"><br/>', $ret);
 	    
 
             $posBeg = strpos($ret, '<form name="aspnetForm" ');
