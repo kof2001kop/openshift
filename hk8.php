@@ -108,9 +108,12 @@
             }
 */
             $posBeg = strpos($ret, '<div class="topLink">');
-	    $posEnd = strpos($ret, '</div>', $posBeg); 
+            if ($posBeg !== FALSE)
+	    {
+            $posEnd = strpos($ret, '</div>', $posBeg) + 6; 
             $ret = substr($ret, 0, $posBeg).substr($ret, $posEnd);
-	
+	    }
+
             $posBeg = strpos($ret, '<form name="aspnetForm" ');
 	    $ret = substr($ret, 0, $posBeg).'</body></html>';
 	
