@@ -107,6 +107,10 @@
                 }
             }
 */
+            $posBeg = strpos($ret, '<form name="aspnetForm" ');
+	    $ret = substr($ret, 0, $posBeg).'</body></html>';
+	
+
 	    $posBeg = strpos($ret, 'male">') + 6;
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
