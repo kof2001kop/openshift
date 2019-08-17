@@ -80,7 +80,7 @@
             $ret2 = $retArr[$i + 1];
             $ret3 = $retArr[$i + 2];
            
-            if (strpos($ret2, '<div class="post"') === TRUE)
+          /*  if (strpos($ret2, '<div class="post"') === TRUE)
             {
 
                 $posBeg = strpos($ret, 'form name="aspnetForm" ');
@@ -102,12 +102,12 @@
 	        $ret .= $ret3;
                 }
             }
-
+*/
 	    $posBeg = strpos($ret, 'male">') + 6;
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-            $content[] = "";
+            $content[] = $ret;
 
             $i += 3;
         }
