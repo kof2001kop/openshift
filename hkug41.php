@@ -137,6 +137,7 @@
             $ret = str_replace('<div class="c0115">', '<div class="c0115"><big><big>', $ret);
             $ret = str_replace('</div><div class="ant-row"', '</big></big></div><div class="ant-row"', $ret);
           
+            $ret = str_replace(['HKUG ©2018 Created by HKGOS', '<span>第 3 頁</span>'], '', $ret);
             $content[] = $ret;
 
             $i += 3;
