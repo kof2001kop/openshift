@@ -22,10 +22,10 @@
         $nowUrl = $i;
 	while ($i < $lineSum)
 	{
-	$posBeg = strpos($ret, '<h4');
+	$posBeg = strpos($ret, "<div class='topic'");
 	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$urls[$nowUrl] = 'https://hkug.arukascloud.io'.substr($ret, $posBeg, $posEnd - $posBeg);
+	$urls[$nowUrl] = 'https://m.hkgolden.com'.substr($ret, $posBeg + 1, $posEnd - $posBeg - 1);
 	
         $currURL = $urls[$nowUrl];
         $nowUrl++;
