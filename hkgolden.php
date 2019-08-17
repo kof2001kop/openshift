@@ -73,5 +73,53 @@
             $retArr[$i] = curl_multi_getcontent($conn[$i]);
         }
 
- 
+        // 處理結果
+        for ($i = 0; $i < ($pageSum + 1) * $lineSum; )
+        {
+            $ret = $retArr[$i];
+            $ret2 = $retArr[$i + 1];
+            $ret3 = $retArr[$i + 2];
+           
+            if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
+            {
+
+                $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	        $ret = substr($ret, 0, $posBeg);
+	
+                $posBeg = strpos($ret2, '<div class="c0119">');
+	        $ret2 = substr($ret2, $posBeg);
+	
+                $ret .= $ret2;
+
+                if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
+                {
+                $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+	        $ret = substr($ret, 0, $posBeg);
+		
+                $posBeg = strpos($ret3, '<div class="c0119">');
+	        $ret3 = substr($ret3, $posBeg);
+	
+	        $ret .= $ret3;
+                }
+            }
+
+            $posBeg = strpos($ret, 'c0123 ">') + 8;
+	    $posBeg = strpos($ret, '>', $posBeg) + 1;
+	    $posEnd = strpos($ret, '<', $posBeg);
+	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
+
+            $content[] = $ret;
+
+            $i += 3;
+        }
+
+        foreach ($urls as $i => $url) {
+        curl_multi_remove_handle($mh,$conn[$i]);
+        curl_close($conn[$i]);
+        }
+
+        curl_multi_close($mh);
+
+
+
 ?>
