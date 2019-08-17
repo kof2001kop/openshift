@@ -38,4 +38,21 @@
 	$nowUrl++;
         }
 
+        $posBeg = strpos($ret, 'topic-title">', $posEnd) + 13;
+	$posEnd = strpos($ret, '</', $posBeg);
+	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
+	
+	$ret = substr($ret, $posEnd);
+	$i++;
+	}
+
+        foreach ($urls as $i => $url) 
+        {
+         echo $url.'<br>';
+        }
+
+        foreach ($title as $i => $url) 
+        {
+echo $url.'<br>';
+        }
 ?>
