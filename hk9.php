@@ -110,7 +110,8 @@
             $posBeg = strpos($ret, '<div class="topLink">');
             if ($posBeg !== FALSE)
 	    {
-            $posEnd = strpos($ret, '</div>', $posBeg) + 6; 
+            $posEnd = strpos($ret, '<div class="clear"></div>
+</div>', $posBeg) + 32; 
             $ret = substr($ret, 0, $posBeg).substr($ret, $posEnd);
 	    }
 
