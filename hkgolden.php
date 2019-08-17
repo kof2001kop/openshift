@@ -80,10 +80,10 @@
             $ret2 = $retArr[$i + 1];
             $ret3 = $retArr[$i + 2];
            
-            if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
+            if (strpos($ret2, '<div class="post"') === TRUE)
             {
 
-                $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+                $posBeg = strpos($ret, 'form name="aspnetForm" ');
 	        $ret = substr($ret, 0, $posBeg);
 	
                 $posBeg = strpos($ret2, '<div class="c0119">');
@@ -91,9 +91,9 @@
 	
                 $ret .= $ret2;
 
-                if (strpos($ret3, '<div class="ant-list-empty-text">') === FALSE)
+                if (strpos($ret3, '<div class="post"') === TRUE)
                 {
-                $posBeg = strpos($ret, '</div></div></div><div class="c0122">');
+                $posBeg = strpos($ret, 'form name="aspnetForm" ');
 	        $ret = substr($ret, 0, $posBeg);
 		
                 $posBeg = strpos($ret3, '<div class="c0119">');
