@@ -117,13 +117,14 @@
 
             $ret = preg_replace('#<div class="post-col">(.*?)</div>#is', '', $ret);
             $ret = preg_replace('#<span class="topic-time">(.*?)</span>#is', '', $ret);
+            $ret = preg_replace('#</blockquote>(.*?)/>#is', '', $ret);
            
             $ret = str_replace('<img class="Image" src="', '<img class="Image" alt="', $ret);
 	    $ret = str_replace('onclick="javascript: ViewImage(this, ', 'src=', $ret);
 	    $ret = str_replace(')" show', ' show', $ret);
 	    $ret = str_replace('<span class="topic-name">', '<span class="topic-name"><br/>', $ret);
 	    $ret = str_replace(['class="name_male"', 'class="name_female"'], 'style="color:#6495ED"', $ret);
-	    $ret = str_replace(['</blockquote><br />', '</blockquote><br/>'], '</blockquote>', $ret);
+	
 	    
             $posBeg = strpos($ret, '<form name="aspnetForm" ');
 	    $ret = substr($ret, 0, $posBeg).'</body></html>';
