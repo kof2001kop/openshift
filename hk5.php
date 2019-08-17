@@ -81,6 +81,8 @@
             $ret3 = $retArr[$i + 2];
            
             $ret = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $ret);
+            $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
+
 
           /*  if (strpos($ret2, '<div class="post"') === TRUE)
             {
