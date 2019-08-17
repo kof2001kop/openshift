@@ -9,5 +9,33 @@
 	$ret = curl_exec($ch);
 	curl_close($ch);
 
+        $urls = Array();
+	$title = Array();
+	$date = Array();
+	$author = Array();
+	$content = Array();
+
+        $lineSum = 7;
+        $pageSum = 2;//深度，3頁足夠
+
+	$i = 0;
+        $nowUrl = $i;
+	while ($i < $lineSum)
+	{
+	$posBeg = strpos($ret, '<h4');
+	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$urls[$nowUrl] = 'https://hkug.arukascloud.io'.substr($ret, $posBeg, $posEnd - $posBeg);
+	
+        $currURL = $urls[$nowUrl];
+        $nowUrl++;
+        $until = $nowUrl + $pageSum;
+        $nowPage = 2;
+        while ($nowUrl < $until)
+        {
+        $urls[$nowUrl] = $currURL.'&page='.$nowPage;
+        $nowPage++;
+	$nowUrl++;
+        }
 
 ?>
