@@ -123,6 +123,7 @@
 	    $ret = str_replace(')" show', ' show', $ret);
 	    $ret = str_replace('<span class="topic-name">', '<span class="topic-name"><br/>', $ret);
 	    $ret = str_replace(['class="name_male"', 'class="name_female"'], 'style="color:#6495ED"', $ret);
+	    $ret = str_replace(['</blockquote><br />', '</blockquote><br/>'], '</blockquote>', $ret);
 	    
             $posBeg = strpos($ret, '<form name="aspnetForm" ');
 	    $ret = substr($ret, 0, $posBeg).'</body></html>';
