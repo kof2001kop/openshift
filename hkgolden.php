@@ -86,7 +86,7 @@
                 $posBeg = strpos($ret, 'form name="aspnetForm" ');
 	        $ret = substr($ret, 0, $posBeg);
 	
-                $posBeg = strpos($ret2, '<div class="c0119">');
+                $posBeg = strpos($ret2, '<div class="post"');
 	        $ret2 = substr($ret2, $posBeg);
 	
                 $ret .= $ret2;
@@ -96,15 +96,14 @@
                 $posBeg = strpos($ret, 'form name="aspnetForm" ');
 	        $ret = substr($ret, 0, $posBeg);
 		
-                $posBeg = strpos($ret3, '<div class="c0119">');
+                $posBeg = strpos($ret3, '<div class="post"');
 	        $ret3 = substr($ret3, $posBeg);
 	
 	        $ret .= $ret3;
                 }
             }
 
-            $posBeg = strpos($ret, 'c0123 ">') + 8;
-	    $posBeg = strpos($ret, '>', $posBeg) + 1;
+	    $posBeg = strpos($ret, 'male">') + 6;
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
 
