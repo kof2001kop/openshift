@@ -140,7 +140,7 @@
         $linkCur = 0;
 	while ($j < $lineSum)	
 	{
-        $guidH = str_replace(['https://m.hkgolden.com/view.aspx?message=', '&type=CA'], '', urls[$linkCur]);
+        $guidH = str_replace(['https://m.hkgolden.com/view.aspx?message=', '&type=CA'], '', $urls[$linkCur]);
 	$contentNew .= '<item>
 			<title>'.$title[$j].'</title>
 			<description><![CDATA['.$content[$j].']]></description>
