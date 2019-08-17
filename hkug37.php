@@ -15,7 +15,7 @@
 	$author = Array();
 	$content = Array();
 
-        $lineSum = 10;
+        $lineSum = 2;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
@@ -81,6 +81,12 @@
             $ret2 = $retArr[$i + 1];
             $ret3 = $retArr[$i + 2];
            
+            $posBegIMG = strpos($ret, '<img src="data');
+            $posEndIMG = strpos($ret, '>', $posBegIMG) + 1;
+            $headc = substr($ret, 0, $posBegIMG);
+            $tailc = substr($ret, $posEndIMG);
+            $ret = $headc.$tailc;
+	    
             if (strpos($ret2, '<div class="ant-list-empty-text">') === FALSE)
             {
 
