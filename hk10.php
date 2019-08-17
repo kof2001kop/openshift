@@ -115,6 +115,8 @@
             $ret = substr($ret, 0, $posBeg).substr($ret, $posEnd);
 	    }
 
+            $ret = preg_replace('#<div class="post-col">(.*?)</div>#is', '', $ret);
+            
             $posBeg = strpos($ret, '<form name="aspnetForm" ');
 	    $ret = substr($ret, 0, $posBeg).'</body></html>';
 	
