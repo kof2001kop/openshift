@@ -46,13 +46,32 @@
 	$i++;
 	}
 
+        //1、初始化一个批处理handle
+        $mh = curl_multi_init();
+
         foreach ($urls as $i => $url) 
         {
-         echo $url.'<br>';
+        $conn[$i] = curl_init($url);
+        curl_setopt($conn[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");	
+        curl_setopt($conn[$i], CURLOPT_HEADER, 0);   
+        curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
+        curl_multi_add_handle($mh, $conn[$i]);
         }
 
-        foreach ($title as $i => $url) 
+        //3、并发执行，直到全部结束。
+        do 
         {
-echo $url.'<br>';
+        curl_multi_exec($mh, $active);
+        } 
+        while ($active);
+
+        //4、获取结果
+        $retArr = Array();
+        foreach ($urls as $i => $url)  
+        {
+            $retArr[$i] = curl_multi_getcontent($conn[$i]);
         }
+
+ 
 ?>
