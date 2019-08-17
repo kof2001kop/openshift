@@ -107,7 +107,7 @@
 	    $posEnd = strpos($ret, '<', $posBeg);
 	    $author[] = substr($ret, $posBeg, $posEnd - $posBeg);
 
-            $content[] = $ret;
+            $content[] = "";
 
             $i += 3;
         }
