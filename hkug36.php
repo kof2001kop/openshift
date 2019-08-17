@@ -15,7 +15,7 @@
 	$author = Array();
 	$content = Array();
 
-        $lineSum = 8;
+        $lineSum = 10;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
