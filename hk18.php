@@ -117,7 +117,7 @@
 
             $ret = preg_replace('#<div class="post-col">(.*?)</div>#is', '', $ret);
             $ret = preg_replace('#<span class="topic-time">(.*?)</span>#is', '', $ret);
-            $ret = $description = preg_replace('#</blockquote>[^"]/>#', "$1{$rep}", $ret);
+            $ret = preg_replace('#</blockquote>[^"]/>#', "$1{$rep}", $ret);
            
             $ret = str_replace('<img class="Image" src="', '<img class="Image" alt="', $ret);
 	    $ret = str_replace('onclick="javascript: ViewImage(this, ', 'src=', $ret);
