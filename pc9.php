@@ -76,16 +76,17 @@
             $ret = preg_replace('#<p (.*?)</p>#is', '', $ret);
             $ret = preg_replace('#<div class="aw-footer">(.*?)</div>#is', '', $ret);
             $ret = preg_replace('#<h1>(.*?)</h1>#is', '', $ret);
-            $ret = preg_replace('#<span class="text-color-999 pull-right">(.*?)</span>#is', '<br/>', $ret);
+            $ret = preg_replace('#<span class="text-color-999 pull-right">(.*?)</span>#is', '', $ret);
             $ret = preg_replace('#- <span class="text-color-999">(.*?)</span>#is', '', $ret);
             $ret = preg_replace('#<span class="text-color-999">(.*?)</span>#is', '', $ret);
+            $ret = preg_replace('#<div class="user-detail">(.*?)</div>#is', '', $ret);
             
             
             $ret = str_replace('<a class="aw-user-name"', '<kpr class="aw-user-name"', $ret);
             $ret = preg_replace('#<a (.*?)</a>#is', '', $ret);
             $ret = str_replace('<kpr', '<a', $ret);
             $ret = str_replace('已邀请:', '', $ret);
-            $ret = str_replace('<a ', '<span style="color:#6495ED" ', $ret);
+            $ret = str_replace('<a ', '<br/><span style="color:#6495ED" ', $ret);
             $ret = str_replace('</a>', '</span>', $ret);
             $ret = str_replace('<div class="content markitup-box">', '<div style="font-size:23px; line-height:28px">', $ret);
             $ret = str_replace('<div class="markitup-box">', '<div style="font-size:23px; line-height:28px">', $ret);
