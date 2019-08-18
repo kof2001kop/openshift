@@ -70,6 +70,9 @@
 
         foreach ($retArr as $i => $ret)  
         {
+            $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
+            //$ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
+
             $content[] = $ret;
         }
 
