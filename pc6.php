@@ -83,6 +83,8 @@
             $ret = preg_replace('#<a (.*?)</a>#is', '', $ret);
             $ret = str_replace('<kpr', '<a', $ret);
             $ret = str_replace('已邀请:', '', $ret);
+            $ret = str_replace('<a ', '<span style="color:#6495ED" ', $ret);
+            $ret = str_replace('</a>', '</span>', $ret);
            
            
             $content[] = $ret;
