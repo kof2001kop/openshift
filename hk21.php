@@ -121,7 +121,12 @@
             
             $ret = str_replace('<br />', '<br/>', $ret); 
             $ret = str_replace(['</blockquote> <br/>', '</blockquote><br/>'], '</blockquote>', $ret); 
+            $ret = str_replace('<blockquote>', '<blockquote style="margin: 0 0 1rem;
+            border-left: .1rem solid rgba(100, 100, 100, 0.45);
+            padding-left: .7rem;
+            padding-bottom: .3rem;color: #808080">', $ret);
             
+
             $ret = str_replace('<img class="Image" src="', '<img class="Image" alt="', $ret);
 	    $ret = str_replace('onclick="javascript: ViewImage(this, ', 'src=', $ret);
 	    $ret = str_replace(')" show', ' show', $ret);
