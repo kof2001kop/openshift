@@ -20,15 +20,20 @@
         $i = 0;
         while ($i < $lineSum)
 	{
-	$posBeg = strpos($ret, '<h4');
-	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
-	$posEnd = strpos($ret, '"', $posBeg);
-	$urls[] = 'https://pincong.rocks'.substr($ret, $posBeg, $posEnd - $posBeg);
-	
-	$posBeg = strpos($ret, '>', $posEnd) + 1;
-	$posEnd = strpos($ret, '</a>', $posBeg);
+        $posBeg = strpos($ret, '<item>');
+        $posBeg = strpos($ret, '<title>') + 7;
+	$posEnd = strpos($ret, '</title>', $posBeg);
 	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
 	
+	$posBeg = strpos($ret, '<link>', $posEnd) + 6;
+	$posEnd = strpos($ret, '</link>', $posBeg);
+	$urls[] = 'https://pincong.rocks'.substr($ret, $posBeg, $posEnd - $posBeg);
+	
+        $posBeg = strpos($ret, '<pubDate>', $posEnd) + 9;
+	$posEnd = strpos($ret, '</pubDate>', $posBeg);
+	$date[] = substr($ret, $posBeg, $posEnd - $posBeg);
+	
+
 	$ret = substr($ret, $posEnd);
 	$i++;
 	}
