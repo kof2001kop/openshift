@@ -38,5 +38,10 @@
 	$i++;
 	}
 	
-
+foreach ($urls as $i => $url) 
+        {
+echo $title[$i].'<br/>';
+echo $urls[$i].'<br/>';
+echo $date[$i].'<br/>';
+}
 ?>
