@@ -73,10 +73,13 @@
             $ret = preg_replace('#<ul(.*?)</ul>#is', '', $ret);
             $ret = preg_replace('#<h3>(.*?)</h3>#is', '', $ret);
             $ret = preg_replace('#<title>(.*?)</title>#is', '', $ret);
+            $ret = preg_replace('#<p (.*?)</p>#is', '', $ret);
            
+
             $ret = str_replace('<a class="aw-user-name"', '<kpr class="aw-user-name"', $ret);
             $ret = preg_replace('#<a (.*?)</a>#is', '', $ret);
             $ret = str_replace('<kpr', '<a', $ret);
+           
            
             $content[] = $ret;
         }
