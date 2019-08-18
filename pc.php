@@ -15,6 +15,9 @@
 	$author = Array();
 	$content = Array();
 
+        $posBeg = strpos($ret, '</item>');
+	$ret = substr($ret, $posBeg);
+        
         $lineSum = 10;
 
         $i = 0;
