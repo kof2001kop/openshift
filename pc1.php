@@ -71,8 +71,11 @@
         foreach ($retArr as $i => $ret)  
         {
             $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
-            //$ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
-
+            
+            $ret = str_replace('<a class="aw-user-name"', '<kpr class="aw-user-name"', $ret);
+            $ret = preg_replace('#<a (.*?)</a>#is', '', $ret);
+            $ret = str_replace('<kpr', '<a', $ret);
+           
             $content[] = $ret;
         }
 
