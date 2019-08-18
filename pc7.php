@@ -78,14 +78,16 @@
             $ret = preg_replace('#<h1>(.*?)</h1>#is', '', $ret);
             $ret = preg_replace('#<span class="text-color-999 pull-right">(.*?)</span>#is', '<br/>', $ret);
             $ret = preg_replace('#- <span class="text-color-999">(.*?)</span>#is', '', $ret);
+            $ret = preg_replace('#<span class="text-color-999">(.*?)</span>#is', '', $ret);
             
-
+            
             $ret = str_replace('<a class="aw-user-name"', '<kpr class="aw-user-name"', $ret);
             $ret = preg_replace('#<a (.*?)</a>#is', '', $ret);
             $ret = str_replace('<kpr', '<a', $ret);
             $ret = str_replace('已邀请:', '', $ret);
             $ret = str_replace('<a ', '<span style="color:#6495ED" ', $ret);
             $ret = str_replace('</a>', '</span>', $ret);
+            $ret = str_replace('<div class="content markitup-box">', '', $ret);
            
            
             $content[] = $ret;
