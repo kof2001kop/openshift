@@ -15,5 +15,23 @@
 	$author = Array();
 	$content = Array();
 
+        $lineSum = 10;
+
+        $i = 0;
+        while ($i < $lineSum)
+	{
+	$posBeg = strpos($ret, '<h4');
+	$posBeg = strpos($ret, 'href="', $posBeg) + 6;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$urls[] = 'https://pincong.rocks'.substr($ret, $posBeg, $posEnd - $posBeg);
+	
+	$posBeg = strpos($ret, '>', $posEnd) + 1;
+	$posEnd = strpos($ret, '</a>', $posBeg);
+	$title[] = substr($ret, $posBeg, $posEnd - $posBeg);
+	
+	$ret = substr($ret, $posEnd);
+	$i++;
+	}
+	
 
 ?>
