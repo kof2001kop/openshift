@@ -87,11 +87,9 @@
             $ret2 = $retArr[$i + 1];
             $ret3 = $retArr[$i + 2];
            
-            $ret = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $ret);
-            $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
+            
 
-
-          /*  if (strpos($ret2, '<div class="post"') === TRUE)
+            if (strpos($ret2, '<div class="post"') === TRUE)
             {
 
                 $posBeg = strpos($ret, 'form name="aspnetForm" ');
@@ -113,7 +111,11 @@
 	        $ret .= $ret3;
                 }
             }
-*/
+
+            $ret = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $ret);
+            $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
+
+
             $posBeg = strpos($ret, '<div class="topLink">');
             if ($posBeg !== FALSE)
 	    {
