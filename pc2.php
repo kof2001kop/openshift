@@ -70,7 +70,7 @@
 
         foreach ($retArr as $i => $ret)  
         {
-            $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
+            $ret = preg_replace('#<ul(.*?)</ul>#is', '', $ret);
             $ret = preg_replace('#<h3>(.*?)</h3>#is', '', $ret);
             $ret = preg_replace('#<title>(.*?)</title>#is', '', $ret);
            
