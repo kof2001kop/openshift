@@ -117,6 +117,7 @@
 
             $ret = preg_replace('#<div class="post-col">(.*?)</div>#is', '', $ret);
             $ret = preg_replace('#<span class="topic-time">(.*?)</span>#is', '', $ret);
+            $ret = preg_replace('#<title>(.*?)</title>#is', '', $ret);
             
             $ret = str_replace('<br />', '<br/>', $ret); 
             $ret = str_replace(['</blockquote> <br/>', '</blockquote><br/>'], '</blockquote>', $ret); 
