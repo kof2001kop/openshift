@@ -18,7 +18,7 @@
         $posBeg = strpos($ret, '</item>');
 	$ret = substr($ret, $posBeg);
         
-        $lineSum = 10;
+        $lineSum = 6;
 
         $i = 0;
         while ($i < $lineSum)
