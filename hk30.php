@@ -15,6 +15,13 @@
 	$author = Array();
 	$content = Array();
 
+        //跳条
+        for ($i = 0; $i < 2; $i++)
+        {
+           $posBeg = strpos($ret, "<div class='topic'");
+	   $ret = substr($ret, $posBeg);
+        }
+
         $lineSum = 3;
         $pageSum = 2;//深度，3頁足夠
 
