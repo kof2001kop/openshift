@@ -22,7 +22,7 @@
 	   $ret = substr($ret, $posBeg);
         }
 
-        $lineSum = 3;
+        $lineSum = 6;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
@@ -185,12 +185,12 @@
         $linkCur = 0;
 	while ($j < $lineSum)	
 	{
-        $guidH = str_replace(['https://m.hkgolden.com/view.aspx?message=', '&type=CA'], '', $urls[$linkCur]);
+        //$guidH = str_replace(['https://m.hkgolden.com/view.aspx?message=', '&type=CA'], '', $urls[$linkCur]);
 	$contentNew .= '<item>
 			<title>'.$title[$j].'</title>
 			<description><![CDATA['.$content[$j].']]></description>
 			<link>'.$urls[$linkCur].'</link>
-			<guid isPermaLink="true">'.$guidH.'</guid>
+			<guid isPermaLink="true">'.$urls[$linkCur].'</guid>
 			<pubDate>'.$urls[$linkCur].'</pubDate>
 			</item>';
 		
