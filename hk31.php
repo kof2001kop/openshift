@@ -18,7 +18,7 @@
         //跳条
         for ($i = 0; $i < 4; $i++)
         {
-           $posBeg = strpos($ret, "<div class='topic'");
+           $posBeg = strpos($ret, "<div class='topic'") + 1;
 	   $ret = substr($ret, $posBeg);
         }
 
