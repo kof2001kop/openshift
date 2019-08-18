@@ -132,7 +132,9 @@
 	    $ret = str_replace(')" show', ' show', $ret);
 	    $ret = str_replace('<span class="topic-name">', '<span class="topic-name"><br/>', $ret);
 	    $ret = str_replace(['class="name_male"', 'class="name_female"'], 'style="color:#6495ED"', $ret);
-		    
+            $ret = str_replace('class="post-content2"', 'style="font-size:30px"', $ret);
+	       
+ 
             $posBeg = strpos($ret, '<form name="aspnetForm" ');
 	    $ret = substr($ret, 0, $posBeg).'</body></html>';
 	
