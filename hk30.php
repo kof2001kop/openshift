@@ -16,7 +16,7 @@
 	$content = Array();
 
         //跳条
-        for ($i = 0; $i < 2; $i++)
+        for ($i = 0; $i < 4; $i++)
         {
            $posBeg = strpos($ret, "<div class='topic'");
 	   $ret = substr($ret, $posBeg);
