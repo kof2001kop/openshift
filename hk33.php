@@ -89,8 +89,8 @@
            
             
 
-            if (strpos($ret2, '<div class="post"') === TRUE)
-            {
+          //  if (strpos($ret2, '<div class="post"') === TRUE)
+          //  {
 
                 $posBeg = strpos($ret, 'form name="aspnetForm" ');
 	        $ret = substr($ret, 0, $posBeg);
@@ -110,7 +110,7 @@
 	
 	        $ret .= $ret3;
                 }
-            }
+          //  }
 
             $ret = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $ret);
             $ret = preg_replace('#<ul>(.*?)</ul>#is', '', $ret);
