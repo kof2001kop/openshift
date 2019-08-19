@@ -19,7 +19,7 @@
         $posBeg = strrpos($ret, '</channel>');
         for ($i = 0; $i < $lineSum; $i++)
         {
-           $posBeg = strrpos($ret, '<item>', $posBeg);
+           $posBeg = strrpos($ret, '<item>', $posBeg) - 1;
         }
         $ret = substr($ret, $posBeg);
         
