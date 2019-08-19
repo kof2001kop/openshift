@@ -15,10 +15,14 @@
 	$author = Array();
 	$content = Array();
 
-        $posBeg = strpos($ret, '</item>');
-	$ret = substr($ret, $posBeg);
-        
         $lineSum = 6;
+        $posBeg = 0;
+        for ($i = 0; $i < $lineSum; $i++)
+        {
+           $posBeg = strrpos($ret, '<item>', $posBeg);
+        }
+        $ret = substr($ret, $posBeg);
+        
 
         $i = 0;
         while ($i < $lineSum)
