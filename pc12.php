@@ -24,8 +24,7 @@
         }
         $ret = $save;
         
-        echo $ret;
-     /*   $i = 0;
+        $i = 0;
         while ($i < $lineSum)
 	{
         $posBeg = strpos($ret, '<item>');
@@ -144,5 +143,5 @@
 			';
 		
 	echo $head.$contentNew;
-*/
+
 ?>
