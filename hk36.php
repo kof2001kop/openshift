@@ -22,7 +22,7 @@
 	   $ret = substr($ret, $posBeg);
         }
 
-        $lineSum = 6;
+        $lineSum = 4;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
