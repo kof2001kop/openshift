@@ -16,7 +16,7 @@
 	$content = Array();
 
         $lineSum = 6;
-        $posBeg = 0;
+        $posBeg = strrpos($ret, '</channel>');
         for ($i = 0; $i < $lineSum; $i++)
         {
            $posBeg = strrpos($ret, '<item>', $posBeg);
