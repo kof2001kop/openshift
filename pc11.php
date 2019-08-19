@@ -16,12 +16,13 @@
 	$content = Array();
 
         $lineSum = 6;
-        $posBeg = strrpos($ret, '</channel>');
         for ($i = 0; $i < $lineSum; $i++)
         {
-           $posBeg = strrpos($ret, '<item>', $posBeg) - 1;
+           $posBeg = strrpos($ret, '<item>');
+           $save .= substr($ret, $posBeg);
+           $ret = substr($ret, 0, $posBeg);
         }
-        $ret = substr($ret, $posBeg);
+        $ret = $save;
         
         echo $ret;
      /*   $i = 0;
