@@ -15,7 +15,7 @@
 	$author = Array();
 	$content = Array();
 
-        $lineSum = 3;
+        $lineSum = 2;
         for ($i = 0; $i < $lineSum; $i++)
         {
            $posBeg = strrpos($ret, '<item>');
