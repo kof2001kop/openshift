@@ -2,7 +2,7 @@
         $url = 'https://m.hkgolden.com/topics.aspx?type=HT';
    	$ch = curl_init($url);
 	      
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
@@ -22,7 +22,7 @@
 	   $ret = substr($ret, $posBeg);
         }
 
-        $lineSum = 4;
+        $lineSum = 2;
         $pageSum = 2;//深度，3頁足夠
 
 	$i = 0;
@@ -59,7 +59,7 @@
         foreach ($urls as $i => $url) 
         {
         $conn[$i] = curl_init($url);
-        curl_setopt($conn[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");	
+        curl_setopt($conn[$i], CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 7.2; Windows NT 6.3)");	
         curl_setopt($conn[$i], CURLOPT_HEADER, 0);   
         curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, true);
