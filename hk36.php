@@ -15,6 +15,8 @@
 	$author = Array();
 	$content = Array();
 
+        echo $ret;
+/*
         //跳条
         for ($i = 0; $i < 4; $i++)
         {
@@ -205,5 +207,5 @@
 			';
 		
 	echo $head.$contentNew;
-
+*/
 ?>
