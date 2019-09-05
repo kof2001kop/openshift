@@ -10,7 +10,7 @@
 	$posBeg = strrpos($ret, '</item>') + 7;
 	$ret = substr($ret, 0, $posBeg);
 	
-	$ch = curl_init('https://rsshub.app/instagram/user/hkgoldenforum');
+	$ch = curl_init('https://rsshub.app/twitter/user/lihkg_forum');
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
@@ -31,7 +31,7 @@
     //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
     //正则过滤指定标签
     //$ret = preg_replace($pattern, '', $ret);
-    $ret = preg_replace('/<a href=.*?<\/a>/', '', $ret);
+    //$ret = preg_replace('/<a href=.*?<\/a>/', '', $ret);
     
     
 	//echo $_GET['url'];
