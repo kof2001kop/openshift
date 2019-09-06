@@ -1,4 +1,8 @@
 <?php
+        $urls = Array();
+        $urls[] = 'https://rsshub.app/telegram/channel/politicJokeZhao';
+        $urls[] = 'https://rsshub.app/twitter/user/lihkg_forum';
+
        //1、初始化一个批处理handle
         $mh = curl_multi_init();
 
@@ -26,34 +30,19 @@
             $retArr[$i] = curl_multi_getcontent($conn[$i]);
         }
 
-
-   	$ch = curl_init('https://rsshub.app/telegram/channel/politicJokeZhao');
-	      
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-	curl_setopt($ch, CURLOPT_HEADER, 0); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	$ret = curl_exec($ch);
+	$ret = $retArr[0];
 	
 	$posBeg = strrpos($ret, '</item>') + 7;
 	$ret = substr($ret, 0, $posBeg);
-	
-	$ch = curl_init('https://rsshub.app/twitter/user/lihkg_forum');
-	      
-	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
-	curl_setopt($ch, CURLOPT_HEADER, 0); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	$ret1 = curl_exec($ch);
+
+	$ret1 = $retArr[1];
 	
 	$posBeg = strpos($ret1, '<item>');
 	$ret .= substr($ret1, $posBeg);
-	
-	curl_close($ch);
 
 	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big>', $ret);
 	$ret = str_replace(']]></description>', '</big>]]></description>', $ret);
-    $ret = str_replace('<title><![CDATA[爆笑祖国 · 厉害了赵的国 - Telegram 频道]]></title>', '<title><![CDATA[其他]]></title>', $ret);
+        $ret = str_replace('<title><![CDATA[爆笑祖国 · 厉害了赵的国 - Telegram 频道]]></title>', '<title><![CDATA[其他]]></title>', $ret);
     		
     		
     //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
