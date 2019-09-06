@@ -10,7 +10,7 @@
 	$posBeg = strrpos($ret, '</item>') + 7;
 	$ret = substr($ret, 0, $posBeg);
 	
-	$ch = curl_init('https://rsshubkpr.herokuapp.com/twitter/user/lihkg_forum');
+	$ch = curl_init('https://rsshub.app/twitter/user/lihkg_forum');
 	      
 	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");
 	curl_setopt($ch, CURLOPT_HEADER, 0); 
