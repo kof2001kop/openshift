@@ -29,20 +29,17 @@
         {
             $retArr[$i] = curl_multi_getcontent($conn[$i]);
         }
-
-	$ret = $retArr[0];
 	
-	$posBeg = strrpos($ret, '</item>') + 7;
-	$ret = substr($ret, 0, $posBeg);
+	$posBeg = strrpos($retArr[0], '</item>') + 7;
+	$retArr[0] = substr($retArr[0], 0, $posBeg);
 
-	$ret1 = $retArr[1];
 	
-	$posBeg = strpos($ret1, '<item>');
-	$ret .= substr($ret1, $posBeg);
+	$posBeg = strpos($retArr[1], '<item>');
+	$retArr[0] .= substr($retArr[1], $posBeg);
 
-	$ret = str_replace('<description><![CDATA[', '<description><![CDATA[<big>', $ret);
-	$ret = str_replace(']]></description>', '</big>]]></description>', $ret);
-        $ret = str_replace('<title><![CDATA[爆笑祖国 · 厉害了赵的国 - Telegram 频道]]></title>', '<title><![CDATA[其他]]></title>', $ret);
+	$retArr[0] = str_replace('<description><![CDATA[', '<description><![CDATA[<big>', $retArr[0]);
+	$retArr[0] = str_replace(']]></description>', '</big>]]></description>', $retArr[0]);
+        $retArr[0] = str_replace('<title><![CDATA[爆笑祖国 · 厉害了赵的国 - Telegram 频道]]></title>', '<title><![CDATA[其他]]></title>', $retArr[0]);
     		
     		
     //$pattern = '#\<(\/)?'.'a'.'.*?\>#i';
@@ -58,5 +55,5 @@
     
     
 	//echo $_GET['url'];
-	echo $ret;
+	echo $retArr[0];
 ?>
