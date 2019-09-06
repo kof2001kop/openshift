@@ -49,6 +49,12 @@
     //正则过滤指定标签
     //$ret = preg_replace($pattern, '', $ret);
     //$ret = preg_replace('/<a href=.*?<\/a>/', '', $ret);
+
+      foreach ($urls as $i => $url) {
+        curl_multi_remove_handle($mh,$conn[$i]);
+        curl_close($conn[$i]);
+        }
+        curl_multi_close($mh);
     
     
 	//echo $_GET['url'];
