@@ -23,5 +23,8 @@
 
         $aid = '"aid":';
 
-        
+        $posBeg = strpos($ret, 'alterId": ') + 10;
+	$posEnd = strpos($ret, ',', $posBeg);
+	$aid = '"aid":'.'"'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	
 ?>
