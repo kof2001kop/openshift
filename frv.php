@@ -44,7 +44,7 @@
 	
         $posBeg = strpos($ret, 'address":');
         $posBeg = strpos($ret, 'port": ', $posBeg) + 7;
-	$posEnd = strpos($ret, '"', $posBeg);
+	$posEnd = strpos($ret, ',', $posBeg);
         $portM = substr($ret, $posBeg, $posEnd - $posBeg);
 	$port = '"port": "'.$portM.'",';
 	
