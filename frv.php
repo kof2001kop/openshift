@@ -28,7 +28,7 @@
 
         $posBeg = strpos($ret, 'security": "') + 12;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$tls = '"tls": "'.substr($ret, $posBeg, $posEnd - $posBeg);
+	$tls = '"tls": "'.substr($ret, $posBeg, $posEnd - $posBeg).'"';
 	
         $posBeg = strpos($ret, 'path": "') + 8;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -60,6 +60,7 @@
 	$aid = '"aid": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
         $uri = '{'.$v.$ps.$add.$port.$id.$aid.$net.$type.$host.$path.$tls.'}';
-        $encodeURI = base64_encode($uri);
+        $encodeURI = 'vmess://'.base64_encode($uri);
+        
         echo $encodeURI;
 ?>
