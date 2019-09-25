@@ -21,8 +21,16 @@
 	curl_close($ch);
 
 
-        $net = '"net":';
+        $tls = '"tls":';
 
+        $posBeg = strpos($ret, 'security": "') + 12;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$tls = '"tls": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	
+        $posBeg = strpos($ret, 'path": "') + 8;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$path = '"path": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	
         $posBeg = strpos($ret, 'network": "') + 11;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$net = '"net": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
