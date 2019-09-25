@@ -21,7 +21,7 @@
 	curl_close($ch);
 
 
-        $aid = 
+        $aid = '"aid":';
 
         
 ?>
