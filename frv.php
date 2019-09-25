@@ -21,11 +21,13 @@
 	curl_close($ch);
 
 
-        $tls = '"tls":';
+        $host = '"host": "",';
+
+        $type = '"type": "none",';
 
         $posBeg = strpos($ret, 'security": "') + 12;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$tls = '"tls": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	$tls = '"tls": "'.substr($ret, $posBeg, $posEnd - $posBeg);
 	
         $posBeg = strpos($ret, 'path": "') + 8;
 	$posEnd = strpos($ret, '"', $posBeg);
@@ -42,12 +44,16 @@
         $posBeg = strpos($ret, 'address":');
         $posBeg = strpos($ret, 'port": ', $posBeg) + 7;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$port = '"port": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+        $portM = substr($ret, $posBeg, $posEnd - $posBeg);
+	$port = '"port": "'.$portM.'",';
 	
         $posBeg = strpos($ret, 'address": "') + 11;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$add = '"add": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	$addM = substr($ret, $posBeg, $posEnd - $posBeg);
+        $add = '"add": "'.$addM.'",';
 	
+        $ps = '"ps": "'.$addM.':'.$portM.'",';
+
         $posBeg = strpos($ret, 'alterId": ') + 10;
 	$posEnd = strpos($ret, ',', $posBeg);
 	$aid = '"aid": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
