@@ -20,6 +20,7 @@
 	$ret2 = curl_exec($ch);
 	curl_close($ch);
 
+        $v = '"v": "2",';
 
         $host = '"host": "",';
 
@@ -58,4 +59,7 @@
 	$posEnd = strpos($ret, ',', $posBeg);
 	$aid = '"aid": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
+        $uri = '{'.$v.$ps.$add.$port.$id.$aid.$net.$type.$host.$path.$tls.'}';
+        
+        echo $uri;
 ?>
