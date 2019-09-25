@@ -60,6 +60,6 @@
 	$aid = '"aid": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
         $uri = '{'.$v.$ps.$add.$port.$id.$aid.$net.$type.$host.$path.$tls.'}';
-        
-        echo $uri;
+        $encodeURI = base64_encode($uri);
+        echo $encodeURI;
 ?>
