@@ -20,6 +20,17 @@
 	$ret2 = curl_exec($ch);
 	curl_close($ch);
 
+        $url = 'https://free-ss.site/v/tmp.json';
+   	$ch = curl_init($url);
+	      
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+	curl_setopt($ch, CURLOPT_HEADER, 0); 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+	$ret3 = curl_exec($ch);
+	curl_close($ch);
+
+
         $v = '"v": "2",';
 
         $host = '"host": "",';
@@ -104,6 +115,8 @@
 	$posEnd = strpos($ret, ',', $posBeg);
 	$aid = '"aid": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
+
+
         $uri = '{'.$v.$ps.$add.$port.$id.$aid.$net.$type.$host.$path.$tls.'}';
         $encodeURI2 = 'vmess://'.base64_encode($uri);
         
