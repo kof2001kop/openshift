@@ -107,6 +107,6 @@
         $uri = '{'.$v.$ps.$add.$port.$id.$aid.$net.$type.$host.$path.$tls.'}';
         $encodeURI2 = 'vmess://'.base64_encode($uri);
         
-        $rss = base64_encode($encodeURI.'\\n'.$encodeURI2);
+        $rss = base64_encode($encodeURI.PHP_EOL.$encodeURI2);
         echo $rss;
 ?>
