@@ -21,10 +21,17 @@
 	curl_close($ch);
 
 
-        $aid = '"aid":';
+        $add = '"add":';
+
+
+
+        $posBeg = strpos($ret, 'address": "') + 11;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$add = '"add":"'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	
 
         $posBeg = strpos($ret, 'alterId": ') + 10;
 	$posEnd = strpos($ret, ',', $posBeg);
-	$aid = '"aid":'.'"'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	$aid = '"aid":"'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
 ?>
