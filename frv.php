@@ -21,9 +21,12 @@
 	curl_close($ch);
 
 
-        $add = '"add":';
+        $port = '"port":';
 
-
+        $posBeg = strpos($ret, 'port": ') + 7;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$port = '"port":"'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	
 
         $posBeg = strpos($ret, 'address": "') + 11;
 	$posEnd = strpos($ret, '"', $posBeg);
