@@ -21,25 +21,25 @@
 	curl_close($ch);
 
 
-        $id = '"id":';
+        $net = '"net":';
 
-
-
+        $posBeg = strpos($ret, 'network": "') + 11;
+	$posEnd = strpos($ret, '"', $posBeg);
+	$net = '"net": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	
         $posBeg = strpos($ret, 'id": "') + 6;
 	$posEnd = strpos($ret, '"', $posBeg);
-	$port = '"id": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
+	$id = '"id": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
-
-        $posBeg = strpos($ret, 'port": ') + 7;
+        $posBeg = strpos($ret, 'address":');
+        $posBeg = strpos($ret, 'port": ', $posBeg) + 7;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$port = '"port": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
-
         $posBeg = strpos($ret, 'address": "') + 11;
 	$posEnd = strpos($ret, '"', $posBeg);
 	$add = '"add": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
 	
-
         $posBeg = strpos($ret, 'alterId": ') + 10;
 	$posEnd = strpos($ret, ',', $posBeg);
 	$aid = '"aid": "'.substr($ret, $posBeg, $posEnd - $posBeg).'",';
