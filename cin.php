@@ -22,9 +22,22 @@
 	curl_setopt($oCurl, CURLOPT_POST, false);
 	$result = curl_exec($ch);
 	curl_close($ch);
-
 	$result = substr($result, 0, strpos($result, "\r\n\r\n"));
 	$result = explode("\r\n", $result);
+
+	//请求网址:https://cccat.io/cdn-cgi/beacon/performance?req_id=$cf-ray
+	$cf_ray = "";
+	foreach($result as $value)
+	{
+  		if (strpos($value, "CF-RAY: ") !== false)
+  		{
+			$cf_ray = str_replace("CF-RAY: ", "", $value);
+			$cf_ray = substr($cf_ray, 0, strpos($cf_ray, "-"));
+			break;
+  		}
+ 	}
+
+	echo $cf_ray."ABCD\r\n";
 	print_r ($result);
 	//echo $result;
 
