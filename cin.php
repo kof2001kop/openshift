@@ -70,7 +70,7 @@ if（false）{
 	curl_close($ch);
 }
 
-	//print_r ($result);
-	echo $result;
+	print_r ($result);
+	//echo $result;
 
 ?>
