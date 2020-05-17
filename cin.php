@@ -23,6 +23,10 @@
 	$result = curl_exec($ch);
 	curl_close($ch);
 	
+	$result=str_replace("\r\n","GGGGG",$result);
+	$result=str_replace("\n","FFFFF",$result);
+	$result=str_replace("\r","DDDDD",$result);
+
 	echo $result;
 
 ?>
