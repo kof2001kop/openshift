@@ -22,8 +22,9 @@
 	curl_setopt($ch, CURLOPT_POST, false);
 	$result = curl_exec($ch);
 	curl_close($ch);
-	$result = substr($result, 0, strpos($result, "\r\n\r\n"));
-	$result = explode("\r\n", $result);
+	echo $result;
+	//$result = substr($result, 0, strpos($result, "\r\n\r\n"));
+	//$result = explode("\r\n", $result);
 
 if（false）{
 	//请求网址:https://cccat.io/cdn-cgi/beacon/performance?req_id=$cf-ray
@@ -70,7 +71,7 @@ if（false）{
 	curl_close($ch);
 }
 
-	print_r ($result);
+	//print_r ($result);
 	//echo $result;
 
 ?>
