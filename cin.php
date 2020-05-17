@@ -15,23 +15,14 @@
 
 	//使用curl发送
 	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HEADER, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($oCurl, CURLOPT_NOBODY, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($oCurl, CURLOPT_POST, false);
 	$result = curl_exec($ch);
 	curl_close($ch);
-	//echo $result;
-	echo mb_convert_encoding($result, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5');
-
-	//接收并打印请求头
-	$headers = array();
-	foreach ($_SERVER as $key => $value)
-	{
-    	if ("HTTP_" == substr($key, 0, 5)) 
-        	$headers[str_replace("_", "-", substr($key, 5))] = $value;
-	}    
-	echo "<pre>";
-	print_r($headers);
+	
+	echo $result;
 
 ?>
