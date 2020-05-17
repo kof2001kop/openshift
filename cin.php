@@ -27,17 +27,23 @@
 
 	//请求网址:https://cccat.io/cdn-cgi/beacon/performance?req_id=$cf-ray
 	$cf_ray = "";
+	$Cookies = "";
 	foreach($result as $value)
 	{
   		if (strpos($value, "CF-RAY: ") !== false)
   		{
 			$cf_ray = str_replace("CF-RAY: ", "", $value);
 			$cf_ray = substr($cf_ray, 0, strpos($cf_ray, "-"));
-			break;
+  		}
+  		else if (strpos($value, "Set-Cookie: ") !== false)
+  		{
+			$Cookies = str_replace("Set-Cookie: ", "", $value);
+			$Cookies = substr($Cookies, 0, strpos($Cookies, ";"));
   		}
  	}
 
-	echo $cf_ray."ABCD\r\n";
+ 	
+ 	echo $Cookies."KPR\n";
 	print_r ($result);
 	//echo $result;
 
