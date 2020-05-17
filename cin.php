@@ -21,7 +21,8 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	$result = curl_exec($ch);
 	curl_close($ch);
-	echo $result;
+	//echo $result;
+	echo mb_convert_encoding($result, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5');
 
 	//接收并打印请求头
 	$headers = array();
