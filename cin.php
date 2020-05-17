@@ -17,9 +17,9 @@
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HEADER, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($oCurl, CURLOPT_NOBODY, true);
+	curl_setopt($ch, CURLOPT_NOBODY, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-	curl_setopt($oCurl, CURLOPT_POST, false);
+	curl_setopt($ch, CURLOPT_POST, false);
 	$result = curl_exec($ch);
 	curl_close($ch);
 	$result = substr($result, 0, strpos($result, "\r\n\r\n"));
@@ -59,7 +59,17 @@
 
 	array_push($headers2, $Cookies);
 
-	print_r ($headers2);
-	//echo $result;
+	$ch = curl_init("https://cccat.io/cdn-cgi/beacon/performance?req_id=".$cf_ray);
+	curl_setopt($ch, CURLOPT_HEADER, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_NOBODY, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
+	curl_setopt($ch, CURLOPT_POST, false);
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+
+	//print_r ($result);
+	echo $result;
 
 ?>
