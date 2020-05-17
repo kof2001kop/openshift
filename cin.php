@@ -24,9 +24,8 @@
 	curl_close($ch);
 
 	$result = substr($result, 0, strpos($result, "\r\n\r\n"));
-	//$result = explode("\r\n", $result);
-	//print_r ($result);
-	echo $result;
+	$result = explode("\r\n", $result);
+	print_r ($result);
+	//echo $result;
 
-/*__cfduid=d065f3a17b8aa4d2c96642d47accb7c361589704643; expires=Tue, 16-Jun-20 08:37:23 GMT; path=/; domain=.cccat.io; HttpOnly; SameSite=Lax; Secure*/
 ?>
