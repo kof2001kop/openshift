@@ -1,6 +1,6 @@
 <?php
 echo 'kpr';
-echo $_GET['one'];
-echo $_GET['two'];
+echo $_POST['username'];
+echo $_POST['password'];
 echo 'aaa';
 ?>
