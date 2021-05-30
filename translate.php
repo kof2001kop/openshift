@@ -17,7 +17,7 @@ function sendPost($link_send, $data_post){
     return $res;
 }
 
-$text = 'Hello world';
+$text = 'The single largest factor in predicting suicide, both at the individual and the national level, is the failure to belong in relationships with the opposite sex, family members, and society. A broad array of sources supports this conclusion. Not just any pain, but the pain of social rejection and failed belonging, causes suicide.';
 
 $data = sendPost('https://tgneto-space.com/tr/?key='.api_key.'&sl=auto&tl=zh', 'text='.$text);
 
