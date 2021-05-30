@@ -19,7 +19,7 @@ function sendPost($link_send, $data_post){
 
 $text = 'Hello world';
 
-$data = sendPost('https://tgneto-space.com/tr/?key='.api_key.'&sl=auto&tl=es', 'text='.$text);
+$data = sendPost('https://tgneto-space.com/tr/?key='.api_key.'&sl=auto&tl=zh', 'text='.$text);
 
 echo $data;
 
