@@ -5,7 +5,7 @@
 */
 
 header('content-type: application/json');
-define('api_key', 'enbusktok_721');
+define('api_key', 'senkku_bot_public');
 
 function sendPost($link_send, $data_post){
     $ch = curl_init($link_send);
