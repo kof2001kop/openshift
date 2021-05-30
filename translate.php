@@ -17,7 +17,7 @@ function sendPost($link_send, $data_post){
     return $res;
 }
 
-$data = sendPost('https://tgneto-space.com/tr/?key='.api_key.'&sl=auto&tl=zh', 'text='.$_GET['translate']);
+$data = sendPost('https://tgneto-space.com/tr/?key='.api_key.'&sl=auto&tl=zh', 'text='.$_POST['translate']);
 
 echo $data;
 
