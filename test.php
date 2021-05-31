@@ -38,6 +38,6 @@ function gtranslate($text,$to='zh-CN')
 }
  
 $longtext = 'hello world!';
-echo gtranslate($longtext);
+echo gtranslate($_POST['translate']);
 
 ?>
