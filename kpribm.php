@@ -27,5 +27,6 @@ curl_setopt ($ch, CURLOPT_POST, true);
 curl_setopt_array ($ch, $options);
 $result = curl_exec ($ch);
 curl_close ($ch);
+echo $result;
 
 ?>
