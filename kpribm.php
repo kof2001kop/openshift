@@ -1,7 +1,7 @@
 <?php
 
 $url = "https://api.us-east.language-translator.watson.cloud.ibm.com/v3/translate?version=2018-05-01";
-$user = "cz4U3Ax2-Q4Gl3x10q-0_beN6xjOP-JjHcdtSUu_VoWP";
+$user = "kof2001kopkpr@gmail.com";
 $pass = "cz4U3Ax2-Q4Gl3x10q-0_beN6xjOP-JjHcdtSUu_VoWP";
 $options = array (
     CURLOPT_RETURNTRANSFER =>true,
