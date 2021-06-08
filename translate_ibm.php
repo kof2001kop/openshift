@@ -37,9 +37,6 @@ function gtranslate($text,$to='zh-CN')
 	return false;
 }
 
-//$compressed = gzdeflate($_GET['translate'], 9);
-$uncompressed = gzinflate($_GET['translate']);
-echo $uncompressed;
-//echo gtranslate($_GET['translate']);
+echo gtranslate(base64_decode($_GET['translate']));
 
 ?>
