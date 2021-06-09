@@ -37,6 +37,7 @@ function gtranslate($text,$to='zh-CN')
 	return false;
 }
 
-echo gtranslate(base64_decode($_GET['translate']));
+echo "hello"
+#echo gtranslate(base64_decode($_GET['translate']));
 
 ?>
